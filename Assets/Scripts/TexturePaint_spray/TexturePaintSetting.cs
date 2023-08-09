@@ -21,22 +21,22 @@ public class TexturePaintSetting : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("브러시 체인지");
+            Debug.Log("브러시 체인지 1");
             brush_change(brush_texture_red);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log("브러시 체인지");
+            Debug.Log("브러시 체인지 2");
             brush_change(brush_texture_blue);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Debug.Log("브러시 체인지");
+            Debug.Log("브러시 체인지 3");
             brush_change(brush_texture_green);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Debug.Log("브러시 체인지");
+            Debug.Log("브러시 체인지 4");
             brush_change(brush_texture_yellow);
         }
     }

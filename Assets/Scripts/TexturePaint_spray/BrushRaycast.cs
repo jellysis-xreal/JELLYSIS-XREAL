@@ -13,7 +13,7 @@ public class BrushRaycast : MonoBehaviour
 
     public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
     public InputActionProperty right_Trigger_Action, left_Trigger_Action;
-
+    public InputActionProperty right_Grip_Action, left_Grip_Action;
 
     public bool right_grab = false, left_grab = false;
 
@@ -97,23 +97,37 @@ public class BrushRaycast : MonoBehaviour
 
     public void grab_right()
     {
-        right_grab = true;
+        if (right_Grip_Action.action.ReadValue<float>() > 0)
+        {
+            Debug.Log("grip pressed");
+            right_grab = true;
+        }
     }
 
     public void release_right()
     {
-        right_grab = false;
+        if (right_Grip_Action.action.ReadValue<float>() == 0)
+        {
+            Debug.Log("grip pressed");
+            right_grab = false;
+        }
     }
 
     public void grab_left()
     {
-        left_grab = true;
+        if (left_Grip_Action.action.ReadValue<float>() > 0)
+        {
+            Debug.Log("grip pressed");
+            left_grab = true;
+        }
     }
 
     public void release_left()
     {
-        left_grab = false;
+        if (left_Grip_Action.action.ReadValue<float>() == 0)
+        {
+            Debug.Log("grip pressed");
+            left_grab = false;
+        }
     }
-
-
 }
