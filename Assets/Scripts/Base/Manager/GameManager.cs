@@ -31,9 +31,9 @@ public class GameManager : MonoBehaviour
  // [SerializeField] private NpcManager  _npc;
  // public static NpcManager Npc { get { return Instance._npc; } } // MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
  //    
- [SerializeField] private BearManager  _bear;
- public static BearManager Bear { get { return Instance._bear; } } // MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
- 
+ // [SerializeField] private BearManager  _bear;
+ // public static BearManager Bear { get { return Instance._bear; } } // MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
+ //
  // [SerializeField] private CustomSceneManager _scene;
  // public static CustomSceneManager Scene { get { return Instance._scene; } }// MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
  //
@@ -48,8 +48,7 @@ public class GameManager : MonoBehaviour
  void Start()
  {
   Init();
-  
-  Test();
+  //Test();
  }
 
  public void Init()
@@ -89,6 +88,5 @@ public class GameManager : MonoBehaviour
  {
   Debug.Log("<<-------TEST------->>");
   // 이 밑으로 진행할 Test 코드를 입력한 후, Start 함수에 가서 Test의 주석 처리를 해제하면 됩니다.
-  _bear.Test();
  }
 }

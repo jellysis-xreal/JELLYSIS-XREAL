@@ -1,15 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using EnumTypes;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class GlobalBears : MonoBehaviour
 {
-   public BearType BearType;
-   
-   public Texture2DArray baseColor;
+   //public GameManager.BearColorType colorType;
    public int decoItemNum = 1;
    public Dictionary<uint, List<Vector3>> decoItemTable = new Dictionary<uint, List<Vector3>>();
 

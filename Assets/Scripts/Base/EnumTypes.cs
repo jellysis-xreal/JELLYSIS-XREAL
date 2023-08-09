@@ -19,45 +19,13 @@ namespace EnumTypes
         End = 3,
         Restart = 4
     }
-
-    public enum StageState
-    {
-        BeforeStageStart = 0,
-        RotateLP = 1,
-        Decorate = 2,
-        DoPosing = 3
-    }
-
-    public enum BearType
-    {
-        GuestBear = 0,
-        CorrectBear = 1,
-        PlayerBear = 2
-    }
-
-    public enum DecorateType
-    {
-        PutCream = 0,
-        Draw = 1,
-        CutAndShape = 2,
-        ChangeColor = 3
-    }
-
+    
     public enum BearColorType
     {
-        Blue = 0,
-        Green = 1,
-        Orange = 2,
-        PastelBlue = 3,
-        // PastelGreen = 4,
-        // PastelOrange = 5,
-        // PastelPurple = 6,
-        PastelYellow = 4, 
-        Pink = 5,
-        Purple = 6,
-        Red = 7,
-        White = 8,
-        Yellow = 9
+        Choco,
+        Strawberry,
+        Mint,
+        Orange
     }
 
 }
