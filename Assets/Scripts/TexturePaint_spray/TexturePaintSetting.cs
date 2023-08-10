@@ -10,10 +10,29 @@ public class TexturePaintSetting : MonoBehaviour
     public float brush_size = 0.1f;
     public Texture2D brush_texture_red, brush_texture_blue, brush_texture_green, brush_texture_yellow;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-
+        Debug.Log(other.name + "sssss");
+        if(other.name.Contains("Red"))
+        {
+            Debug.Log("red");
+            brush_change(brush_texture_red);
+        }
+        if (other.name.Contains("Blue"))
+        {
+            Debug.Log("blue");
+            brush_change(brush_texture_blue);
+        }
+        if (other.name.Contains("Green"))
+        {
+            Debug.Log("green");
+            brush_change(brush_texture_green);
+        }
+        if (other.name.Contains("Yellow"))
+        {
+            Debug.Log("yellow");
+            brush_change(brush_texture_yellow);
+        }
     }
 
     // Update is called once per frame
