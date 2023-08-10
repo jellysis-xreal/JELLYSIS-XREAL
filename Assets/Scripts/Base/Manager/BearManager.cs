@@ -46,6 +46,12 @@ public class BearManager : MonoBehaviour
         {
             AnswerBears.Add(answer.transform.GetChild(num).gameObject);
         }
+        
+        // Set Guest-Answer Pair
+        for (int num = 0; num < guest.transform.childCount; num++)
+        {
+            GuestBears[num].GetComponent<GuestBear>().AnswerBear = AnswerBears[num];
+        }
     }
 
     /// <summary>
@@ -82,9 +88,18 @@ public class BearManager : MonoBehaviour
         }
     }
 
+    
+    
     public void Test()
     {
         // Guest Bear color 변경 테스트
-        GuestBears[0].GetComponent<GuestBear>().ChangeBaseColor(BaseColorList[(int)BearColorType.Red]);
+        // GuestBears[0].GetComponent<GuestBear>().ChangeBaseColor(BaseColorList[(int)BearColorType.Red]);
+
+        foreach (var bear in GuestBears)
+        {
+            bear.GetComponent<GuestBear>().CutAndShape();
+            GameObject answer = bear.GetComponent<GuestBear>().AnswerBear;
+            bear.GetComponent<GuestBear>().ChangeBaseColor(BaseColorList[(int)answer.GetComponent<AnswerBear>().baseColor]);
+        }
     }
 }

@@ -20,6 +20,11 @@ public class AnswerBear : GlobalBears
         decoItemDataList.Clear();
     }
 
+    public List<DecoItemData> GetDecoItemList()
+    {
+        return decoItemDataList;
+    }
+    
     /// <summary>
     /// 정답곰의 기본적인 세팅 이후, 비활성화 됩니다
     /// </summary>

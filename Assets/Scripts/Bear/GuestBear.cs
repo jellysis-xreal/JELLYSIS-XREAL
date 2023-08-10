@@ -23,6 +23,8 @@ public class GuestBear : GlobalBears
         private void Awake()
         {
             BearType = BearType.GuestBear;
+            originParent = transform.Find("Armature");
+
         }
         
         private void Start()
@@ -89,9 +91,42 @@ public class GuestBear : GlobalBears
                 return null;
             }
         }
+            
+        // TODO: 기능 1, 2 구현
+        
+        
+        /// <summary>
+        /// 기능 3
+        /// 정답곰에게 붙어있는 deco item 중, CutAndShape 관련 아이템을 적용합니다
+        /// </summary>
+        public void CutAndShape()
+        {
+            foreach (var item in AnswerBear.GetComponent<AnswerBear>().GetDecoItemList())
+            {
+                if (item.ItemType == DecorateType.CutAndShape)
+                {
+                    GameObject copyItem = Instantiate(item.ItemObject);
+                    
+                    Transform[] childrens = originParent.GetComponentsInChildren<Transform>();
+                    foreach (Transform child in childrens)
+                    {
+                        if (child.name == item.Parent.name)
+                        {
+                            copyItem.transform.SetParent(child);
+                            copyItem.transform.localPosition = item.LocalPosition;
+                            copyItem.transform.localRotation = item.LocalRotation;
+                            copyItem.SetActive(true);
+                        }
+                    }
+                    
+                    
+                }
+            }
 
+        }
 
         /// <summary>
+        /// 기능 4
         /// 젤리곰의 Base Color를 변경합니다
         /// 이때 이미 지정한 BaseMaterials의 clone을 만들고, Texture Array만 변경하여 해당 색으로 적용합니다
         /// </summary>
