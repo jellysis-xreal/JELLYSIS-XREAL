@@ -54,7 +54,7 @@ public class SkinnedTexturePaint : MonoBehaviour
         // 실제로 사용하려면 하나의 컴포넌트에서 레이캐스트 수행하도록 구조를 변경해야 한다.
 
         // 마우스 클릭 지점에 브러시로 그리기
-        if (Input.GetMouseButton(0))
+/*        if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             bool raycast = Physics.Raycast(ray, out var hit);
@@ -69,12 +69,14 @@ public class SkinnedTexturePaint : MonoBehaviour
                 pixelUV *= resolution;
                 DrawTexture(pixelUV);
             }
-        }
+        }*/
     }
 
     /// <summary> 렌더 텍스쳐에 브러시 텍스쳐로 그리기 </summary>
-    public void DrawTexture(in Vector2 uv)
+    public void DrawTexture(in RaycastHit hit)
     {
+        Vector2 pixelUV = hit.lightmapCoord;
+        pixelUV *= resolution;
         RenderTexture.active = rt; // 페인팅을 위해 활성 렌더 텍스쳐 임시 할당
         GL.PushMatrix();                                  // 매트릭스 백업
         GL.LoadPixelMatrix(0, resolution, resolution, 0); // 알맞은 크기로 픽셀 매트릭스 설정
@@ -84,8 +86,8 @@ public class SkinnedTexturePaint : MonoBehaviour
         // 렌더 텍스쳐에 브러시 텍스쳐를 이용해 그리기
         Graphics.DrawTexture(
             new Rect(
-                uv.x - brushPixelSize * 0.5f,
-                (rt.height - uv.y) - brushPixelSize * 0.5f,
+                pixelUV.x - brushPixelSize * 0.5f,
+                (rt.height - pixelUV.y) - brushPixelSize * 0.5f,
                 brushPixelSize,
                 brushPixelSize
             ),
