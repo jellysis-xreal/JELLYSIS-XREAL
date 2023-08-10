@@ -71,10 +71,10 @@ public class GameManager : MonoBehaviour
    instance = obj.GetComponent<GameManager>();
 
    // 하위 Managers Init();
+   Bear.Init();
    // Sound.Init();
    // Scene.Init();
    //          
-   // Bear.Init();
    // Player.Init();
   }
   else

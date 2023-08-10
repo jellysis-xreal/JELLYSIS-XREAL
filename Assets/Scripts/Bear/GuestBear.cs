@@ -2,13 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using EnumTypes;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-    public class GuestBear : GlobalBears
+public class GuestBear : GlobalBears
     {
-        public GameObject answerCard;
+        [Header("Field of view")] 
+        public float viewRadius; 
+        [Range(0, 360)] public float viewAngle;
+        public LayerMask targetMask;
+        public bool canSeeTarget;
+        
+        [Header("Game Set")] 
+        public GameObject pairPlayer;
+        public GameObject AnswerBear;
 
-        private GameObject AnswerBear;
+        private IEnumerator _FoVRoutine;
+        
         private void Awake()
         {
             BearType = BearType.GuestBear;
@@ -16,8 +27,69 @@ using UnityEngine;
         
         private void Start()
         {
-            
+            // _FoVRoutine = FieldOfViewRoutine();
+            // StartCoroutine(_FoVRoutine);
         }
+        
+        private IEnumerator FieldOfViewRoutine()
+        {
+            WaitForSeconds wait = new WaitForSeconds(0.05f);
+            while (true)
+            {
+                yield return null;
+                FieldOfViewCheck();
+            }
+        }
+        
+        private void FieldOfViewCheck()
+        {
+            Collider[] rangeChecks = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+
+            if (rangeChecks.Length != 0)
+            {
+                Transform pairTarget = rangeChecks[0].transform;
+                Vector3 dirToTarget = (pairTarget.position - transform.position).normalized;
+
+                if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+                {
+                    float distanceToTarget = Vector3.Distance(transform.position, pairTarget.position);
+                    
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position, dirToTarget, out hit, distanceToTarget))
+                    {
+                        canSeeTarget = true;
+                        pairPlayer = pairTarget.root.gameObject;
+                        Debug.Log(this.name + "의 Pair : " + pairPlayer.name);
+                        StopCoroutine(_FoVRoutine);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 해당 젤리곰을 꾸미는 Player의 타입을 확인하고 pairPlayer 변수에 저장합니다
+        /// 이후 Bear Manager에서 Pair로 지정됩니다
+        /// </summary>
+        public void CheckPairPlayer()
+        {
+            canSeeTarget = false;
+            pairPlayer = null;
+
+            _FoVRoutine = FieldOfViewRoutine();
+            StartCoroutine(_FoVRoutine);
+        }
+
+        public GameObject GetPairPlayer()
+        {
+            if (canSeeTarget)
+                return pairPlayer;
+            else
+            {
+                Debug.Log("에러(LogError) : Player를 꾸밀 곰 앞으로 세팅해주세요");
+                return null;
+            }
+        }
+
 
         /// <summary>
         /// 젤리곰의 Base Color를 변경합니다
