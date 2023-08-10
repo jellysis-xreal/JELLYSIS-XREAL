@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5527208748773316936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5527208748773316934}
+  - component: {fileID: 5527208748773316937}
+  m_Layer: 0
+  m_Name: Bear Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5527208748773316934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527208748773316936}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5527208748773316937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527208748773316936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f88b96a834e4d4295cb985d9507ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerBears: []
+  AutoBears: []
+  GuestBears: []
+  CorrectBears: []
+  BaseMaterials:
+  - {fileID: 2100000, guid: 7017768bf94d3ed44bf8e68114943c89, type: 2}
+  - {fileID: 2100000, guid: 67d1f06613348384d89e14d124902fcc, type: 2}
+  - {fileID: 2100000, guid: 7886fbc060211ef4cb53fd57d71be486, type: 2}
+  - {fileID: 2100000, guid: fbe2cd9b3cf02554cbe59ca4fb86d28d, type: 2}
+  - {fileID: 2100000, guid: f80285944e297a9448f205b29a0a63aa, type: 2}
+  - {fileID: 2100000, guid: 075489807c2ea7d41a8df3f4a6d2d283, type: 2}
+  - {fileID: 2100000, guid: fcbd5320f17af5f42a3797da0981c54d, type: 2}
+  - {fileID: 2100000, guid: 66406829a1174144ab482764d6183014, type: 2}
+  - {fileID: 2100000, guid: 5c716d5d713ea3a4f87460fb98433ac4, type: 2}
+  - {fileID: 2100000, guid: 7789592f3e0ee2343b8c1a94fd21e9f8, type: 2}
+  - {fileID: 2100000, guid: 021037d45e46e724fbfdd1c9b91f9fda, type: 2}
+  BaseColorList:
+  - {fileID: 18700000, guid: 4629f7d32291d244c8ca6ce4142222c3, type: 2}
+  - {fileID: 18700000, guid: 8e1a2c0c28951404790d84671ab1cc1a, type: 2}
+  - {fileID: 18700000, guid: 395e62953d6c9574c84db0534e16aeae, type: 2}
+  - {fileID: 18700000, guid: a07d7310bcf040b4d944e4f94ae480e0, type: 2}
+  - {fileID: 18700000, guid: 7e98c606bd012504ca2544967c39dc8c, type: 2}
+  - {fileID: 18700000, guid: 8c732c7be947dc5499033c23036788ef, type: 2}
+  - {fileID: 18700000, guid: 89e8e28222ef50940b808ff5e7acc95e, type: 2}
+  - {fileID: 18700000, guid: 176df13bac07dea4b8819d9452ec35e4, type: 2}
+  - {fileID: 18700000, guid: 1c9d38a7f1f3af245b7a13ba3e3534d1, type: 2}
+  - {fileID: 18700000, guid: 95de7d5ec68ec1e4f965178f99238b52, type: 2}
+  - {fileID: 18700000, guid: 9bf7a1809a720e747ad570bb5802361f, type: 2}
+  - {fileID: 18700000, guid: c3ff6840e9ead7142bff5b83fd0dc627, type: 2}
+  - {fileID: 18700000, guid: 421d9c583a23c7048b54981db0d39adf, type: 2}
