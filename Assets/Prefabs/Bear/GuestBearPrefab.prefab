@@ -1464,10 +1464,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BearType: 0
-  baseColor: {fileID: 18700000, guid: 4629f7d32291d244c8ca6ce4142222c3, type: 2}
+  baseColor: 0
   decoItemNum: 1
   originParent: {fileID: 5325753512196845763}
-  answerCard: {fileID: 0}
+  viewRadius: 0.8
+  viewAngle: 60
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  pairPlayer: {fileID: 0}
+  AnswerBear: {fileID: 0}
 --- !u!1 &4567535447239751058
 GameObject:
   m_ObjectHideFlags: 0

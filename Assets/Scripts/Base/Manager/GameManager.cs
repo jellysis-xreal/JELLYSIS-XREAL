@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using EnumTypes;
 using UnityEngine;
 
 /* [ Game Manager ]
@@ -11,84 +12,89 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
- private static GameManager instance;
+    [Header("Field of view")]
+    [SerializeField] private GameType CurrentGameMode = GameType.Multi;
+    public StageState CurrentState;
+    
+    private static GameManager instance;
 
- public static GameManager Instance
- {
-  get
-  {
-   if (instance == null)
-   {
-    return null;
-   }
+    public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+             return null;
+            }
 
-   return instance;
-  }
- }
+            return instance;
+        }
+    }
 
- #region Managers
+    #region Managers
+    
+    [SerializeField] private BearManager  _bear;
+    public static BearManager Bear { get { return Instance._bear; } } // MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
+    
+    [SerializeField] private StageController _stage;
+    public static StageController Stage { get { return Instance._stage; } }// MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
+    
+    // [SerializeField] private CustomSceneManager _scene;
+    // public static CustomSceneManager Scene { get { return Instance._scene; } }// MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
+    //
+    // [SerializeField] private PlayerManager _player = new PlayerManager();
+    // public static PlayerManager Player { get { return Instance._player; } }
+    //
+    // [SerializeField] private SoundManager _sound = new SoundManager();
+    // public static SoundManager Sound {get{return Instance._sound; } }
 
- // [SerializeField] private NpcManager  _npc;
- // public static NpcManager Npc { get { return Instance._npc; } } // MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
- //    
- [SerializeField] private BearManager  _bear;
- public static BearManager Bear { get { return Instance._bear; } } // MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
- 
- // [SerializeField] private CustomSceneManager _scene;
- // public static CustomSceneManager Scene { get { return Instance._scene; } }// MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
- //
- // [SerializeField] private PlayerManager _player = new PlayerManager();
- // public static PlayerManager Player { get { return Instance._player; } }
- //
- // [SerializeField] private SoundManager _sound = new SoundManager();
- // public static SoundManager Sound {get{return Instance._sound; } }
+    #endregion
 
- #endregion
+    void Start()
+    {
+        Init();
+        
+        Test();
+    }
 
- void Start()
- {
-  Init();
-  
-  Test();
- }
+    public void Init()
+    {
+        if (instance == null)
+        {
+            GameObject obj = GameObject.Find("Game Manager");
 
- public void Init()
- {
-  if (instance == null)
-  {
-   GameObject obj = GameObject.Find("Game Manager");
+             if (obj == null)
+             {
+                  //obj = new GameObject { name = "Game Manager" };
+                  //obj.AddComponent<GameManager>();
+                  obj = Resources.Load<GameObject>("Prefabs/Game Manager");
+                  obj.name = "Game Manager";
+                  Instantiate(obj);
+             }
 
-   if (obj == null)
-   {
-    //obj = new GameObject { name = "Game Manager" };
-    //obj.AddComponent<GameManager>();
-    obj = Resources.Load<GameObject>("Prefabs/Game Manager");
-    obj.name = "Game Manager";
-    Instantiate(obj);
-   }
+             DontDestroyOnLoad(obj);
+             instance = obj.GetComponent<GameManager>();
 
-   DontDestroyOnLoad(obj);
-   instance = obj.GetComponent<GameManager>();
+             // 하위 Managers Init();
+             Stage.Init();
+             Bear.Init();
+             // Sound.Init();
+             // Scene.Init();
+             //          
+             // Player.Init();
+        }
+        else
+        {
+             Debug.LogWarning("GameManager instance isn't null, Destroy GameManager");
 
-   // 하위 Managers Init();
-   // Sound.Init();
-   // Scene.Init();
-   //          
-   // Bear.Init();
-   // Player.Init();
-  }
-  else
-  {
-   Debug.LogWarning("GameManager instance isn't null, Destroy GameManager");
+             Destroy(this.gameObject);
+        }
+    }
 
-   Destroy(this.gameObject);
-  }
- }
-
- private void Test()
- {
-  Debug.Log("<<-------TEST------->>");
-  // 이 밑으로 진행할 Test 코드를 입력한 후, Start 함수에 가서 Test의 주석 처리를 해제하면 됩니다.
-  _bear.Test();
- }
+    private void Test()
+    {
+         Debug.Log("<<-------TEST------->>");
+         // 이 밑으로 진행할 Test 코드를 입력한 후, Start 함수에 가서 Test의 주석 처리를 해제하면 됩니다.
+         _bear.Test();
+    }
 }

@@ -31,8 +31,9 @@ namespace EnumTypes
     public enum BearType
     {
         GuestBear = 0,
-        CorrectBear = 1,
-        PlayerBear = 2
+        AnswerBear = 1,
+        PlayerBear = 2,
+        AutoBear = 3
     }
 
     public enum DecorateType
