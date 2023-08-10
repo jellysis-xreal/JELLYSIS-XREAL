@@ -15,7 +15,7 @@ public class FruitTransformer : MonoBehaviour
     private void Start()
     {
         isHavingFruit = new bool[placeTransforms.Length];
-        Debug.Log(isHavingFruit.Length);
+//        Debug.Log(isHavingFruit.Length);
     }
 
     public void AttachFruit(Transform fruitTransform)
