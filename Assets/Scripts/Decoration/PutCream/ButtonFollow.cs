@@ -6,6 +6,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ButtonFollow : MonoBehaviour
 {
+    public CreamMaker creamMaker;
+    
     public Transform visualTarget;
     public Vector3 localAxis;
     public float resetSpeed = 5f;
@@ -31,9 +33,11 @@ public class ButtonFollow : MonoBehaviour
 
     public void Follow(BaseInteractionEventArgs hover)
     {
-        Debug.Log("Follow");
+        Debug.Log("Follow(Hover Entered)");
         if (hover.interactorObject is XRPokeInteractor)
         {
+            creamMaker.isPressing = true;
+            
             XRPokeInteractor interactor = (XRPokeInteractor)hover.interactorObject;
             isFollowing = true;
             _freeze = false;
@@ -55,9 +59,11 @@ public class ButtonFollow : MonoBehaviour
 
     public void Reset(BaseInteractionEventArgs hover)
     {
-        Debug.Log("Reset");
+        Debug.Log("Reset(Hover Exitecd)");
         if (hover.interactorObject is XRPokeInteractor)
         {
+            creamMaker.isPressing = false;
+            
             isFollowing = false;
             _freeze = false;
         }
@@ -87,4 +93,6 @@ public class ButtonFollow : MonoBehaviour
             visualTarget.localPosition = Vector3.Lerp(visualTarget.localPosition, _initialLocalPos, Time.deltaTime * resetSpeed);
         }
     }
+
+    // Trigger 말고 Hover Enter 되면 생성 코루틴 돌림
 }
