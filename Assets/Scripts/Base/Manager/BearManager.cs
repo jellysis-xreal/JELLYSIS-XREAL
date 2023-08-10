@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using EnumTypes;
-using Unity.Multiplayer.Tools.NetStatsReporting;
+// using Unity.Multiplayer.Tools.NetStatsReporting;
 using UnityEngine;
 
 public class BearManager : MonoBehaviour
