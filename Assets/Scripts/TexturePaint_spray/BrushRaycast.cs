@@ -1,33 +1,56 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class BrushRaycast : MonoBehaviour
 {
     public TexturePaintSetting texturePaintSetting;
+    public XRBaseController leftController, rightController;
 
     public Transform brush_ray;
     public Transform ears, head, body, body1, tail;
     public int resolution = 1024;
 
     public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
+    
     public InputActionProperty right_Trigger_Action, left_Trigger_Action;
     public InputActionProperty right_Grip_Action, left_Grip_Action;
 
     public bool right_grab = false, left_grab = false;
 
+    [SerializeField] private Transform tableTransform;
+
+    public Animator animator;
+
+
+    public SkinnedTexturePaint new_body_texturePaint;
+    public Transform new_body;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            //_tableEventManager.RaiseEvent();
+            //tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.forward).eulerAngles,
+    //2f, RotateMode.LocalAxisAdd);
+            animator.Play("pressAni");
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            //_tableEventManager.RaiseEvent();
+            //tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.back).eulerAngles,
+            //2f, RotateMode.LocalAxisAdd);
+            animator.Play("pullAni");
+        }
+
         Debug.DrawRay(brush_ray.position, brush_ray.forward);
         if(texturePaintSetting.on_lock == true)
         {
@@ -50,7 +73,6 @@ public class BrushRaycast : MonoBehaviour
             }
         }
 
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             paint_texture();
@@ -67,6 +89,15 @@ public class BrushRaycast : MonoBehaviour
 
         if (raycast && col)
         {
+            if (right_grab)
+            {
+                rightController.SendHapticImpulse(0.2f, 0.1f);
+            }
+            if (left_grab)
+            {
+                leftController.SendHapticImpulse(0.2f, 0.1f);
+            }
+
             Debug.Log(col.name);
             if (col.transform == ears)
             {
@@ -91,6 +122,11 @@ public class BrushRaycast : MonoBehaviour
             if (col.transform == tail)
             {
                 tail_texturePaint.DrawTexture(hit);
+                Debug.Log("tail hit");
+            }
+            if (col.transform == new_body)
+            {
+                new_body_texturePaint.DrawTexture(hit);
                 Debug.Log("tail hit");
             }
         }
@@ -120,6 +156,8 @@ public class BrushRaycast : MonoBehaviour
         {
             Debug.Log("grip pressed");
             left_grab = true;
+            tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.back).eulerAngles,
+1f, RotateMode.Fast);
         }
     }
 
@@ -129,6 +167,18 @@ public class BrushRaycast : MonoBehaviour
         {
             Debug.Log("grip pressed");
             left_grab = false;
+            tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(-15f, Vector3.back).eulerAngles,
+1f, RotateMode.Fast);
         }
+    }
+
+    public void press_on()
+    {
+        animator.Play("pressAni");
+    }
+
+    public void press_off()
+    {
+        animator.Play("pullAni");
     }
 }
