@@ -539,7 +539,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3825e3e6cf3ef9e4185aed786561b5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControllingInteractor: {fileID: 7434177916209422740}
+--- !u!114 &687232552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1678750638708439396, guid: 236a322ace377bf489fc75c9c18875f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1678750639022298452}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9b8e49e7e87ef48bde46264eb70e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &752631861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1465,75 @@ Transform:
   m_Father: {fileID: 1614009983}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1402345348
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.061
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1571
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Airbrush_s
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e3a0e6715ca0544598f6ddbb4e9c3a8, type: 3}
 --- !u!1 &1453327839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +2022,122 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1668910606
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1678750638481851180, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: texturePaintSetting
+      value: 
+      objectReference: {fileID: 1668910607}
+    - target: {fileID: 1678750638708439419, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_Name
+      value: TexturePaintSettingObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678750638708439419, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318941230157251608, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_Name
+      value: Spray_TexturePaintingSet_Backup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318941230157251608, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490028969965942351, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 138127004}
+    - target: {fileID: 5133128583362280840, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0007585138
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.095171
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.16344036
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896437639262184979, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009397651606651350, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 236a322ace377bf489fc75c9c18875f7, type: 3}
+--- !u!114 &1668910607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1678750638708439396, guid: 236a322ace377bf489fc75c9c18875f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668910606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9b8e49e7e87ef48bde46264eb70e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1768264159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,6 +3176,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1678750638481851180, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: texturePaintSetting
+      value: 
+      objectReference: {fileID: 687232552}
+    - target: {fileID: 1678750638708439419, guid: 236a322ace377bf489fc75c9c18875f7,
+        type: 3}
+      propertyPath: m_Name
+      value: TexturePaintSettingObject
+      objectReference: {fileID: 0}
     - target: {fileID: 1678750638708439419, guid: 236a322ace377bf489fc75c9c18875f7,
         type: 3}
       propertyPath: m_IsActive
@@ -3635,7 +3841,7 @@ Transform:
   - {fileID: 2333847039802602499}
   - {fileID: 3770544597040154665}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7434177916209422740
 MonoBehaviour:

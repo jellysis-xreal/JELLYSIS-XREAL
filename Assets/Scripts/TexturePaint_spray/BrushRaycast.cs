@@ -6,9 +6,10 @@ using UnityEngine.InputSystem;
 
 public class BrushRaycast : MonoBehaviour
 {
+    public TexturePaintSetting texturePaintSetting;
+
     public Transform brush_ray;
     public Transform ears, head, body, body1, tail;
-    
     public int resolution = 1024;
 
     public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
@@ -28,26 +29,26 @@ public class BrushRaycast : MonoBehaviour
     void Update()
     {
         Debug.DrawRay(brush_ray.position, brush_ray.forward);
-
-        if(right_grab)
+        if(texturePaintSetting.on_lock == true)
         {
-            if (right_Trigger_Action.action.ReadValue<float>() > 0)
+            if (right_grab)
             {
-                Debug.Log("버튼 입력");
-                paint_texture();
+                if (right_Trigger_Action.action.ReadValue<float>() > 0)
+                {
+                    Debug.Log("버튼 입력");
+                    paint_texture();
+                }
+            }
+
+            if (left_grab)
+            {
+                if (left_Trigger_Action.action.ReadValue<float>() > 0)
+                {
+                    Debug.Log("버튼 입력");
+                    paint_texture();
+                }
             }
         }
-
-        if(left_grab)
-        {
-            if (left_Trigger_Action.action.ReadValue<float>() > 0)
-            {
-                Debug.Log("버튼 입력");
-                paint_texture();
-            }
-        }
-
-
 
 
         if (Input.GetKeyDown(KeyCode.Space))

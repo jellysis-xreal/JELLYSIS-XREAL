@@ -9,29 +9,65 @@ public class TexturePaintSetting : MonoBehaviour
     [Range(0.01f, 1f)]
     public float brush_size = 0.1f;
     public Texture2D brush_texture_red, brush_texture_blue, brush_texture_green, brush_texture_yellow;
+    public bool on_lock = false;
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name + "sssss");
-        if(other.name.Contains("Red"))
+
+        if(on_lock == false)
         {
-            Debug.Log("red");
-            brush_change(brush_texture_red);
+            if (other.name.Contains("Red"))
+            {
+                Debug.Log("red");
+                brush_change(brush_texture_red);
+                on_lock = true;
+            }
+            if (other.name.Contains("Blue"))
+            {
+                Debug.Log("blue");
+                brush_change(brush_texture_blue);
+                on_lock = true;
+            }
+            if (other.name.Contains("Green"))
+            {
+                Debug.Log("green");
+                brush_change(brush_texture_green);
+                on_lock = true;
+            }
+            if (other.name.Contains("Yellow"))
+            {
+                Debug.Log("yellow");
+                brush_change(brush_texture_yellow);
+                on_lock = true;
+            }
         }
-        if (other.name.Contains("Blue"))
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (on_lock == true)
         {
-            Debug.Log("blue");
-            brush_change(brush_texture_blue);
-        }
-        if (other.name.Contains("Green"))
-        {
-            Debug.Log("green");
-            brush_change(brush_texture_green);
-        }
-        if (other.name.Contains("Yellow"))
-        {
-            Debug.Log("yellow");
-            brush_change(brush_texture_yellow);
+            if (other.name.Contains("Red"))
+            {
+                Debug.Log("red");
+                on_lock = false;
+            }
+            if (other.name.Contains("Blue"))
+            {
+                Debug.Log("blue");
+                on_lock = false;
+            }
+            if (other.name.Contains("Green"))
+            {
+                Debug.Log("green");
+                on_lock = false;
+            }
+            if (other.name.Contains("Yellow"))
+            {
+                Debug.Log("yellow");
+                on_lock = false;
+            }
         }
     }
 
