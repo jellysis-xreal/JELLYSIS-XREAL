@@ -14,11 +14,10 @@ public class ScaleTest : MonoBehaviour
     public float whippingTimeMax = 10f;
     [SerializeField] private float leftTime ;
     public GameObject finishedWhippingGameObject;
-    public Transform spawnTransform;
     void Start()
     {
         _originScale = creamTransform.localScale;
-        _targetScale = creamTransform.localScale * 3f;
+        _targetScale = creamTransform.localScale * 2f;
         leftTime = whippingTimeMax;
     }
 
@@ -62,7 +61,6 @@ public class ScaleTest : MonoBehaviour
 
     private void SpawnFinishedWhipping()
     {
-        Instantiate(finishedWhippingGameObject,spawnTransform.position,Quaternion.identity);
-        creamTransform.gameObject.SetActive(false);
+        finishedWhippingGameObject.SetActive(true);
     }
 }
