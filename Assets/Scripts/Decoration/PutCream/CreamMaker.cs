@@ -119,7 +119,7 @@ public class CreamMaker : MonoBehaviour
         _recentMakedCream.transform.SetParent(hit.transform);
         isScalingUp = true;
 
-        remainCreamCapacity -= 10f;
+        //remainCreamCapacity -= 10f;
     }
     public void ScaleUp()
     {
@@ -128,7 +128,7 @@ public class CreamMaker : MonoBehaviour
             Debug.Log("Scale Up");
             float scaleFactor = 1.0f + scaleSpeed * Time.deltaTime;
             _recentMakedCream.transform.localScale *= scaleFactor;
-            remainCreamCapacity -= Time.deltaTime;
+            // remainCreamCapacity -= Time.deltaTime;
         }
     }
 
