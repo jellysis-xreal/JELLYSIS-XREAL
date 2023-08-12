@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class ButtonFollow : MonoBehaviour
+public class InjectionPusher : MonoBehaviour
 {
     public CreamMaker creamMaker;
     

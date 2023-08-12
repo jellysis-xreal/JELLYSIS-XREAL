@@ -72,14 +72,20 @@ public class ItemPropertyUpdater : MonoBehaviour
         // 자식으로 안 들어가는 이유는?
         if (preTransform != null && preTransform.gameObject.layer == 11)
         {
+            // Client -> Host Call 내가 이제 넘길 거야. 내가 오너쉽가질거야
             // 아직 곰돌이와 Trigger 중이면 그 Collider에 붙임.
             Debug.Log(preTransform.name + "UnSelect");
             transform.SetParent(preTransform);
+            
+            // Call 이제 바꾼다 useGravity(Network 변수)를 false로 만드는 콜을 날린다.
+            // host는 useGravity가 false구나를 알아채고 host가 다시 다른 client에게 해당 콜을 날림.
+            // host로 부터 해당 콜을 받으면 아래 코드를 실행하면 됨.
             rb.useGravity = false;
             rb.isKinematic = true;
         }else if (preTransform != null && preTransform.gameObject.layer == 21)
         {
             // 아직 stick과 Trigger 중이면 그 Collider에 붙임.
+            // 이 이후에 Call
             _fruitTransformer.AttachFruit(transform);
             rb.useGravity = false;
             rb.isKinematic = true;

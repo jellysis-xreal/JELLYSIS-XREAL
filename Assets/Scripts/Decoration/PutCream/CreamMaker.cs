@@ -9,7 +9,9 @@ public class CreamMaker : MonoBehaviour
     [Header("Cream")]
     [SerializeField] private GameObject creamPrefab;
     [SerializeField] private float scaleSpeed;
-    [SerializeField] private ParticleSystem creamParticle;
+    private Vector3 _remainNewCreamScale;
+    [SerializeField] private Transform injectionPusherTransform;
+    [SerializeField] private Transform remainCreamTransform;
     [SerializeField] private bool isScalingUp;
     public bool isPressing = false;
     private bool _isTouching = false;
@@ -28,6 +30,7 @@ public class CreamMaker : MonoBehaviour
     private void Start()
     {
         //remainCreamCapacity = creamCapacity;
+        _remainNewCreamScale = remainCreamTransform.localScale;
     }
 
     void Update()
@@ -46,9 +49,20 @@ public class CreamMaker : MonoBehaviour
         {
             ScaleUp();
         }
-        
+        SetRemainCreamScale();
     }
 
+    private void SetRemainCreamScale()
+    {
+        // 최소 스케일 0, 최대 스케일 : 처음 스케일
+        // injec_Cream 스케일 ->  남아있는 용량 VS 주사기 위치에 맞춰 이동
+        // 일단 주사기 위치에 맞춰 스케일 조절
+        // push localPosition.y 최대 0.07 최소 0.01에 따라 injec_Cream Scale.y를 최대 3에서 0으로
+        float percentage = injectionPusherTransform.localPosition.y / (0.07f - 0.01f);
+        if (percentage > 1 || percentage <0) return;
+            _remainNewCreamScale.y = (3f - 0f) * percentage;
+        remainCreamTransform.localScale = _remainNewCreamScale;
+    }
     // 주사기 앞부분 콜라이더 
     public void ShowDetectedArea()
     {
@@ -56,10 +70,10 @@ public class CreamMaker : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("1" + hit.transform.name);
+            //Debug.Log("1" + hit.transform.name);
             if (hit.transform.gameObject.layer == 11) // Basic bear 오브젝트 레이어 11
             {
-                Debug.Log("2");
+                //Debug.Log("2");
                 _recentMakedCream = null;
                 indicator.SetActive(true);
                 indicator.transform.position = hit.point;
@@ -69,7 +83,6 @@ public class CreamMaker : MonoBehaviour
                 {
                     if (remainCreamCapacity > eachCreamMinimum)
                     {
-                        //Debug.Log("입력");
                         SetCreamNormalVector(hit);
                     }
                 }
@@ -96,6 +109,8 @@ public class CreamMaker : MonoBehaviour
             //indicator.SetActive(false);
         }
     }
+    
+    
     public void SetCreamNormalVector(RaycastHit hit)
     {
         Debug.Log("Set Cream Normal Vector");
@@ -104,7 +119,7 @@ public class CreamMaker : MonoBehaviour
         _recentMakedCream.transform.SetParent(hit.transform);
         isScalingUp = true;
 
-        remainCreamCapacity -= 10f;
+        //remainCreamCapacity -= 10f;
     }
     public void ScaleUp()
     {
@@ -113,7 +128,7 @@ public class CreamMaker : MonoBehaviour
             Debug.Log("Scale Up");
             float scaleFactor = 1.0f + scaleSpeed * Time.deltaTime;
             _recentMakedCream.transform.localScale *= scaleFactor;
-            remainCreamCapacity -= Time.deltaTime;
+            // remainCreamCapacity -= Time.deltaTime;
         }
     }
 
