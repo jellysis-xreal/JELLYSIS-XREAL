@@ -40,6 +40,46 @@ public class NetworkPlayer : NetworkBehaviour
         {
             transform.position = new Vector3(Random.Range(placementArea.x, placementArea.y),
                 transform.position.y, Random.Range(placementArea.x, placementArea.y));
+            Debug.Log("[TEST] Our PlayerID = " + OwnerClientId);
+            NetworkManager.Singleton.LocalId = OwnerClientId;
+        }
+    }
+    
+    public void OnSelectGrabbable(SelectEnterEventArgs eventArgs)
+    {
+        if (IsClient && IsOwner)
+        {
+            NetworkObject networkObjectSelected = eventArgs.interactableObject.transform.GetComponent<NetworkObject>();
+            if (networkObjectSelected != null)
+                RequestGrabbableOwnershipServerRpc(OwnerClientId, networkObjectSelected);
+        }
+    }
+
+    public void OnSelectExitGrabbable(SelectExitEventArgs eventArgs)
+    {
+        if (IsClient && IsOwner)
+        {
+            NetworkObject networkObjectSelected = eventArgs.interactableObject.transform.GetComponent<NetworkObject>();
+            if (networkObjectSelected != null)
+                RequestRemoveGrabbableOwnershipServerRpc(networkObjectSelected);
+        }
+    }
+
+    [ServerRpc]
+    public void RequestGrabbableOwnershipServerRpc(ulong newOwnerClientId, NetworkObjectReference networkObjectReference)
+    {
+        if (networkObjectReference.TryGet(out NetworkObject networkObject))
+        {
+            networkObject.ChangeOwnership(newOwnerClientId);
+        }
+    }
+
+    [ServerRpc]
+    public void RequestRemoveGrabbableOwnershipServerRpc(NetworkObjectReference networkObjectReference)
+    {
+        if (networkObjectReference.TryGet(out NetworkObject networkObject))
+        {
+            networkObject.RemoveOwnership();
         }
     }
 }

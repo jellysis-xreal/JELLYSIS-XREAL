@@ -311,7 +311,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectToSetActive: {fileID: 5315830004659305929}
+  rigidBody: {fileID: 0}
   isActive:
+    m_InternalValue: 1
+  useGravity:
     m_InternalValue: 1
 --- !u!1 &3697919125064289297
 GameObject:
@@ -359,8 +362,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectToSetActive: {fileID: 1241337617981788785}
+  rigidBody: {fileID: 0}
   isActive:
     m_InternalValue: 0
+  useGravity:
+    m_InternalValue: 1
 --- !u!1 &4130795970422909725
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,8 +545,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectToSetActive: {fileID: 4130795970422909725}
+  rigidBody: {fileID: 0}
   isActive:
     m_InternalValue: 0
+  useGravity:
+    m_InternalValue: 1
 --- !u!1 &8071015546540796956
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +565,7 @@ GameObject:
   - component: {fileID: 5357502861783407032}
   - component: {fileID: 3261155892185319584}
   - component: {fileID: 1232541786008850320}
+  - component: {fileID: 5266744065282289866}
   m_Layer: 0
   m_Name: 2.2 Cuttable_strawberry_XRI
   m_TagString: Untagged
@@ -831,6 +841,18 @@ MonoBehaviour:
   fruitPieceObject: {fileID: 3778348255658363938}
   fruitObject: {fileID: 5714689442745873859}
   hp: 5
+--- !u!114 &5266744065282289866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071015546540796956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9583f4b97914eb9b5e1514a6ffcb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8165235884058591038
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,8 +899,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectToSetActive: {fileID: 2733336735670104223}
+  rigidBody: {fileID: 0}
   isActive:
     m_InternalValue: 0
+  useGravity:
+    m_InternalValue: 1
 --- !u!1 &9200197269121436994
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,5 +951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectToSetActive: {fileID: 120871668578370594}
+  rigidBody: {fileID: 0}
   isActive:
+    m_InternalValue: 1
+  useGravity:
     m_InternalValue: 1

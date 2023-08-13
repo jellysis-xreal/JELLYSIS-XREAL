@@ -35,7 +35,7 @@ public class NetworkPlayerRpcCall : NetworkBehaviour
         if (networkObjectReference.TryGet(out NetworkObject networkObject))
         {
             networkObject.ChangeOwnership(newOwnerClientId);
-            Debug.Log("[TEST] Now "+ networkObject + " ownerClientID: " + networkObject.OwnerClientId);
+            Debug.Log("[TEST] Enter: Now "+ networkObject + " ownerClientID: " + networkObject.OwnerClientId);
         }
     }
 
@@ -46,7 +46,43 @@ public class NetworkPlayerRpcCall : NetworkBehaviour
         if (networkObjectReference.TryGet(out NetworkObject networkObject))
         {
             networkObject.RemoveOwnership();
-            Debug.Log("[TEST] Now "+ networkObject + " ownerClientID: " + networkObject.OwnerClientId);
+            Debug.Log("[TEST] Released: Now "+ networkObject + " ownerClientID: " + networkObject.OwnerClientId);
+        }
+    }
+
+    [ServerRpc]
+    public void RequestRemoveParentServerRpc(NetworkObjectReference childObjectReference, NetworkObjectReference parentObjectReference)
+    {
+        Debug.Log("[TEST] Got client remove parent requests");
+        if (childObjectReference.TryGet(out NetworkObject childObject))
+        {
+            if (parentObjectReference.TryGet(out NetworkObject parentObject))
+                childObject.TryRemoveParent(parentObject);
+                Debug.Log("[TEST] Removed Parent");
+        }
+    }
+    
+    [ServerRpc]
+    public void RequestSetParentServerRpc(NetworkObjectReference childObjectReference, NetworkObjectReference parentObjectReference)
+    {
+        Debug.Log("[TEST] Got client remove parent requests");
+        if (childObjectReference.TryGet(out NetworkObject childObject))
+        {
+            if (parentObjectReference.TryGet(out NetworkObject parentObject))
+                childObject.TrySetParent(parentObject);
+                Debug.Log("[TEST] Set Parent");
+        }
+    }
+
+    [ServerRpc]
+    public void RequestUseGravityServerRpc(NetworkObjectReference networkObjectReference, bool _useGravity)
+    {
+        Debug.Log("[TEST] Got client use Gravity requests");
+        if (networkObjectReference.TryGet(out NetworkObject networkObject))
+        {
+            Debug.Log("[TEST] networkObject.GetComponentInChildren<NetworkSyncObject>() = " + networkObject.GetComponentInChildren<NetworkSyncObject>());
+            networkObject.GetComponentInChildren<NetworkSyncObject>().useGravity.Value = _useGravity;
+            Debug.Log("[TEST] Set Gravity");
         }
     }
 
