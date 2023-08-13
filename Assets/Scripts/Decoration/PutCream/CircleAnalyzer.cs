@@ -76,12 +76,21 @@ public class CircleAnalyzer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("CreamBowl")) isTriggeringBowl = true;
-        scaleTest = other.GetComponent<ScaleTest>();
+        if (other.CompareTag("CreamBowl"))
+        {
+            isTriggeringBowl = true;
+            scaleTest = other.GetComponent<ScaleTest>();
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("CreamBowl")) isTriggeringBowl = false;
+        if (other.CompareTag("CreamBowl"))
+        {
+            isTriggeringBowl = false;
+            scaleTest.ScaleDown();
+            scaleTest = null;
+        }
     }
 }

@@ -51,6 +51,7 @@ public class ItemPropertyUpdater : MonoBehaviour
     {
         if (other.gameObject.layer ==11 || other.gameObject.layer == 21)
         {
+            Debug.Log("a");
             preTransform = null;
             _fruitTransformer = null;
             rb.useGravity = true;
