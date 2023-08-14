@@ -6,7 +6,7 @@ namespace UnityEngine.XR.Content.Interaction
     /// <summary>
     /// An interactable lever that snaps into an on or off position by a direct interactor
     /// </summary>
-    public class XRLever : XRBaseInteractable
+    public class XRLeverOrigin : XRBaseInteractable
     {
         const float k_LeverDeadZone = 0.1f; // Prevents rapid switching between on and off states when right in the middle
 
@@ -40,18 +40,7 @@ namespace UnityEngine.XR.Content.Interaction
         [Tooltip("Events to trigger when the lever deactivates")]
         UnityEvent m_OnLeverDeactivate = new UnityEvent();
 
-        [SerializeField]
-        [Tooltip("Speed at which the lever rotates when not locked to min/max angles")]
-        float rotationSpeed = 45.0f;
-
-        [SerializeField]
-        [Tooltip("The pivot point around which the lever rotates")]
-        Transform pivotTransform;
-
-        private float currentAngle = 0.0f;
-
         IXRSelectInteractor m_Interactor;
-        float startGrabAngle = 0.0f;
 
         /// <summary>
         /// The object that is visually grabbed and manipulated
@@ -125,21 +114,13 @@ namespace UnityEngine.XR.Content.Interaction
 
         void StartGrab(SelectEnterEventArgs args)
         {
-            Debug.Log("StartGrab");
             m_Interactor = args.interactorObject;
-            startGrabAngle = GetCurrentAngle(); // ������ ó�� �׷����� ���� ������ ����
-            Debug.Log("startGrabAngle :  "+startGrabAngle);
         }
 
         void EndGrab(SelectExitEventArgs args)
         {
-            var lookDirection = GetLookDirection();
-            var lookAngle = Mathf.Atan2(lookDirection.z, lookDirection.y) * Mathf.Rad2Deg;
-
-            // �ʱ� �׷� ������ �������ν� ���� ���� ȸ��
-            lookAngle += Time.deltaTime * rotationSpeed - startGrabAngle;
-
-            SetHandleAngle(lookAngle);
+            SetValue(m_Value, true);
+            m_Interactor = null;
         }
 
         public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
@@ -166,18 +147,31 @@ namespace UnityEngine.XR.Content.Interaction
 
         void UpdateValue()
         {
-            Debug.Log("UpdateValue");
             var lookDirection = GetLookDirection();
             var lookAngle = Mathf.Atan2(lookDirection.z, lookDirection.y) * Mathf.Rad2Deg;
 
-            lookAngle += Time.deltaTime * rotationSpeed;
-                
+            if (m_MinAngle < m_MaxAngle)
+                lookAngle = Mathf.Clamp(lookAngle, m_MinAngle, m_MaxAngle);
+            else
+                lookAngle = Mathf.Clamp(lookAngle, m_MaxAngle, m_MinAngle);
+
+            var maxAngleDistance = Mathf.Abs(m_MaxAngle - lookAngle);
+            var minAngleDistance = Mathf.Abs(m_MinAngle - lookAngle);
+
+            if (m_Value)
+                maxAngleDistance *= (1.0f - k_LeverDeadZone);
+            else
+                minAngleDistance *= (1.0f - k_LeverDeadZone);
+
+            var newValue = (maxAngleDistance < minAngleDistance);
+
             SetHandleAngle(lookAngle);
+
+            SetValue(newValue);
         }
 
         void SetValue(bool isOn, bool forceRotation = false)
         {
-            Debug.Log("SetValue");
             if (m_Value == isOn)
             {
                 if (forceRotation)
@@ -203,7 +197,6 @@ namespace UnityEngine.XR.Content.Interaction
 
         void SetHandleAngle(float angle)
         {
-            Debug.Log("setHandleAngle");
             if (m_Handle != null)
                 m_Handle.localRotation = Quaternion.Euler(angle, 0.0f, 0.0f);
         }
@@ -230,31 +223,6 @@ namespace UnityEngine.XR.Content.Interaction
         void OnValidate()
         {
             SetHandleAngle(m_Value ? m_MaxAngle : m_MinAngle);
-        }
-
-
-
-        float GetCurrentAngle()
-        {
-            if (m_Handle != null)
-            {
-                var localRotation = m_Handle.localRotation.eulerAngles;
-                return localRotation.x;
-            }
-
-            return 0.0f;
-        }
-
-        void SetHandleAngleAroundPivot(float angle)
-        {
-            Debug.Log("setHandle");
-            if (m_Handle != null && pivotTransform != null)
-            {
-                Vector3 toPivot = m_Handle.position - pivotTransform.position;
-                Quaternion rotation = Quaternion.Euler(angle, 0.0f, 0.0f);
-                Vector3 rotatedPosition = pivotTransform.position + rotation * toPivot;
-                m_Handle.position = rotatedPosition;
-            }
         }
     }
 }
