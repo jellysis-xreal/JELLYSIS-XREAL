@@ -5,7 +5,9 @@ using UnityEngine;
 public class TimerUpdater : MonoBehaviour
 {
     [SerializeField] private CircluarTimer[] timers;
-
+    private bool _timerIsOver;
+    
+    
     [ContextMenu("Reset All Timers")]
     public void ResetAllTimer()
     {
