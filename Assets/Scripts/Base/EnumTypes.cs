@@ -41,7 +41,8 @@ namespace EnumTypes
         PutCream = 0,
         Draw = 1,
         CutAndShape = 2,
-        ChangeColor = 3
+        ChangeColor = 3,
+        Basic = 4
     }
 
     public enum BearColorType

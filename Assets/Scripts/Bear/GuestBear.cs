@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using EnumTypes;
+using StructsType;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,6 +18,9 @@ public class GuestBear : GlobalBears
         [Header("Game Set")] 
         public GameObject pairPlayer;
         public GameObject AnswerBear;
+
+        // 해당 Bear에게 꾸며진 Decorate를 확인하고, 정보를 저장해둔다
+        public List<DecoItemData> decoItemDataList = new List<DecoItemData>();
 
         private IEnumerator _FoVRoutine;
         
@@ -99,30 +103,36 @@ public class GuestBear : GlobalBears
         /// 기능 3
         /// 정답곰에게 붙어있는 deco item 중, CutAndShape 관련 아이템을 적용합니다
         /// </summary>
+        
+        // public void CutAndShape_before()
+        // {
+        //     foreach (var item in AnswerBear.GetComponent<AnswerBear>().GetDecoItemList())
+        //     {
+        //         if (item.ItemType == DecorateType.CutAndShape)
+        //         {
+        //             GameObject copyItem = Instantiate(item.ItemObject);
+        //             
+        //             Transform[] childrens = originParent.GetComponentsInChildren<Transform>();
+        //             foreach (Transform child in childrens)
+        //             {
+        //                 if (child.name == item.Parent.name)
+        //                 {
+        //                     copyItem.transform.SetParent(child);
+        //                     copyItem.transform.localPosition = item.LocalPosition;
+        //                     copyItem.transform.localRotation = item.LocalRotation;
+        //                     copyItem.SetActive(true);
+        //                 }
+        //             }
+        //             
+        //             
+        //         }
+        //     }
+        //
+        // }
+
         public void CutAndShape()
         {
-            foreach (var item in AnswerBear.GetComponent<AnswerBear>().GetDecoItemList())
-            {
-                if (item.ItemType == DecorateType.CutAndShape)
-                {
-                    GameObject copyItem = Instantiate(item.ItemObject);
-                    
-                    Transform[] childrens = originParent.GetComponentsInChildren<Transform>();
-                    foreach (Transform child in childrens)
-                    {
-                        if (child.name == item.Parent.name)
-                        {
-                            copyItem.transform.SetParent(child);
-                            copyItem.transform.localPosition = item.LocalPosition;
-                            copyItem.transform.localRotation = item.LocalRotation;
-                            copyItem.SetActive(true);
-                        }
-                    }
-                    
-                    
-                }
-            }
-
+            
         }
 
         /// <summary>
