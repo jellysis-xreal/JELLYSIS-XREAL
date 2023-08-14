@@ -6,8 +6,8 @@ public class CircluarTimer : MonoBehaviour
 {
     public Slider roundslider;
     public bool isStarted = false;
-    [SerializeField]
-    private float recentRemainTime;
+    [SerializeField] private float recentRemainTime;
+    [SerializeField] private StageManager stageManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,11 @@ public class CircluarTimer : MonoBehaviour
     {
         recentRemainTime -= Time.deltaTime;
         roundslider.value = recentRemainTime;
-        if (recentRemainTime <= 0) isStarted = false;
+        if (recentRemainTime <= 0)
+        {
+            isStarted = false;
+            if(stageManager != null) stageManager.StartStageRoutine();
+        }
     }
     [ContextMenu("ResetTimer")]
     public void ResetTimer()

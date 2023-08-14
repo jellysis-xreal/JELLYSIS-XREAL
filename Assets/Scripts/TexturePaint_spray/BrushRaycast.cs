@@ -101,32 +101,32 @@ public class BrushRaycast : MonoBehaviour
             Debug.Log(col.name);
             if (col.transform == ears)
             {
-                ears_texturePaint.DrawTexture(hit);
+                ears_texturePaint.DrawTexture_L(hit);
                 Debug.Log("ears hit");
             }
             if (col.transform == head)
             {
-                head_texturePaint.DrawTexture(hit);
+                head_texturePaint.DrawTexture_L(hit);
                 Debug.Log("head hit");
             }
             if (col.transform == body)
             {
-                body_texturePaint.DrawTexture(hit);
+                body_texturePaint.DrawTexture_L(hit);
                 Debug.Log("body hit");
             }
             if (col.transform == body1)
             {
-                body1_texturePaint.DrawTexture(hit);
+                body1_texturePaint.DrawTexture_L(hit);
                 Debug.Log("body 1 hit");
             }
             if (col.transform == tail)
             {
-                tail_texturePaint.DrawTexture(hit);
+                tail_texturePaint.DrawTexture_L(hit);
                 Debug.Log("tail hit");
             }
             if (col.transform == new_body)
             {
-                new_body_texturePaint.DrawTexture(hit);
+                new_body_texturePaint.DrawTexture_L(hit);
                 Debug.Log("tail hit");
             }
         }
