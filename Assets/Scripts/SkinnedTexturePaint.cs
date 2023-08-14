@@ -7,7 +7,9 @@ public class SkinnedTexturePaint : MonoBehaviour
     public int resolution = 1024;
     [Range(0.01f, 1f)]
     public float brushSize = 0.1f;
+    public float brushSize_L = 0.1f;
     public Texture2D brushTexture;
+    public Texture2D brushTexture_L;
 
     private Texture2D mainTex;
     //private MeshRenderer mr;
@@ -44,7 +46,16 @@ public class SkinnedTexturePaint : MonoBehaviour
             for (int i = 0; i < resolution; i++)
                 for (int j = 0; j < resolution; j++)
                     brushTexture.SetPixel(i, j, Color.red);
-            brushTexture.Apply();
+            brushTexture.Apply(); 
+        }
+
+        if (brushTexture_L == null)
+        {
+            brushTexture_L = new Texture2D(resolution, resolution);
+            for (int i = 0; i < resolution; i++)
+                for (int j = 0; j < resolution; j++)
+                    brushTexture_L.SetPixel(i, j, Color.red);
+            brushTexture_L.Apply();
         }
     }
 
@@ -92,6 +103,31 @@ public class SkinnedTexturePaint : MonoBehaviour
                 brushPixelSize
             ),
             brushTexture
+        );
+
+        GL.PopMatrix();              // 매트릭스 복구
+        RenderTexture.active = null; // 활성 렌더 텍스쳐 해제
+    }
+
+    public void DrawTexture_L(in RaycastHit hit)
+    {
+        Vector2 pixelUV = hit.lightmapCoord;
+        pixelUV *= resolution;
+        RenderTexture.active = rt; // 페인팅을 위해 활성 렌더 텍스쳐 임시 할당
+        GL.PushMatrix();                                  // 매트릭스 백업
+        GL.LoadPixelMatrix(0, resolution, resolution, 0); // 알맞은 크기로 픽셀 매트릭스 설정
+
+        float brushPixelSize_L = brushSize_L * resolution;
+        
+        // 렌더 텍스쳐에 브러시 텍스쳐를 이용해 그리기
+        Graphics.DrawTexture(
+            new Rect(
+                pixelUV.x - brushPixelSize_L * 0.5f,
+                (rt.height - pixelUV.y) - brushPixelSize_L * 0.5f,
+                brushPixelSize_L,
+                brushPixelSize_L
+            ),
+            brushTexture_L
         );
 
         GL.PopMatrix();              // 매트릭스 복구
