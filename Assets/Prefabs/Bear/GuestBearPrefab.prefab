@@ -1465,13 +1465,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BearType: 0
   baseColor: 0
-  decoItemNum: 1
+  decoItemNum: 0
   originParent: {fileID: 5325753512196845763}
   viewRadius: 0.8
   viewAngle: 60
   targetMask:
     serializedVersion: 2
     m_Bits: 256
+  canSeeTarget: 0
   pairPlayer: {fileID: 0}
   AnswerBear: {fileID: 0}
 --- !u!1 &4567535447239751058

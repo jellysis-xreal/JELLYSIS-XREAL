@@ -36,7 +36,7 @@ public class GuestBear : GlobalBears
             // _FoVRoutine = FieldOfViewRoutine();
             // StartCoroutine(_FoVRoutine);
         }
-        
+
         private IEnumerator FieldOfViewRoutine()
         {
             WaitForSeconds wait = new WaitForSeconds(0.05f);
@@ -96,6 +96,32 @@ public class GuestBear : GlobalBears
             }
         }
             
+        /// <summary>
+        /// Deco Item의 Dictionary를 생성함
+        /// [0814] 해당 함수 GuestBear로 옮겨졌습니다
+        /// </summary>
+        public void SetDecorationList()
+        {
+            Transform[] childrens = originParent.GetComponentsInChildren<Transform>();
+
+            foreach (Transform child in childrens)
+            {
+                if (child.CompareTag("Deco"))
+                {
+                    // 각 Deco는 Bear의 Armature Hierarchy 하위에 존재
+                    //Debug.Log("Find Answer Decoration : "+ child.name);
+                
+                    // TODO: Deco Item으로부터 Type을 알아야함 따라서 각 프리팹에 타입을 정의해야함 (임시로 해둠)
+                    DecoItemData item = new DecoItemData(child.gameObject, DecorateType.CutAndShape);
+                
+                    decoItemDataList.Add(item);
+                    decoItemNum++;
+                    
+                    child.gameObject.SetActive(false);
+                }
+            }
+        }
+        
         // TODO: 기능 1, 2 구현
         
         
@@ -104,35 +130,38 @@ public class GuestBear : GlobalBears
         /// 정답곰에게 붙어있는 deco item 중, CutAndShape 관련 아이템을 적용합니다
         /// </summary>
         
-        // public void CutAndShape_before()
-        // {
-        //     foreach (var item in AnswerBear.GetComponent<AnswerBear>().GetDecoItemList())
-        //     {
-        //         if (item.ItemType == DecorateType.CutAndShape)
-        //         {
-        //             GameObject copyItem = Instantiate(item.ItemObject);
-        //             
-        //             Transform[] childrens = originParent.GetComponentsInChildren<Transform>();
-        //             foreach (Transform child in childrens)
-        //             {
-        //                 if (child.name == item.Parent.name)
-        //                 {
-        //                     copyItem.transform.SetParent(child);
-        //                     copyItem.transform.localPosition = item.LocalPosition;
-        //                     copyItem.transform.localRotation = item.LocalRotation;
-        //                     copyItem.SetActive(true);
-        //                 }
-        //             }
-        //             
-        //             
-        //         }
-        //     }
-        //
-        // }
+        /*public void CutAndShape_before()
+        {
+            foreach (var item in AnswerBear.GetComponent<AnswerBear>().GetDecoItemList())
+            {
+                if (item.ItemType == DecorateType.CutAndShape)
+                {
+                    GameObject copyItem = Instantiate(item.ItemObject);
+                    
+                    Transform[] childrens = originParent.GetComponentsInChildren<Transform>();
+                    foreach (Transform child in childrens)
+                    {
+                        if (child.name == item.Parent.name)
+                        {
+                            copyItem.transform.SetParent(child);
+                            copyItem.transform.localPosition = item.LocalPosition;
+                            copyItem.transform.localRotation = item.LocalRotation;
+                            copyItem.SetActive(true);
+                        }
+                    }
+                }
+            }
+        }*/
 
         public void CutAndShape()
         {
-            
+            foreach (var item in decoItemDataList)
+            {
+                if (item.ItemType == DecorateType.CutAndShape)
+                {
+                    item.ItemObject.SetActive(true);
+                }
+            }
         }
 
         /// <summary>

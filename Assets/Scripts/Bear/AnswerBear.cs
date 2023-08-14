@@ -32,15 +32,23 @@ public class AnswerBear : GlobalBears
     public void InitAnswer()
     {
         Debug.Log("<<-------Init AnswerBear------->>");
-        SetDecorationList();
+        // 1. PutCream 및 CutAndShape 관련 데코
+        // SetDecorationList();
+        
+        // 2. 바탕 색은 BearColorType으로 표현됨
+        
+        // TODO: 3. Draw 관련 Texture를 저장해두자
+        
+        // Scene내에서 보이지 않도록 처리
         gameObject.SetActive(false);
     }
 
     
     /// <summary>
     /// Deco Item의 Dictionary를 생성함
+    /// [0814] 해당 함수 GuestBear로 옮겨졌습니다
     /// </summary>
-    public void SetDecorationList()
+    /*public void SetDecorationList()
     {
         Transform[] childrens = originParent.GetComponentsInChildren<Transform>();
 
@@ -58,5 +66,5 @@ public class AnswerBear : GlobalBears
                 decoItemNum++;
             }
         }
-    }
+    }*/
 }

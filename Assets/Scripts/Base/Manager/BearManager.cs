@@ -65,6 +65,11 @@ public class BearManager : MonoBehaviour
         {
             bear.GetComponent<AnswerBear>().InitAnswer();
         }
+        
+        foreach (var bear in GuestBears)
+        {
+            bear.GetComponent<GuestBear>().SetDecorationList();
+        }
     }
     
     /// <summary>
@@ -87,8 +92,6 @@ public class BearManager : MonoBehaviour
             PlayerBears.Add(guest.GetComponent<GuestBear>().GetPairPlayer());
         }
     }
-
-    
     
     public void Test()
     {

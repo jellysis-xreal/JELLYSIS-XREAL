@@ -8,12 +8,12 @@ public class StageController : MonoBehaviour
 {
 
     [Header("Stage Setting")] 
-    private StageState state;
+    [SerializeField] private StageState state;
     public int DecorateTime = 20;
 
 
     [Header("Bool")] 
-    private bool IsStateUpdate = false;
+    public bool IsStateUpdate = true;
 
     private float timer;
 
@@ -36,6 +36,8 @@ public class StageController : MonoBehaviour
         timer += Time.deltaTime;
         if ( IsStateUpdate && timer > DecorateTime)
         {
+            state = GameManager.Instance.CurrentState;
+
             switch (state)
             {
                 case StageState.BeforeStageStart:
@@ -48,6 +50,7 @@ public class StageController : MonoBehaviour
 
                 case StageState.Decorate:
                     Debug.Log("<-----------[Stage] Let's Decorate------------>");
+                    GameManager.Bear.Test();
                     break;
 
                 case StageState.DoPosing:

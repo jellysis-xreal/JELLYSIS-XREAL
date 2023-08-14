@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using EnumTypes;
+using Unity.Netcode;
 using UnityEngine;
 
 /* [ Game Manager ]
@@ -10,10 +11,11 @@ using UnityEngine;
  * Scene 전환에 걸쳐서도 유지되어야 하는 데이터들을 관리함
 */
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     [Header("Field of view")]
     [SerializeField] private GameType CurrentGameMode = GameType.Multi;
+    
     public StageState CurrentState;
     
     private static GameManager instance;
@@ -95,6 +97,6 @@ public class GameManager : MonoBehaviour
     {
          Debug.Log("<<-------TEST------->>");
          // 이 밑으로 진행할 Test 코드를 입력한 후, Start 함수에 가서 Test의 주석 처리를 해제하면 됩니다.
-         _bear.Test();
+         //_bear.Test();
     }
 }
