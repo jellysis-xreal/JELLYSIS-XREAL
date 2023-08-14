@@ -3770,8 +3770,10 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
-  right_grab: 0
-  left_grab: 0
+  right_grab_L: 0
+  left_grab_L: 0
+  past_right_grab_L: 0
+  past_left_grab_L: 0
   tableTransform: {fileID: 701661344}
   animator: {fileID: 1364192363}
   new_body_texturePaint: {fileID: 1431215486}
@@ -5201,6 +5203,8 @@ MonoBehaviour:
       type: 3}
   right_grab: 0
   left_grab: 0
+  past_right_grab: 0
+  past_left_grab: 0
   tableTransform: {fileID: 5278672530136046043}
   animator: {fileID: 4506293725073406384}
   new_body_texturePaint: {fileID: 1431215486}
