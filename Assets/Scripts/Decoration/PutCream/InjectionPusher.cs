@@ -33,7 +33,6 @@ public class InjectionPusher : MonoBehaviour
 
     public void Follow(BaseInteractionEventArgs hover)
     {
-        Debug.Log("Follow(Hover Entered)");
         if (hover.interactorObject is XRPokeInteractor)
         {
             creamMaker.isPressing = true;
@@ -47,8 +46,6 @@ public class InjectionPusher : MonoBehaviour
 
             float pokeAngle = Vector3.Angle(_offset, visualTarget.TransformDirection(localAxis));
 
-            Debug.Log("pokeAngle : "+pokeAngle);
-            
             if (pokeAngle > followAngleTreshold)
             {
                 isFollowing = false;
@@ -59,7 +56,6 @@ public class InjectionPusher : MonoBehaviour
 
     public void Reset(BaseInteractionEventArgs hover)
     {
-        Debug.Log("Reset(Hover Exitecd)");
         if (hover.interactorObject is XRPokeInteractor)
         {
             creamMaker.isPressing = false;
@@ -71,7 +67,6 @@ public class InjectionPusher : MonoBehaviour
 
     public void Freeze(BaseInteractionEventArgs hover)
     {
-        Debug.Log("Freeze");
         if (hover.interactorObject is XRPokeInteractor)
         {
             _freeze = true;
