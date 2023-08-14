@@ -7,9 +7,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class BrushRaycast : MonoBehaviour
+public class BrushRaycast_L : MonoBehaviour
 {
-    public TexturePaintSetting texturePaintSetting;
+    public TexturePaintSettingL texturePaintSetting;
     public XRBaseController leftController, rightController;
 
     public Transform brush_ray;
@@ -17,7 +17,7 @@ public class BrushRaycast : MonoBehaviour
     public int resolution = 1024;
 
     public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
-    
+
     public InputActionProperty right_Trigger_Action, left_Trigger_Action;
     public InputActionProperty right_Grip_Action, left_Grip_Action;
 
@@ -40,7 +40,7 @@ public class BrushRaycast : MonoBehaviour
         {
             //_tableEventManager.RaiseEvent();
             //tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.forward).eulerAngles,
-    //2f, RotateMode.LocalAxisAdd);
+            //2f, RotateMode.LocalAxisAdd);
             animator.Play("pressAni");
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -52,14 +52,14 @@ public class BrushRaycast : MonoBehaviour
         }
 
         Debug.DrawRay(brush_ray.position, brush_ray.forward);
-        if(texturePaintSetting.on_lock == true)
+        if (texturePaintSetting.on_lock == true)
         {
             if (right_grab)
             {
                 if (right_Trigger_Action.action.ReadValue<float>() > 0)
                 {
                     Debug.Log("버튼 입력");
-                    paint_texture();
+                    paint_texture_L();
                 }
             }
 
@@ -68,18 +68,14 @@ public class BrushRaycast : MonoBehaviour
                 if (left_Trigger_Action.action.ReadValue<float>() > 0)
                 {
                     Debug.Log("버튼 입력");
-                    paint_texture();
+                    paint_texture_L();
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            paint_texture();
-        }
     }
 
-    public void paint_texture()
+
+    public void paint_texture_L()
     {
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Ray ray = new Ray(brush_ray.position, brush_ray.forward);
@@ -131,6 +127,7 @@ public class BrushRaycast : MonoBehaviour
             }
         }
     }
+
 
     public void grab_right()
     {
