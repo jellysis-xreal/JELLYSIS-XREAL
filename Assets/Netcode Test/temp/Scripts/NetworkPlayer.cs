@@ -41,7 +41,7 @@ public class NetworkPlayer : NetworkBehaviour
             transform.position = new Vector3(Random.Range(placementArea.x, placementArea.y),
                 transform.position.y, Random.Range(placementArea.x, placementArea.y));
             Debug.Log("[TEST] Our PlayerID = " + OwnerClientId);
-            NetworkManager.Singleton.LocalId = OwnerClientId;
+            // NetworkManager.Singleton.LocalId = OwnerClientId;
         }
     }
     

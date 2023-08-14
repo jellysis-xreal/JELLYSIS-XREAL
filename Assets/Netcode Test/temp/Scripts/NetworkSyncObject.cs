@@ -38,7 +38,7 @@ public class NetworkSyncObject : NetworkBehaviour
             rigidBody.isKinematic = !useGravity.Value;
         }
         localPlayer = NetworkManager.LocalClient.PlayerObject;
-        PlayerClientID = NetworkManager.Singleton.LocalId;
+        PlayerClientID = NetworkManager.Singleton.LocalClientId; //LocalId;
         Debug.Log("[TEST] Start player Id: " + PlayerClientID);
     }
 
@@ -147,7 +147,7 @@ public class NetworkSyncObject : NetworkBehaviour
         }
         else if ((IsClient && !IsOwner))
         {
-            PlayerClientID = NetworkManager.Singleton.LocalId;
+            PlayerClientID = NetworkManager.Singleton.LocalClientId; // LocalId;
             localPlayer = NetworkManager.LocalClient.PlayerObject;
             Debug.Log("[TEST] RequestOwnership. ID: " + PlayerClientID+ " Client grabbed the "+ networkObjectSelected);
             if (networkObjectSelected != null)
@@ -166,7 +166,7 @@ public class NetworkSyncObject : NetworkBehaviour
         }
         if ((IsClient && IsOwner))
         {
-            PlayerClientID = NetworkManager.Singleton.LocalId;
+            PlayerClientID = NetworkManager.Singleton.LocalClientId; // LocalId;
             localPlayer = NetworkManager.LocalClient.PlayerObject;
             Debug.Log("[TEST] RequestRemoveOwnership. ID: " + PlayerClientID+ " Client dropped the "+ networkObjectSelected);
             if (networkObjectSelected != null)
@@ -184,7 +184,7 @@ public class NetworkSyncObject : NetworkBehaviour
         }
         if ((IsClient))
         {
-            PlayerClientID = NetworkManager.Singleton.LocalId;
+            PlayerClientID = NetworkManager.Singleton.LocalClientId; //LocalId;
             localPlayer = NetworkManager.LocalClient.PlayerObject;
             Debug.Log("[TEST] RequestRemoveParent. ID: " + PlayerClientID + " Client wants to remove parent "+ parentObject);
             if (childObject == parentObject) 
@@ -203,7 +203,7 @@ public class NetworkSyncObject : NetworkBehaviour
         }
         if ((IsClient))
         {
-            PlayerClientID = NetworkManager.Singleton.LocalId;
+            PlayerClientID = NetworkManager.Singleton.LocalClientId; //LocalId;
             localPlayer = NetworkManager.LocalClient.PlayerObject;
             Debug.Log("[TEST] RequestSetParent. ID: " + PlayerClientID + " Client wants to set parent "+ parentObject);
             if (childObject == parentObject) 
@@ -222,7 +222,7 @@ public class NetworkSyncObject : NetworkBehaviour
         }
         if ((IsClient))
         {
-            PlayerClientID = NetworkManager.Singleton.LocalId;
+            PlayerClientID = NetworkManager.Singleton.LocalClientId; //LocalId;
             localPlayer = NetworkManager.LocalClient.PlayerObject;
             Debug.Log("[TEST] RequestUseGravity. ID: " + PlayerClientID+ " Client set the gravity " + networkObjectSelected + " " + _useGravity);
             if (networkObjectSelected != null)
@@ -260,7 +260,7 @@ public class NetworkSyncObject : NetworkBehaviour
     public void OnSelectExitGrabbable(SelectExitEventArgs eventArgs)
     {
         localPlayer = NetworkManager.LocalClient.PlayerObject;
-        PlayerClientID = NetworkManager.Singleton.LocalId;
+        PlayerClientID = NetworkManager.Singleton.LocalClientId; // LocalId;
         Debug.Log("[TEST] OnSelectExitGrabbable. Release!!");
         NetworkObject networkObjectSelected = eventArgs.interactableObject.transform.GetComponent<NetworkObject>();
 
