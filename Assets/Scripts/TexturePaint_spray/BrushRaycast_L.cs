@@ -21,7 +21,9 @@ public class BrushRaycast_L : MonoBehaviour
     public InputActionProperty right_Trigger_Action, left_Trigger_Action;
     public InputActionProperty right_Grip_Action, left_Grip_Action;
 
-    public bool right_grab = false, left_grab = false;
+    public bool right_grab_L = false, left_grab_L = false;
+    public bool past_right_grab_L = false, past_left_grab_L = false;
+
 
     [SerializeField] private Transform tableTransform;
 
@@ -51,10 +53,31 @@ public class BrushRaycast_L : MonoBehaviour
             animator.Play("pullAni");
         }
 
-        Debug.DrawRay(brush_ray.position, brush_ray.forward);
+        if (right_Grip_Action.action.ReadValue<float>() > 0)
+        {
+            Debug.Log("grip pressed");
+            past_right_grab_L = true;
+        } else
+        {
+            past_right_grab_L = false;
+        }
+
+        if (left_Grip_Action.action.ReadValue<float>() > 0)
+        {
+            Debug.Log("grip pressed");
+            past_left_grab_L = true;
+        }
+        else
+        {
+            past_left_grab_L = false;
+        }
+
+
+
+        //Debug.DrawRay(brush_ray.position, brush_ray.forward);
         if (texturePaintSetting.on_lock == true)
         {
-            if (right_grab)
+            if (right_grab_L)
             {
                 if (right_Trigger_Action.action.ReadValue<float>() > 0)
                 {
@@ -63,7 +86,7 @@ public class BrushRaycast_L : MonoBehaviour
                 }
             }
 
-            if (left_grab)
+            if (left_grab_L)
             {
                 if (left_Trigger_Action.action.ReadValue<float>() > 0)
                 {
@@ -85,11 +108,11 @@ public class BrushRaycast_L : MonoBehaviour
 
         if (raycast && col)
         {
-            if (right_grab)
+            if (right_grab_L)
             {
                 rightController.SendHapticImpulse(0.2f, 0.1f);
             }
-            if (left_grab)
+            if (left_grab_L)
             {
                 leftController.SendHapticImpulse(0.2f, 0.1f);
             }
@@ -131,28 +154,28 @@ public class BrushRaycast_L : MonoBehaviour
 
     public void grab_right()
     {
-        if (right_Grip_Action.action.ReadValue<float>() > 0)
+        if (past_right_grab_L != true && right_Grip_Action.action.ReadValue<float>() > 0)
         {
             Debug.Log("grip pressed");
-            right_grab = true;
+            right_grab_L = true;
         }
     }
 
     public void release_right()
     {
-        if (right_Grip_Action.action.ReadValue<float>() == 0)
+        if (past_right_grab_L == true && right_Grip_Action.action.ReadValue<float>() == 0)
         {
             Debug.Log("grip pressed");
-            right_grab = false;
+            right_grab_L = false;
         }
     }
 
     public void grab_left()
     {
-        if (left_Grip_Action.action.ReadValue<float>() > 0)
+        if (past_left_grab_L != true && left_Grip_Action.action.ReadValue<float>() > 0)
         {
             Debug.Log("grip pressed");
-            left_grab = true;
+            left_grab_L = true;
             tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.back).eulerAngles,
 1f, RotateMode.Fast);
         }
@@ -160,10 +183,10 @@ public class BrushRaycast_L : MonoBehaviour
 
     public void release_left()
     {
-        if (left_Grip_Action.action.ReadValue<float>() == 0)
+        if (past_left_grab_L == true && left_Grip_Action.action.ReadValue<float>() == 0)
         {
             Debug.Log("grip pressed");
-            left_grab = false;
+            left_grab_L = false;
             tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(-15f, Vector3.back).eulerAngles,
 1f, RotateMode.Fast);
         }

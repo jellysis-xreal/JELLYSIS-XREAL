@@ -102,13 +102,13 @@ public class TexturePaintSetting : MonoBehaviour
 
     public void brush_change(Texture2D brush_texture)
     {
-        skinnedTexturePaint_head_ears.brushSize = brush_size;
+        skinnedTexturePaint_head_ears.brushSize = brush_size * 3.0f;
         skinnedTexturePaint_head_ears.brushTexture = brush_texture;
         skinnedTexturePaint_head.brushSize = brush_size*0.8f;
         skinnedTexturePaint_head.brushTexture = brush_texture;
-        skinnedTexturePaint_body.brushSize = brush_size;
+        skinnedTexturePaint_body.brushSize = brush_size * 0.7f;
         skinnedTexturePaint_body.brushTexture = brush_texture;
-        skinnedTexturePaint_body1.brushSize = brush_size * 2.0f;
+        skinnedTexturePaint_body1.brushSize = brush_size * 3.3f;
         skinnedTexturePaint_body1.brushTexture = brush_texture;
         skinnedTexturePaint_tail.brushSize = brush_size* 2.0f;
         skinnedTexturePaint_tail.brushTexture = brush_texture;

@@ -22,6 +22,7 @@ public class BrushRaycast : MonoBehaviour
     public InputActionProperty right_Grip_Action, left_Grip_Action;
 
     public bool right_grab = false, left_grab = false;
+    public bool past_right_grab = false, past_left_grab = false;
 
     [SerializeField] private Transform tableTransform;
 
@@ -50,9 +51,29 @@ public class BrushRaycast : MonoBehaviour
             //2f, RotateMode.LocalAxisAdd);
             animator.Play("pullAni");
         }
+        if (right_Grip_Action.action.ReadValue<float>() > 0)
+        {
+            Debug.Log("grip pressed");
+            past_right_grab = true;
+        }
+        else
+        {
+            past_right_grab = false;
+        }
 
-        Debug.DrawRay(brush_ray.position, brush_ray.forward);
-        if(texturePaintSetting.on_lock == true)
+        if (left_Grip_Action.action.ReadValue<float>() > 0)
+        {
+            Debug.Log("grip pressed");
+            past_left_grab = true;
+        }
+        else
+        {
+            past_left_grab = false;
+        }
+
+
+        //Debug.DrawRay(brush_ray.position, brush_ray.forward);
+        if (texturePaintSetting.on_lock == true)
         {
             if (right_grab)
             {
@@ -101,32 +122,32 @@ public class BrushRaycast : MonoBehaviour
             Debug.Log(col.name);
             if (col.transform == ears)
             {
-                ears_texturePaint.DrawTexture_L(hit);
+                ears_texturePaint.DrawTexture(hit);
                 Debug.Log("ears hit");
             }
             if (col.transform == head)
             {
-                head_texturePaint.DrawTexture_L(hit);
+                head_texturePaint.DrawTexture(hit);
                 Debug.Log("head hit");
             }
             if (col.transform == body)
             {
-                body_texturePaint.DrawTexture_L(hit);
+                body_texturePaint.DrawTexture(hit);
                 Debug.Log("body hit");
             }
             if (col.transform == body1)
             {
-                body1_texturePaint.DrawTexture_L(hit);
+                body1_texturePaint.DrawTexture(hit);
                 Debug.Log("body 1 hit");
             }
             if (col.transform == tail)
             {
-                tail_texturePaint.DrawTexture_L(hit);
+                tail_texturePaint.DrawTexture(hit);
                 Debug.Log("tail hit");
             }
             if (col.transform == new_body)
             {
-                new_body_texturePaint.DrawTexture_L(hit);
+                new_body_texturePaint.DrawTexture(hit);
                 Debug.Log("tail hit");
             }
         }
@@ -134,7 +155,7 @@ public class BrushRaycast : MonoBehaviour
 
     public void grab_right()
     {
-        if (right_Grip_Action.action.ReadValue<float>() > 0)
+        if (past_right_grab != true && right_Grip_Action.action.ReadValue<float>() > 0)
         {
             Debug.Log("grip pressed");
             right_grab = true;
@@ -143,7 +164,7 @@ public class BrushRaycast : MonoBehaviour
 
     public void release_right()
     {
-        if (right_Grip_Action.action.ReadValue<float>() == 0)
+        if (past_right_grab == true && right_Grip_Action.action.ReadValue<float>() == 0)
         {
             Debug.Log("grip pressed");
             right_grab = false;
@@ -152,7 +173,7 @@ public class BrushRaycast : MonoBehaviour
 
     public void grab_left()
     {
-        if (left_Grip_Action.action.ReadValue<float>() > 0)
+        if (past_left_grab != true && left_Grip_Action.action.ReadValue<float>() > 0)
         {
             Debug.Log("grip pressed");
             left_grab = true;
@@ -163,7 +184,7 @@ public class BrushRaycast : MonoBehaviour
 
     public void release_left()
     {
-        if (left_Grip_Action.action.ReadValue<float>() == 0)
+        if (past_left_grab == true && left_Grip_Action.action.ReadValue<float>() == 0)
         {
             Debug.Log("grip pressed");
             left_grab = false;
