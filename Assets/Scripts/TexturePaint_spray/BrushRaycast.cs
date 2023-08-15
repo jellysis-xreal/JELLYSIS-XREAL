@@ -39,16 +39,10 @@ public class BrushRaycast : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //_tableEventManager.RaiseEvent();
-            //tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.forward).eulerAngles,
-    //2f, RotateMode.LocalAxisAdd);
             animator.Play("pressAni");
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            //_tableEventManager.RaiseEvent();
-            //tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.back).eulerAngles,
-            //2f, RotateMode.LocalAxisAdd);
             animator.Play("pullAni");
         }
         if (right_Grip_Action.action.ReadValue<float>() > 0)

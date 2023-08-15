@@ -5036,7 +5036,6 @@ GameObject:
   - component: {fileID: 1615435382}
   - component: {fileID: 1615435381}
   - component: {fileID: 1615435384}
-  - component: {fileID: 1615435385}
   m_Layer: 0
   m_Name: RayCast_Cube
   m_TagString: Untagged
@@ -5209,18 +5208,6 @@ MonoBehaviour:
   animator: {fileID: 4506293725073406384}
   new_body_texturePaint: {fileID: 1431215486}
   new_body: {fileID: 1431215487}
---- !u!114 &1615435385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615435379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1b8055c8af31f43b00ec36cd9dc2d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1668910606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8161,7 +8148,7 @@ Animator:
   m_GameObject: {fileID: 3873732194130338581}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3334ee3c0b8bebe4bb3fc1f6e0fa2944, type: 2}
+  m_Controller: {fileID: 9100000, guid: 746308e4af37160468d0f267af851b58, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
