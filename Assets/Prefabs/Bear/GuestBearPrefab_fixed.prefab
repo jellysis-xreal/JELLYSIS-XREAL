@@ -2469,11 +2469,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BearType: 0
-  baseColor: 0
+  baseColor: 5
   decoItemNum: 0
   originParent: {fileID: 9097228553372827905}
-  viewRadius: 0.8
-  viewAngle: 60
+  viewRadius: 3
+  viewAngle: 80
   targetMask:
     serializedVersion: 2
     m_Bits: 256

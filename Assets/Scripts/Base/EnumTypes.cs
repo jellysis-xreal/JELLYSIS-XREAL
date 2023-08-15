@@ -22,10 +22,12 @@ namespace EnumTypes
 
     public enum StageState
     {
-        BeforeStageStart = 0,
-        RotateLP = 1,
-        Decorate = 2,
-        DoPosing = 3
+        InLobby = 0,
+        BeforeStageStart = 1,
+        StageStart = 2,
+        Decorate = 3,
+        RotateLP = 4,
+        DoPosing = 5
     }
 
     public enum BearType

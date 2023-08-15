@@ -31,7 +31,7 @@ public class AnswerBear : GlobalBears
     /// </summary>
     public void InitAnswer()
     {
-        Debug.Log("<<-------Init AnswerBear------->>");
+        //Debug.Log("<<-------Init AnswerBear------->>");
         SetDecorationList();
         gameObject.SetActive(false);
     }

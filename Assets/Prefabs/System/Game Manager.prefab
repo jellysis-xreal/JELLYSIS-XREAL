@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7372b1a2ac8de4c4eb044dd3697b6c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentGameMode: 1
   _bear: {fileID: 9194382200885545819}
 --- !u!1001 &3687769658609734162
 PrefabInstance:
@@ -115,6 +116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
         type: 3}
+      propertyPath: BaseColorList.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
       propertyPath: GuestBears.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -123,6 +129,42 @@ PrefabInstance:
       propertyPath: GuestBears.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: BaseColorList.Array.data[4]
+      value: 
+      objectReference: {fileID: 18700000, guid: 176df13bac07dea4b8819d9452ec35e4,
+        type: 2}
+    - target: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: BaseColorList.Array.data[5]
+      value: 
+      objectReference: {fileID: 18700000, guid: 1c9d38a7f1f3af245b7a13ba3e3534d1,
+        type: 2}
+    - target: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: BaseColorList.Array.data[6]
+      value: 
+      objectReference: {fileID: 18700000, guid: 95de7d5ec68ec1e4f965178f99238b52,
+        type: 2}
+    - target: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: BaseColorList.Array.data[7]
+      value: 
+      objectReference: {fileID: 18700000, guid: 9bf7a1809a720e747ad570bb5802361f,
+        type: 2}
+    - target: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: BaseColorList.Array.data[8]
+      value: 
+      objectReference: {fileID: 18700000, guid: c3ff6840e9ead7142bff5b83fd0dc627,
+        type: 2}
+    - target: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: BaseColorList.Array.data[9]
+      value: 
+      objectReference: {fileID: 18700000, guid: 421d9c583a23c7048b54981db0d39adf,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ce9bef851401f740a5b508c14ed4d89, type: 3}
 --- !u!4 &9194382200885545812 stripped
