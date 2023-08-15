@@ -13,7 +13,7 @@ public class ItempPropertyMulti : NetworkBehaviour
 
     [SerializeField] private NetworkObject NO_DecoObject;
 
-    // [SerializeField] private ulong OwnerId;
+    private bool shouldRemoveParent = false;
 
     void Start()
     {
@@ -35,14 +35,8 @@ public class ItempPropertyMulti : NetworkBehaviour
             if (isDropped)
             {
                 Debug.Log("[TEST] 0.1. isDropped! ");
-                // printInfo();
-                // if ((IsClient && !IsOwner) && !IsServer) NSO_DecoObject.RequestOwnership(NO_DecoObject);
-                // printInfo();
-                // if (IsOwner) NSO_DecoObject.UseGravityNetworkObject(false);
                 NSO_DecoObject.RequestUseGravity(NO_DecoObject, false);
-                // if (IsOwner) Debug.Log("[TEST] Rq set parent " + netPreTrans);
                 NSO_DecoObject.RequestSetParent(NO_DecoObject, netPreTrans);
-                // if ((IsClient && IsOwner) && !IsServer) NSO_DecoObject.RequestRemoveOwnership(NO_DecoObject);
             } else {
                 Debug.Log("[TEST] 0.2. !isDropped ");
             }
@@ -56,16 +50,7 @@ public class ItempPropertyMulti : NetworkBehaviour
             Debug.Log("[TEST] 2. OnTriggerExit!");
             if (netPreTrans != null) {
                 Debug.Log("[TEST] 2.1. netPreTrans != null"); // we should remove the netPreTrans
-                NSO_DecoObject.RequestRemoveParent(NO_DecoObject, netPreTrans);
-
-                // printInfo();
-                // if ((IsClient && !IsOwner) && !IsServer) NSO_DecoObject.RequestOwnership(NO_DecoObject);
-                // printInfo();
-                // // if (IsOwner) NSO_DecoObject.UseGravityNetworkObject(true);
-                // if (IsOwner) Debug.Log("[TEST] 2.2. Rq remove parent " + NO_DecoObject.TryRemoveParent(netPreTrans));
-                // if ((IsClient && IsOwner) && !IsServer) NSO_DecoObject.RequestRemoveOwnership(NO_DecoObject);
-
-                netPreTrans = null;
+                shouldRemoveParent = true;
             }
         }
     }
@@ -74,14 +59,6 @@ public class ItempPropertyMulti : NetworkBehaviour
     {
         Debug.Log("[TEST] 3. ItemSelected!");
         isDropped = false;
-        printInfo();
-        // if ((IsClient && !IsOwner) && !IsServer) NSO_DecoObject.RequestOwnership(NO_DecoObject);
-        printInfo();
-        // if (IsOwner) NSO_DecoObject.UseGravityNetworkObject(false);
-        // NSO_DecoObject.RequestUseGravity(NO_DecoObject, false);
-
-        // printInfo();
-        // if ((IsClient && !IsOwner) && !IsServer) NSO_DecoObject.RequestOwnership(NO_DecoObject);
         // printInfo();
     }
 
@@ -89,29 +66,23 @@ public class ItempPropertyMulti : NetworkBehaviour
     {
         Debug.Log("[TEST] 4. ItemUnSelected!");
         isDropped = true;
-        if (netPreTrans != null && netPreTrans.gameObject.layer == 11)
+        if (netPreTrans != null && netPreTrans.gameObject.layer == 11 && !shouldRemoveParent)
         {
-            Debug.Log("[TEST] 4.1. ItemUnnetPreTrans != null!");
-            
-            // printInfo();
-            // if ((IsClient && !IsOwner) && !IsServer) NSO_DecoObject.RequestOwnership(NO_DecoObject);
-            // printInfo();
+            Debug.Log("[TEST] 4.1.1 ItemUnnetPreTrans != null!");
             NSO_DecoObject.RequestUseGravity(NO_DecoObject, false);
-            // if (IsOwner) NSO_DecoObject.UseGravityNetworkObject(false);
-            // if (IsOwner) Debug.Log("[TEST] 4.2. Rq set parent " + netPreTrans);
             NSO_DecoObject.RequestSetParent(NO_DecoObject, netPreTrans);
-            // if ((IsClient && IsOwner) && !IsServer) NSO_DecoObject.RequestRemoveOwnership(NO_DecoObject);
-
-            // if ((IsClient && IsOwner) && !IsServer) NSO_DecoObject.RequestRemoveOwnership(NO_DecoObject);
-        } else {
-            Debug.Log("[TEST] 4.2. ItemUnnetPreTrans == null!");
-
-            // if ((IsClient && !IsOwner) && !IsServer) NSO_DecoObject.RequestOwnership(NO_DecoObject);
-            // if (IsOwner) Debug.Log("[TEST] 4.3. Rq remove parent " + netPreTrans);
-            // NSO_DecoObject.RequestRemoveParent(NO_DecoObject, netPreTrans);
-            // if (IsOwner) NSO_DecoObject.UseGravityNetworkObject(true);
+        }
+        else if (netPreTrans != null && netPreTrans.gameObject.layer == 11 && shouldRemoveParent)
+        {
+            Debug.Log("[TEST] 4.1.2 ItemUnnetPreTrans != null! shouldRemoveParent");
+            NSO_DecoObject.RequestRemoveParent(NO_DecoObject, netPreTrans);
             NSO_DecoObject.RequestUseGravity(NO_DecoObject, true);
-            // if ((IsClient && IsOwner) && !IsServer) NSO_DecoObject.RequestRemoveOwnership(NO_DecoObject);
+            netPreTrans = null;
+            shouldRemoveParent = false;
+        }
+        else {
+            Debug.Log("[TEST] 4.2. ItemUnnetPreTrans == null!");
+            NSO_DecoObject.RequestUseGravity(NO_DecoObject, true);
         }
     }
 }

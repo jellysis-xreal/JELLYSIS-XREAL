@@ -86,6 +86,18 @@ public class NetworkPlayerRpcCall : NetworkBehaviour
         }
     }
 
+    [ServerRpc]
+    public void RequestSetActiveServerRpc(NetworkObjectReference networkObjectReference, bool _isActive)
+    {
+        Debug.Log("[TEST] Got client set Active requests");
+        if (networkObjectReference.TryGet(out NetworkObject networkObject))
+        {
+            Debug.Log("[TEST] networkObject.GetComponentInChildren<NetworkSyncObject>() = " + networkObject.GetComponentInChildren<NetworkSyncObject>());
+            networkObject.GetComponentInChildren<NetworkSyncObject>().isActive.Value = _isActive;
+            Debug.Log("[TEST] Set Active");
+        }
+    }
+
     // [ServerRpc]
     // public void RequestSetActiveServerRpc(ulong newOwnerClientId, NetworkObjectReference gameObjectReference, bool isActive)
     // {
