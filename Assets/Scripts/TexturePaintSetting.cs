@@ -7,8 +7,8 @@ public class TexturePaintSetting : MonoBehaviour
     public SkinnedTexturePaint skinnedTexturePaint_head_ears,skinnedTexturePaint_head, skinnedTexturePaint_body, skinnedTexturePaint_body1, skinnedTexturePaint_tail;
     public SkinnedTexturePaint new_skinnedTexturePaint_body;
     [Range(0.01f, 1f)]
-    public float brush_size = 0.1f;
-    public Texture2D brush_texture_red, brush_texture_blue, brush_texture_green, brush_texture_yellow;
+    public float brush_size = 0.03f;
+    public Texture2D brush_texture_red, brush_texture_blue, brush_texture_green, brush_texture_yellow, brush_texture_white, brush_texture_brown;
     public bool on_lock = false;
     private Collider current_paint;
     private void OnTriggerEnter(Collider other)
@@ -45,6 +45,20 @@ public class TexturePaintSetting : MonoBehaviour
                 brush_change(brush_texture_yellow);
                 on_lock = true;
             }
+            if (other.name.Contains("White"))
+            {
+                current_paint = other;
+                Debug.Log("white");
+                brush_change(brush_texture_white);
+                on_lock = true;
+            }
+            if (other.name.Contains("Brown"))
+            {
+                current_paint = other;
+                Debug.Log("brown");
+                brush_change(brush_texture_brown);
+                on_lock = true;
+            }
         }
     }
 
@@ -72,11 +86,21 @@ public class TexturePaintSetting : MonoBehaviour
                 Debug.Log("yellow");
                 on_lock = false;
             }
+            if (other.name.Contains("White"))
+            {
+                Debug.Log("white");
+                on_lock = false;
+            }
+            if (other.name.Contains("Brown"))
+            {
+                Debug.Log("brown");
+                on_lock = false;
+            }
         }
     }
 
     // Update is called once per frame
-    void Update()
+/*    void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -99,7 +123,7 @@ public class TexturePaintSetting : MonoBehaviour
             brush_change(brush_texture_yellow);
         }
     }
-
+*/
     public void brush_change(Texture2D brush_texture)
     {
         skinnedTexturePaint_head_ears.brushSize = brush_size * 3.0f;
