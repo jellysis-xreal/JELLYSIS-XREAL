@@ -101,4 +101,11 @@ public class Stream : MonoBehaviour
             yield return null;
         }
     }
+
+    public void SetLineColor(Color color)
+    {
+        // Assuming you have only one LineRenderer in the Stream object
+        lineRenderer.startColor = color;
+        lineRenderer.endColor = color;
+    }
 }
