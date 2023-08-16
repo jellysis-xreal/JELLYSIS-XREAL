@@ -11108,6 +11108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tableTransform: {fileID: 1080766323}
+  niddleTransform: {fileID: 0}
+  bearTransforms: []
+  jumpBearIndex: 0
 --- !u!114 &2029366817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13029,6 +13032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonCheer_Hits
       objectReference: {fileID: 0}
+    - target: {fileID: 5212091048535002476, guid: 2f103b21df91d934db8690053b083ac3,
+        type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8748405405138213070}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f103b21df91d934db8690053b083ac3, type: 3}
 --- !u!1001 &5861620452429245419
@@ -13294,6 +13302,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6464341713996637387, guid: 4c73ed649ee767f468121a495694e285,
+        type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8748405405138213070}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c73ed649ee767f468121a495694e285, type: 3}
 --- !u!1 &6824725807280308900
@@ -13386,6 +13399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonAngry_Hits
       objectReference: {fileID: 0}
+    - target: {fileID: 7299780825987381337, guid: d591c668e4a573b4da0d2ed7faf3b012,
+        type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8748405405138213070}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d591c668e4a573b4da0d2ed7faf3b012, type: 3}
 --- !u!1001 &7684411940728311988
@@ -13856,6 +13874,12 @@ PrefabInstance:
       objectReference: {fileID: 4763085286629394381}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e424bb9d09f3c448b94816cba87669, type: 3}
+--- !u!198 &8748405405138213070 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8748405405288778591, guid: 67e424bb9d09f3c448b94816cba87669,
+    type: 3}
+  m_PrefabInstance: {fileID: 8748405405138213069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8821367137941837185
 PrefabInstance:
   m_ObjectHideFlags: 0
