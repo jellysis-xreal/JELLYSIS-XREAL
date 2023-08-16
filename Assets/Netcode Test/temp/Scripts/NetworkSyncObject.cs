@@ -19,11 +19,11 @@ public class NetworkSyncObject : NetworkBehaviour
 
     // activation 초기화
     [SerializeField]
-    private NetworkVariable<bool> isActive = new NetworkVariable<bool> (true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<bool> isActive = new NetworkVariable<bool> (true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     // use gravity & is kinematic 초기화
     [SerializeField]
-    public NetworkVariable<bool> useGravity = new NetworkVariable<bool> (true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<bool> useGravity = new NetworkVariable<bool> (true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     private bool coroutineCheck = false;
 
@@ -164,7 +164,7 @@ public class NetworkSyncObject : NetworkBehaviour
         if (IsServer) {
             Debug.Log("[TEST] RequestRemoveOwnership. This is Server");
         }
-        if ((IsClient && IsOwner))
+        else if ((IsClient && IsOwner))
         {
             PlayerClientID = NetworkManager.Singleton.LocalClientId; // LocalId;
             localPlayer = NetworkManager.LocalClient.PlayerObject;
@@ -181,6 +181,7 @@ public class NetworkSyncObject : NetworkBehaviour
     public void RequestRemoveParent(NetworkObject childObject, NetworkObject parentObject) {
         if (IsServer) {
             Debug.Log("[TEST] RequestRemoveParent. This is Server");
+            // Debug.Log("[TEST] TryRemoveParent = " + childObject.TryRemoveParent(parentObject));
         }
         if ((IsClient))
         {
@@ -200,6 +201,7 @@ public class NetworkSyncObject : NetworkBehaviour
     public void RequestSetParent(NetworkObject childObject, NetworkObject parentObject) {
         if (IsServer) {
             Debug.Log("[TEST] RequestSetParent. This is Server");
+            // Debug.Log("[TEST] TrySetParent = " + childObject.TrySetParent(parentObject));
         }
         if ((IsClient))
         {
@@ -219,6 +221,7 @@ public class NetworkSyncObject : NetworkBehaviour
     public void RequestUseGravity(NetworkObject networkObjectSelected, bool _useGravity) {
         if (IsServer) {
             Debug.Log("[TEST] RequestUseGravity. This is Server");
+            // useGravity.Value = _useGravity;
         }
         if ((IsClient))
         {
@@ -229,6 +232,23 @@ public class NetworkSyncObject : NetworkBehaviour
                 localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestUseGravityServerRpc(networkObjectSelected, _useGravity);
         } else {
             Debug.Log("[TEST] RequestUseGravity. Error Rq Ownership ---- ");
+            printInfo();
+        }
+    }
+
+    public void RequestSetActive(NetworkObject networkObjectSelected, bool _isActive) {
+        if (IsServer) {
+            Debug.Log("[TEST] RequestSetActive. This is Server");
+        }
+        if ((IsClient))
+        {
+            PlayerClientID = NetworkManager.Singleton.LocalClientId; //LocalId;
+            localPlayer = NetworkManager.LocalClient.PlayerObject;
+            Debug.Log("[TEST] RequestSetActive. ID: " + PlayerClientID+ " Client set the active " + networkObjectSelected + " " + _isActive);
+            if (networkObjectSelected != null)
+                localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestSetActiveServerRpc(networkObjectSelected, _isActive);
+        } else {
+            Debug.Log("[TEST] RequestSetActive. Error Rq Ownership ---- ");
             printInfo();
         }
     }

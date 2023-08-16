@@ -1517,6 +1517,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turntable_b
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: adce9d43e7a2ed546a4688f0b77b91b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4916599749589394646, guid: adce9d43e7a2ed546a4688f0b77b91b1,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3160,7 +3165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1262878003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3517,17 +3522,22 @@ PrefabInstance:
     - target: {fileID: 1995337912716272843, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1995337912716272843, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1995337913135040501, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_Name
       value: Clocks
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995337913135040501, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1995337913135040503, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
@@ -3607,12 +3617,12 @@ PrefabInstance:
     - target: {fileID: 1995337913259800236, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1995337913259800236, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1995337913383152214, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
@@ -3782,22 +3792,22 @@ PrefabInstance:
     - target: {fileID: 1995337914077860038, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1995337914077860038, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1995337914290747477, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1995337914290747477, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2034048406180800223, guid: 222cca2ab02f2a84e8840ec94bb7b6cc,
         type: 3}

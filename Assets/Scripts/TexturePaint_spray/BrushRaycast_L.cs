@@ -13,25 +13,22 @@ public class BrushRaycast_L : MonoBehaviour
     public XRBaseController leftController, rightController;
 
     public Transform brush_ray;
-    public Transform ears, head, body, body1, tail;
     public int resolution = 1024;
-
-    public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
 
     public InputActionProperty right_Trigger_Action, left_Trigger_Action;
     public InputActionProperty right_Grip_Action, left_Grip_Action;
-
+    public Animator animator;
     public bool right_grab_L = false, left_grab_L = false;
     public bool past_right_grab_L = false, past_left_grab_L = false;
 
 
-    [SerializeField] private Transform tableTransform;
+    public Transform ears, head, body, body1, tail;
+    public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
 
-    public Animator animator;
+    public AllBearTextureCode allBearTextureCode;
 
 
-    public SkinnedTexturePaint new_body_texturePaint;
-    public Transform new_body;
+
 
     // Start is called before the first frame update
 
@@ -40,16 +37,10 @@ public class BrushRaycast_L : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //_tableEventManager.RaiseEvent();
-            //tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.forward).eulerAngles,
-            //2f, RotateMode.LocalAxisAdd);
             animator.Play("pressAni");
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            //_tableEventManager.RaiseEvent();
-            //tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.back).eulerAngles,
-            //2f, RotateMode.LocalAxisAdd);
             animator.Play("pullAni");
         }
 
@@ -102,7 +93,7 @@ public class BrushRaycast_L : MonoBehaviour
     {
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Ray ray = new Ray(brush_ray.position, brush_ray.forward);
-
+        //4마리 위치시키고 거리보고 결정하기
         bool raycast = Physics.Raycast(ray, out var hit, 10);
         Collider col = hit.collider;
 
@@ -117,36 +108,65 @@ public class BrushRaycast_L : MonoBehaviour
                 leftController.SendHapticImpulse(0.2f, 0.1f);
             }
 
-            Debug.Log(col.name);
-            if (col.transform == ears)
+            /*            Debug.Log(col.name);
+                        if (col.transform == ears)
+                        {
+                            ears_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("ears hit");
+                        }
+                        if (col.transform == head)
+                        {
+                            head_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("head hit");
+                        }
+                        if (col.transform == body)
+                        {
+                            body_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("body hit");
+                        }
+                        if (col.transform == body1)
+                        {
+                            body1_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("body 1 hit");
+                        }
+                        if (col.transform == tail)
+                        {
+                            tail_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("tail hit");
+                        }*/
+
+            for (int i = 0; i < 4; i++)
             {
-                ears_texturePaint.DrawTexture_L(hit);
-                Debug.Log("ears hit");
-            }
-            if (col.transform == head)
-            {
-                head_texturePaint.DrawTexture_L(hit);
-                Debug.Log("head hit");
-            }
-            if (col.transform == body)
-            {
-                body_texturePaint.DrawTexture_L(hit);
-                Debug.Log("body hit");
-            }
-            if (col.transform == body1)
-            {
-                body1_texturePaint.DrawTexture_L(hit);
-                Debug.Log("body 1 hit");
-            }
-            if (col.transform == tail)
-            {
-                tail_texturePaint.DrawTexture_L(hit);
-                Debug.Log("tail hit");
-            }
-            if (col.transform == new_body)
-            {
-                new_body_texturePaint.DrawTexture_L(hit);
-                Debug.Log("tail hit");
+                if (col.transform == allBearTextureCode.ears_group[i])
+                {
+                    allBearTextureCode.ears_texturePaint_group[i].DrawTexture_L(hit);
+                    //ears_texturePaint.DrawTexture(hit);
+                    Debug.Log("ears hit");
+                }
+                if (col.transform == allBearTextureCode.head_group[i])
+                {
+                    allBearTextureCode.head_texturePaint_group[i].DrawTexture_L(hit);
+                    //head_texturePaint.DrawTexture(hit);
+                    Debug.Log("head hit");
+                }
+                if (col.transform == allBearTextureCode.body_group[i])
+                {
+                    allBearTextureCode.body_texturePaint_group[i].DrawTexture_L(hit);
+                    //body_texturePaint.DrawTexture(hit);
+                    Debug.Log("body hit");
+                }
+                if (col.transform == allBearTextureCode.body1_group[i])
+                {
+                    allBearTextureCode.body1_texturePaint_group[i].DrawTexture_L(hit);
+                    //body1_texturePaint.DrawTexture(hit);
+                    Debug.Log("body 1 hit");
+                }
+                if (col.transform == allBearTextureCode.tail_group[i])
+                {
+                    allBearTextureCode.tail_texturePaint_group[i].DrawTexture_L(hit);
+                    //tail_texturePaint.DrawTexture(hit);
+                    Debug.Log("tail hit");
+                }
             }
         }
     }
@@ -176,8 +196,6 @@ public class BrushRaycast_L : MonoBehaviour
         {
             Debug.Log("grip pressed");
             left_grab_L = true;
-            tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(15f, Vector3.back).eulerAngles,
-1f, RotateMode.Fast);
         }
     }
 
@@ -187,8 +205,6 @@ public class BrushRaycast_L : MonoBehaviour
         {
             Debug.Log("grip pressed");
             left_grab_L = false;
-            tableTransform.DORotate(tableTransform.rotation.eulerAngles + Quaternion.AngleAxis(-15f, Vector3.back).eulerAngles,
-1f, RotateMode.Fast);
         }
     }
 
