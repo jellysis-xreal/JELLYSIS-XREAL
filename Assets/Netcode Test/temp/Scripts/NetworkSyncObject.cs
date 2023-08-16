@@ -15,11 +15,11 @@ public class NetworkSyncObject : NetworkBehaviour
 
     // rigidBody 초기화
     [SerializeField]
-    private Rigidbody rigidBody;
+    public Rigidbody rigidBody;
 
     // activation 초기화
     [SerializeField]
-    public NetworkVariable<bool> isActive = new NetworkVariable<bool> (true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<bool> isActive = new NetworkVariable<bool> (true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     // use gravity & is kinematic 초기화
     [SerializeField]
@@ -28,6 +28,7 @@ public class NetworkSyncObject : NetworkBehaviour
     private bool coroutineCheck = false;
 
     public void Start() {
+        printInfo();
         if (gameObjectToSetActive != null)
         {
             gameObjectToSetActive.SetActive(isActive.Value);
@@ -42,8 +43,8 @@ public class NetworkSyncObject : NetworkBehaviour
         Debug.Log("[TEST] Start player Id: " + PlayerClientID);
     }
 
-    private void printInfo() {
-        Debug.Log("[TEST] IsClient, IsServer, IsOwner: " + IsClient + ", " + IsServer + ", " + IsOwner);
+    public void printInfo() {
+        Debug.Log("[TEST] " + gameObjectToSetActive + " " + "+IsClient, IsServer, IsOwner: " + IsClient + ", " + IsServer + ", " + IsOwner);
     }
     
 
@@ -60,16 +61,15 @@ public class NetworkSyncObject : NetworkBehaviour
         Debug.Log("[TEST] ID: " + rigidBody + " before, after: " + previousValue + ", "+ newValue);
         rigidBody.useGravity = newValue;
         rigidBody.isKinematic = !newValue;
+        if (!newValue)
+        {
+            rigidBody.velocity = Vector3.zero;
+            rigidBody.angularVelocity = Vector3.zero;
+        }
         Debug.Log("[TEST] ID: " + rigidBody + " useGravity: " + rigidBody.useGravity);
+        Debug.Log("[TEST] ID: " + rigidBody + " velocity, angularVelocity: " + rigidBody.velocity + ", " + rigidBody.angularVelocity);
     }
-    
-    // private void Update() {
-    //     if (rigidBody != null)
-    //     {
-    //         rigidBody.useGravity = useGravity.Value;
-    //         rigidBody.isKinematic = !useGravity.Value;
-    //     }
-    // }
+
 
     // Wait for owner sync ...
     public void UseGravityNetworkObject(bool _useGravity)
@@ -144,8 +144,11 @@ public class NetworkSyncObject : NetworkBehaviour
     {
         if (IsServer) {
             Debug.Log("[TEST] RequestOwnership. This is Server");
+
+            printInfo();
         }
-        else if ((IsClient && !IsOwner))
+        //else if ((IsClient && !IsOwner))
+        else if ((!IsOwner))
         {
             PlayerClientID = NetworkManager.Singleton.LocalClientId; // LocalId;
             localPlayer = NetworkManager.LocalClient.PlayerObject;
@@ -255,26 +258,12 @@ public class NetworkSyncObject : NetworkBehaviour
 
     public void OnSelectGrabbable(SelectEnterEventArgs eventArgs)
     {
-        // localPlayer = NetworkManager.LocalClient.PlayerObject;
-        // PlayerClientID = NetworkManager.Singleton.LocalClientId;
-
-        // Debug.Log("[TEST] local player object is " + localPlayer + " and ID: " + PlayerClientID);
         Debug.Log("[TEST] OnSelectGrabbable. Grabbed!!");
 
-        // Debug.Log("[TEST] IsClient: "+ IsClient + " IsOwner: " + IsOwner);
         NetworkObject networkObjectSelected = eventArgs.interactableObject.transform.GetComponent<NetworkObject>();
 
         if (!IsServer) RequestOwnership(networkObjectSelected);
-
-        // if (IsServer) {
-        //     Debug.Log("[TEST] This is Server");
-        // }
-        // else if ((IsClient && !IsOwner))
-        // {
-        //     Debug.Log("[TEST] ID: " + PlayerClientID+ " Client grabbed the "+ networkObjectSelected);
-        //     if (networkObjectSelected != null)
-        //         localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestGrabbableOwnershipServerRpc(PlayerClientID, networkObjectSelected); // 이거 고쳐야하나...
-        // }
+        RequestUseGravity(networkObjectSelected, false);
     }
 
     public void OnSelectExitGrabbable(SelectExitEventArgs eventArgs)
@@ -285,11 +274,17 @@ public class NetworkSyncObject : NetworkBehaviour
         NetworkObject networkObjectSelected = eventArgs.interactableObject.transform.GetComponent<NetworkObject>();
 
         if (!IsServer) RequestRemoveOwnership(networkObjectSelected);
-        // if ((IsClient && IsOwner))
-        // {
-        //     Debug.Log("[TEST] ID: " + PlayerClientID+ " Client dropped the "+ networkObjectSelected);
-        //     if (networkObjectSelected != null)
-        //         localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestRetrunGrabbableOwnershipServerRpc(PlayerClientID, networkObjectSelected);
-        // }
+        RequestUseGravity(networkObjectSelected, true);
+    }
+
+    public void OnSelectGrabbableWithoutOwnership(SelectEnterEventArgs eventArgs)
+    {
+        NetworkObject networkObjectSelected = eventArgs.interactableObject.transform.GetComponent<NetworkObject>();
+        RequestUseGravity(networkObjectSelected, false);
+    }
+    public void OnSelectExitGrabbableWithoutOwnership(SelectExitEventArgs eventArgs)
+    {
+        NetworkObject networkObjectSelected = eventArgs.interactableObject.transform.GetComponent<NetworkObject>();
+        RequestUseGravity(networkObjectSelected, true);
     }
 }

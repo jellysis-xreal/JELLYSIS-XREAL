@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Unity.Netcode;
 
-public class CreamMaker : MonoBehaviour
+public class CreamMaker : NetworkBehaviour
 {
     [Header("Cream")]
     [SerializeField] private GameObject creamPrefab;
@@ -14,7 +15,7 @@ public class CreamMaker : MonoBehaviour
     [SerializeField] private Transform remainCreamTransform;
     [SerializeField] private bool isScalingUp;
     public bool isPressing = false;
-    private bool _isTouching = false;
+    public bool _isTouching = false;
     
     [FormerlySerializedAs("can")] public bool timeOK;
     public float _timer = 0f;
@@ -27,10 +28,15 @@ public class CreamMaker : MonoBehaviour
     [SerializeField] private float remainCreamCapacity;
     public InjectScaleController injectScaleController;
 
+    private ulong PlayerClientID;
+    private bool hasOwnership = false;
+    private bool isScaling = false;
+
     private void Start()
     {
         //remainCreamCapacity = creamCapacity;
         _remainNewCreamScale = remainCreamTransform.localScale;
+        PlayerClientID = NetworkManager.Singleton.LocalClientId;
     }
 
     void Update()
@@ -47,7 +53,16 @@ public class CreamMaker : MonoBehaviour
         if (isScalingUp && _recentMakedCream != null && 
             isPressing && _isTouching)
         {
+            if (!hasOwnership)
+            {
+                RequestOwnership(_recentMakedCream.transform.GetComponent<NetworkObject>());
+                hasOwnership = true;
+            }
             ScaleUp();
+        } else
+        {
+            RequestRemoveOwnership(_recentMakedCream.transform.GetComponent<NetworkObject>());
+            hasOwnership = false;
         }
         SetRemainCreamScale();
     }
@@ -113,11 +128,27 @@ public class CreamMaker : MonoBehaviour
     
     public void SetCreamNormalVector(RaycastHit hit)
     {
-        Debug.Log("Set Cream Normal Vector");
+        Debug.Log("[TEST] Set Cream Normal Vector");
+        /*
         _recentMakedCream = Instantiate(creamPrefab, hit.point,Quaternion.identity);
         _recentMakedCream.transform.forward = hit.normal;
         _recentMakedCream.transform.SetParent(hit.transform);
         isScalingUp = true;
+        */
+        _recentMakedCream = Instantiate(creamPrefab, hit.point, Quaternion.identity);
+        _recentMakedCream.transform.forward = hit.normal;
+        _recentMakedCream.GetComponent<NetworkObject>().SpawnWithOwnership(NetworkManager.Singleton.LocalClientId); //.SpawnWithOwnership(clientId)
+        //_recentMakedCream.transform.forward = hit.normal;
+
+        RequestRemoveOwnership(_recentMakedCream.GetComponent<NetworkObject>());
+        if (hit.transform.GetComponent<NetworkObject>() != null)
+        {
+            RequestSetParent(_recentMakedCream.GetComponent<NetworkObject>(), hit.transform.GetComponent<NetworkObject>());
+            Debug.Log("[TEST] Cream init!");
+        }
+            //_recentMakedCream.transform.SetParent(hit.transform);
+        isScalingUp = true;
+
 
         //remainCreamCapacity -= 10f;
     }
@@ -174,6 +205,73 @@ public class CreamMaker : MonoBehaviour
         if (other.gameObject.layer == 11)
         {
             _isTouching = false;
+        }
+    }
+
+
+    // [Multi]
+    public void RequestOwnership(NetworkObject networkObjectSelected)
+    {
+        if (IsServer)
+        {
+            Debug.Log("[TEST] RequestOwnership. This is Server");
+        }
+        //else if ((IsClient && !IsOwner))
+        else if ((!IsOwner))
+        {
+            ulong PlayerClientID = NetworkManager.Singleton.LocalClientId; // LocalId;
+            NetworkObject localPlayer = NetworkManager.LocalClient.PlayerObject;
+            Debug.Log("[TEST] RequestOwnership. ID: " + PlayerClientID + " Client grabbed the " + networkObjectSelected);
+            if (networkObjectSelected != null)
+                Debug.Log("[TEST] RequestOwnership ... in progress");
+            localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestGrabbableOwnershipServerRpc(PlayerClientID, networkObjectSelected); // 이거 고쳐야하나...
+        }
+        else
+        {
+            Debug.Log("[TEST] RequestOwnership. Error Rq Ownership ---- ");
+        }
+    }
+
+    public void RequestRemoveOwnership(NetworkObject networkObjectSelected)
+    {
+        if (IsServer)
+        {
+            Debug.Log("[TEST] RequestRemoveOwnership. This is Server");
+        }
+        else if ((IsClient && IsOwner))
+        {
+            ulong PlayerClientID = NetworkManager.Singleton.LocalClientId; // LocalId;
+            NetworkObject localPlayer = NetworkManager.LocalClient.PlayerObject;
+            Debug.Log("[TEST] RequestRemoveOwnership. ID: " + PlayerClientID + " Client dropped the " + networkObjectSelected);
+            if (networkObjectSelected != null)
+                localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestRetrunGrabbableOwnershipServerRpc(PlayerClientID, networkObjectSelected);
+        }
+        else
+        {
+            Debug.Log("[TEST] RequestRemoveOwnership. Error Rq Ownership ---- ");
+        }
+    }
+
+    public void RequestSetParent(NetworkObject childObject, NetworkObject parentObject)
+    {
+        if (IsServer)
+        {
+            Debug.Log("[TEST] RequestSetParent. This is Server");
+            // Debug.Log("[TEST] TrySetParent = " + childObject.TrySetParent(parentObject));
+        }
+        if ((IsClient))
+        {
+            ulong PlayerClientID = NetworkManager.Singleton.LocalClientId; //LocalId;
+            NetworkObject localPlayer = NetworkManager.LocalClient.PlayerObject;
+            Debug.Log("[TEST] RequestSetParent. ID: " + PlayerClientID + " Client wants to set parent " + parentObject);
+            if (childObject == parentObject)
+                Debug.Log("[TEST] RequestSetParent. parentObject = childObject = " + parentObject);
+            else if (parentObject != null)
+                localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestSetParentServerRpc(childObject, parentObject);
+        }
+        else
+        {
+            Debug.Log("[TEST] RequestSetParent. Error Rq Ownership ---- ");
         }
     }
 }
