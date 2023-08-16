@@ -4,11 +4,13 @@ using EnumTypes;
 using StructsType;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AnswerBear : GlobalBears
 {
-    // Answer Card에 등록된 Correct Bear Prefab
-    
+    // 정답으로 꾸며줘야하는 Draw Texture
+    public List<Texture> drawTextureList = new List<Texture>();
+
     // 해당 Bear에게 꾸며진 Decorate를 확인하고, 정보를 넘겨주어야함
     // [0814] 해당 정보 GuestBear 자체에 저장해두는 것으로 바뀌었습니다
     //public List<DecoItemData> decoItemDataList = new List<DecoItemData>();
