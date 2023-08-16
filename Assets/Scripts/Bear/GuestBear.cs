@@ -222,8 +222,10 @@ public class GuestBear : GlobalBears
     /// 젤리곰의 Base Color를 변경합니다
     /// 이때 이미 지정한 BaseMaterials의 clone을 만들고, Texture Array만 변경하여 해당 색으로 적용합니다
     /// </summary>
-    public void ChangeBaseColor(Texture2DArray texture2DArray)
+    public void ChangeBaseColor(BearColorType type)
     {
+        Texture2DArray texture2DArray = GameManager.Bear.BaseColorList[(int)type];
+        
         // body_1
         Material[] mat = transform.GetChild(1).GetComponent<Renderer>().materials;
         mat[1] = GetNewMaterial(0, texture2DArray); // Element0 = Empty_material

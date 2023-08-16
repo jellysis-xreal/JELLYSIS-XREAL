@@ -28,8 +28,8 @@ public class BearManager : MonoBehaviour
         SetBearsList();         // Set List
         SetAnswerBearsItem();   // Set Answer Deco Item
         UpdatePairPlayer();
-        Debug.Log("[TEST] Initalize Bear Manager");
-        //SetPlayerList();        // Set Player
+        // Debug.Log("[TEST] Initalize Bear Manager");
+        // SetPlayerList();        // Set Player
     }
 
     private void SetBearsList()
@@ -157,7 +157,7 @@ public class BearManager : MonoBehaviour
 
                 case DecorateType.ChangeColor:
                     GameObject answer = bearComponent.AnswerBear;
-                    bearComponent.ChangeBaseColor(BaseColorList[(int)answer.GetComponent<AnswerBear>().baseColor]);
+                    bearComponent.ChangeBaseColor(answer.GetComponent<AnswerBear>().baseColor);
                     break;
 
                 case DecorateType.Basic:

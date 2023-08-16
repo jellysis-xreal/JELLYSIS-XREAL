@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EnumTypes;
 
 public class LiquidCollider : MonoBehaviour
 {
@@ -36,39 +37,37 @@ public class LiquidCollider : MonoBehaviour
                     switch (pourdetector.color.r, pourdetector.color.g, pourdetector.color.b)
                     {
                         case (1.0f, 0.0f, 1.0f):// Purple color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Purple]);
+                            bear.ChangeBaseColor(BearColorType.Purple);
                             break;
                         case (1.0f, 0.5f, 0.0f):// Orange color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Orange]);
+                            bear.ChangeBaseColor(BearColorType.Orange);
                             break;
                         case (1.0f, 0.75f, 0.75f):// Pink color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Pink]);
+                            bear.ChangeBaseColor(BearColorType.Pink);
                             break;
                         case (0.0f, 1.0f, 0.0f):// Green color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Green]);
+                            bear.ChangeBaseColor(BearColorType.Green);
                             break;
                         case (0.0f, 1.0f, 1.0f):// Sky blue color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Skyblue]);
+                            bear.ChangeBaseColor(BearColorType.PastelBlue);
                             break;
                         case (1.0f, 1.0f, 0.0f):// Pastel yellow color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Pastelgreen]);
+                            bear.ChangeBaseColor(BearColorType.PastelYellow);
                             break;
                         case (1.0f, 0.0f, 0.0f):// red color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
+                            bear.ChangeBaseColor(BearColorType.Red);
                             break;
                         case (0.0f, 0.0f, 1.0f):// blue color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Blue]);
+                            bear.ChangeBaseColor(BearColorType.Blue);
                             break;
                         case (1.0f, 1.0f, 0.5f):// yellow color 
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Pastelyellow]);
+                            bear.ChangeBaseColor(BearColorType.Yellow);
                             break;
                         case (1.0f, 1.0f, 1.0f):// white color
-                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.White]);
+                            bear.ChangeBaseColor(BearColorType.White);
                             break;
                     }
 
-                    
-                    
                     /*1,0,0 -> red
                     bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
                     1,1,1 -> white

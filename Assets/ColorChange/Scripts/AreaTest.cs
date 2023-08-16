@@ -6,27 +6,27 @@ using UnityEngine;
 public class AreaTest : MonoBehaviour
 {
     private bool isRotating = false;
-    private float rotationSpeed = 30f; // È¸Àü ¼Óµµ (µµ/ÃÊ)
+    private float rotationSpeed = 30f; // È¸ï¿½ï¿½ ï¿½Óµï¿½ (ï¿½ï¿½/ï¿½ï¿½)
 
-    private BearManager bearManager; // BearManager °´Ã¼
+    private BearManager bearManager; // BearManager ï¿½ï¿½Ã¼
 
-    // È¸Àü ½ÃÀÛ ÇÔ¼ö
+    // È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void StartRotation()
     {
         isRotating = true;
 
-        bearManager = FindObjectOfType<BearManager>(); // BearManager °´Ã¼ Ã£±â
+        bearManager = FindObjectOfType<BearManager>(); // BearManager ï¿½ï¿½Ã¼ Ã£ï¿½ï¿½
 
         if (bearManager != null)
         {
-            List<GameObject> guestBears = bearManager.GuestBears; // GuestBears ¸®½ºÆ® ÂüÁ¶
-            List<Texture2DArray> baseColorList = bearManager.BaseColorList; // BaseColorList ¸®½ºÆ® ÂüÁ¶
-            guestBears[0].GetComponent<GuestBear>().ChangeBaseColor(baseColorList[(int)BearColorType.Red]);
-            Debug.Log("»¡°­ °õ º¯°æ");
+            List<GameObject> guestBears = bearManager.GuestBears; // GuestBears ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+            List<Texture2DArray> baseColorList = bearManager.BaseColorList; // BaseColorList ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+            guestBears[0].GetComponent<GuestBear>().ChangeBaseColor(BearColorType.Red);
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
     }
 
-    // È¸Àü ÁßÁö ÇÔ¼ö
+    // È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     public void StopRotation()
     {
         isRotating = false;
@@ -36,7 +36,7 @@ public class AreaTest : MonoBehaviour
     {
         if (isRotating)
         {
-            // È¸Àü ¼Óµµ¿¡ µû¶ó ¿ÀºêÁ§Æ® È¸Àü
+            // È¸ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È¸ï¿½ï¿½
             transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
         }
     }
