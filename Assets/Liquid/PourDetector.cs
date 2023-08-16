@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,7 +9,11 @@ public class PourDetector : MonoBehaviour
     public GameObject streamPrefab = null;
 
     public bool isPouring = false;
-    private Stream currentStream = null;
+    public Stream currentStream = null;
+
+    public delegate void StreamColorChanged(Color newColor);
+
+    public event Action<Color> OnStreamColorChanged;
 
     private void Update()
     {
@@ -28,10 +33,11 @@ public class PourDetector : MonoBehaviour
             }
         }
     }
-
+   
     private void StartPour()
     {
         currentStream = CreateStream();
+        //currentStream.SetLineColor(new Color(1.0f, 0.0f, 1.0f)); // Purple color
         currentStream.Begin();
     }
     private void EndPour()
@@ -52,5 +58,29 @@ public class PourDetector : MonoBehaviour
         GameObject streamObject = Instantiate(streamPrefab, origin.position, Quaternion.identity, transform);
         return streamObject.GetComponent<Stream>();
     }
+    public void SetStreamColor(Color newColor)
+    {
+        if (currentStream != null)
+        {
+            currentStream.SetLineColor(newColor);
+        }
 
+        // 이벤트 호출
+        OnStreamColorChanged?.Invoke(newColor);
+    }
+    private void HandleStreamColorChanged(Color newColor)
+    {
+        if (currentStream != null)
+        {
+            currentStream.SetLineColor(newColor);
+        }
+    }
+
+    public void ChangeStreamColor(Color newColor)
+    {
+        if (currentStream != null)
+        {
+            currentStream.SetLineColor(newColor);
+        }
+    }
 }
