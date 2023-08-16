@@ -2412,6 +2412,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4755652539607691080, guid: 271f6c487fc92a942a39c4de1a159d62,
         type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755652539607691080, guid: 271f6c487fc92a942a39c4de1a159d62,
+        type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 0}
@@ -3029,6 +3034,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5902324707532257207, guid: d8998a09e9d22324eb158264e1ff31a8,
         type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5902324707532257207, guid: d8998a09e9d22324eb158264e1ff31a8,
+        type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 455739900}
@@ -3279,6 +3289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572036884648201550, guid: fd6a64d7a6da38141800ba999a67a036,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7572036884648201550, guid: fd6a64d7a6da38141800ba999a67a036,
         type: 3}
@@ -4786,6 +4801,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Red_paint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024603230654261166, guid: 57e8da4c86bea994d8869a0feb9926d8,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6024603230654261166, guid: 57e8da4c86bea994d8869a0feb9926d8,
         type: 3}
@@ -6850,6 +6870,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: White_paint
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772631527314047983, guid: 7bc9470d8fabe8d4188724a158d962fd,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8772631527314047983, guid: 7bc9470d8fabe8d4188724a158d962fd,
         type: 3}
@@ -13118,6 +13143,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1484071576}
     m_Modifications:
+    - target: {fileID: 2625545951516342441, guid: d1fe7d7a5e34b704aa753fba89322365,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2625545951516342441, guid: d1fe7d7a5e34b704aa753fba89322365,
         type: 3}
       propertyPath: m_InteractionManager

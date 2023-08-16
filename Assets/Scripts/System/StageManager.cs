@@ -1,21 +1,35 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using EnumTypes;
 using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.Serialization;
 
-public class StageManager : MonoBehaviour
+public class StageManager : NetworkBehaviour
 {
-    [Header("Stage Setting")] public StageState state = StageState.InLobby;
-    [SerializeField] private StageState before_state;
+    [Header("Stage Setting")] 
+    [SerializeField] private StageState curState = StageState.InLobby;
+    [SerializeField] private StageState beforeState;
     private int MaxPlayer = 4;
-    public int DecorateTime = 20;
+    //public int DecorateTime = 20;
 
-    [Header("Bool")] private bool IsStateUpdate = false;
+    // CMS: state 초기화 - only server can edit this variable
+    [SerializeField]
+    public NetworkVariable<StageState> curState_Multi = new NetworkVariable<StageState>(StageState.InLobby, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<StageState> beforeState_Multi = new NetworkVariable<StageState>(StageState.InLobby, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+
+    [Header("Bool")] 
+    private bool IsStateUpdate = false;
     private bool CanStartStage = false;
+    private bool SetFirst = false;
 
-    [Header("Player")] [SerializeField] private Transform[] transforms;
+    [Header("Player")] 
+    [SerializeField] private Transform[] transforms;
     [SerializeField] private List<GameObject> players = new List<GameObject>();
+    private DecorateType PlayerType1 = DecorateType.PutCream;
+    private DecorateType PlayerType2 = DecorateType.Draw;
 
     public TableEventManager tableEventManager;
     public TimerUpdater timerUpdater;
@@ -24,11 +38,43 @@ public class StageManager : MonoBehaviour
     
     private void Start()
     {
-        before_state = state;
-        tableRotationTime = new WaitForSeconds(5f);
+        //before_state = state;
+        //if (IsServer) beforeState_Multi.Value = before_state;
+        //tableRotationTime = new WaitForSeconds(5f);
 
-        bearManager = GameManager.Bear;
-        state = StageState.BeforeStageStart;
+        //bearManager = GameManager.Bear;
+        
+        //state = StageState.BeforeStageStart;
+        //if (IsServer) curState_Multi.Value = state;
+    }
+    
+    // CMS: network variable 변화한 값 업데이트
+    public override void OnNetworkSpawn()
+    {
+        beforeState_Multi.OnValueChanged += OnBeforeStateValueChanged;
+        curState_Multi.OnValueChanged += OnCurrentStateValueChanged;
+    }
+
+    private void OnBeforeStateValueChanged(StageState previousValue, StageState newValue)
+    {
+        // Debug.Log("[TEST] <Before changed> ---- before: " + previousValue + ", after: " + newValue);
+    }
+    
+    private void OnCurrentStateValueChanged(StageState previousValue, StageState newValue)
+    {
+        // state는 바로바로 동기화 됨
+        // 변화하면 수행하고 싶은 함수 넣으면 됨 ex.
+        // Debug.Log("[TEST] <Current changed> ---- before: " + previousValue + ", after: " + newValue);
+        // CanStartStage = true;
+        // curState_Multi.Value 정의한 자료형이 나와서 그걸로 접근하면 됩니다
+
+        if (curState_Multi.Value != beforeState_Multi.Value)
+        {
+            beforeState = curState;
+            if (IsServer) beforeState_Multi.Value = beforeState;
+            //HandleState(state);
+            HandleState(curState_Multi.Value);
+        }
     }
 
     private IEnumerator SetTheStageCoroutine()
@@ -47,22 +93,75 @@ public class StageManager : MonoBehaviour
             // 4명의 Player가 모두 입장하면, 게임을 시작할 수 있습니다
             if (players.Count >= MaxPlayer)
             {
-                for (int i = 0; i < MaxPlayer; i++)
-                {
-                    players[i].transform.position = transforms[i].position;
-                    players[i].transform.rotation = transforms[i].rotation;
-                }
-
-                state = StageState.StageStart;
+                // curState = StageState.StageStart;
+                // // CMS
+                // if(IsServer) curState_Multi.Value = StageState.StageStart; // -> 클라이언트도 자동으로 바뀐다!
                 CanStartStage = true;
             }
             else
-                Debug.Log("<-----------[TEST] 아직 플레이어가 모두 입장하지 않았습니다------------>");
+                Debug.Log(" [TEST] <-----------아직 플레이어가 모두 입장하지 않았습니다------------>");
 
             yield return new WaitForSeconds(1.0f);
         }
     }
 
+    [ContextMenu("Start the Game")]
+    [ServerRpc]
+    public void AllPlayersReadyServerRpc()
+    {
+        SetPlayers();
+        
+        curState = StageState.StageStart;
+        // CMS
+        if (IsServer)
+        { 
+            ClientFunctionClientRpc();
+            curState_Multi.Value = StageState.StageStart;
+        }
+    }
+
+    [ClientRpc]
+    void ClientFunctionClientRpc()
+    {
+        SetPlayers();
+        
+        Debug.Log("[TEST] <-----게임이 시작됩니다----->");
+        bearManager.Init();
+        StartGame();
+    }
+
+    private void SetPlayers()
+    {
+        if (IsClient)
+        {
+            GameObject[] find_player = GameObject.FindGameObjectsWithTag("Player");
+            foreach (var bear in find_player)
+            {
+                if (!players.Contains(bear))
+                    players.Add(bear);
+            }
+        }
+        
+        foreach (var bear in players)
+        {
+            PlayerBear temp = bear.GetComponent<PlayerBear>();
+            
+            if (temp.BearType == BearType.PlayerBear)
+            {
+                if (bear.GetComponent<NetworkObject>().OwnerClientId == 0)
+                    temp.ChangeDecorateType(PlayerType1);
+                
+                else if (bear.GetComponent<NetworkObject>().OwnerClientId == 1)
+                    temp.ChangeDecorateType(PlayerType2);
+            }
+            
+            // 맡은 기능에 따라서 자리가 배정됩니다
+            int index = (int)temp.GetDecorateType();
+            bear.transform.position = transforms[index].position;
+            bear.transform.rotation = transforms[index].rotation;
+        }
+    }
+    
     private void SetPairPlayer()
     {
         bearManager.SetPlayerList_();
@@ -75,17 +174,16 @@ public class StageManager : MonoBehaviour
     
     // 스테이지는 게임이 끝나기 까지 한 바퀴를 의미함.
     // 라운드는 곰돌이 1마리 꾸미는 시간이 종료되면 호출됨. 
-    [ContextMenu("StartGame")]
     private void StartGame()
     {
-        Debug.Log("Start Game!");
-        // stage가 시작하면, Decorate time이 주어집니다
-        state = StageState.Decorate;
-
+        Debug.Log("[TEST] Start Game!");
         timerUpdater.ResetAllTimer();
+        
+        // stage가 시작하면, Decorate time이 주어집니다
+        curState = StageState.Decorate;
+        if (IsServer) curState_Multi.Value = curState;
     }
-
-    [ContextMenu("Start StageRoutine")]
+    
     public void StartStageRoutine()
     {
         // Debug.Log("StageRoutine Start!");
@@ -96,17 +194,20 @@ public class StageManager : MonoBehaviour
     {
         // Table 돌리기 완료되면 다시 타이머 시작
         tableEventManager.RaiseEvent();
-        state = StageState.RotateLP;
+        curState = StageState.RotateLP;
+        if (IsServer) curState_Multi.Value = curState;
         yield return tableRotationTime;
 
         // Decorate time이 주어집니다
-        state = StageState.Decorate;
+        curState = StageState.Decorate;
+        if (IsServer) curState_Multi.Value = curState;
         timerUpdater.ResetAllTimer();
 
     }
 
     private void HandleState(StageState currentState)
     {
+        Debug.Log("[TEST] HandleState 실행 됨!");
         switch (currentState)
         {
             case StageState.BeforeStageStart:
@@ -144,10 +245,27 @@ public class StageManager : MonoBehaviour
     
     void Update()
     {
-        if (state != before_state)
+        //if (state != before_state)
+        if (!SetFirst)
         {
-            before_state = state;
-            HandleState(state);
+            beforeState = curState;
+            if (IsServer) beforeState_Multi.Value = beforeState;
+            
+            tableRotationTime = new WaitForSeconds(5f);
+            bearManager = GameManager.Bear;
+            
+            curState = StageState.BeforeStageStart;
+            if (IsServer) curState_Multi.Value = curState;
+
+            SetFirst = true;
         }
+
+        // if (curState_Multi.Value != beforeState_Multi.Value)
+        // {
+        //     beforeState = curState;
+        //     if (IsServer) beforeState_Multi.Value = beforeState;
+        //     //HandleState(state);
+        //     HandleState(curState_Multi.Value);
+        // }
     }
 }
