@@ -5,12 +5,16 @@ using UnityEngine;
 public class TexturePaintSetting : MonoBehaviour
 {
     public SkinnedTexturePaint skinnedTexturePaint_head_ears,skinnedTexturePaint_head, skinnedTexturePaint_body, skinnedTexturePaint_body1, skinnedTexturePaint_tail;
-    public SkinnedTexturePaint new_skinnedTexturePaint_body;
     [Range(0.01f, 1f)]
     public float brush_size = 0.03f;
     public Texture2D brush_texture_red, brush_texture_blue, brush_texture_green, brush_texture_yellow, brush_texture_white, brush_texture_brown;
     public bool on_lock = false;
     private Collider current_paint;
+
+
+    public AllBearTextureCode allBearTextureCode;
+
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name + "sssss");
@@ -126,7 +130,9 @@ public class TexturePaintSetting : MonoBehaviour
 */
     public void brush_change(Texture2D brush_texture)
     {
-        skinnedTexturePaint_head_ears.brushSize = brush_size * 3.0f;
+        allBearTextureCode.all_brush_change(brush_texture, brush_size);
+
+/*        skinnedTexturePaint_head_ears.brushSize = brush_size * 3.0f;
         skinnedTexturePaint_head_ears.brushTexture = brush_texture;
         skinnedTexturePaint_head.brushSize = brush_size*0.8f;
         skinnedTexturePaint_head.brushTexture = brush_texture;
@@ -135,9 +141,6 @@ public class TexturePaintSetting : MonoBehaviour
         skinnedTexturePaint_body1.brushSize = brush_size * 3.3f;
         skinnedTexturePaint_body1.brushTexture = brush_texture;
         skinnedTexturePaint_tail.brushSize = brush_size* 2.0f;
-        skinnedTexturePaint_tail.brushTexture = brush_texture;
-
-        new_skinnedTexturePaint_body.brushSize = brush_size;
-        new_skinnedTexturePaint_body.brushTexture = brush_texture;
+        skinnedTexturePaint_tail.brushTexture = brush_texture;*/
     }
 }

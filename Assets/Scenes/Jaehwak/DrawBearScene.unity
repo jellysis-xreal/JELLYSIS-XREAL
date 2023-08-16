@@ -3372,7 +3372,6 @@ MonoBehaviour:
   skinnedTexturePaint_body: {fileID: 3356462169617417951}
   skinnedTexturePaint_body1: {fileID: 3356462169617417949}
   skinnedTexturePaint_tail: {fileID: 3356462169617417947}
-  new_skinnedTexturePaint_body: {fileID: 1431215486}
   brush_size: 0.08
   brush_texture_red: {fileID: 2800000, guid: baf8f90c7cd4e0441b5ccaa7be16f37a, type: 3}
   brush_texture_blue: {fileID: 2800000, guid: c23a37ad86aedb74c8ceff1c4d3c1a8f, type: 3}
@@ -3382,6 +3381,7 @@ MonoBehaviour:
   brush_texture_white: {fileID: 2800000, guid: a0125dcf0a9625f4d8b0796ad5751f76, type: 3}
   brush_texture_brown: {fileID: 2800000, guid: f3d98ee60c06b5a46a4ecb646a1a0cb3, type: 3}
   on_lock: 0
+  allBearTextureCode: {fileID: 5086890567398683464}
 --- !u!1 &1052275572
 GameObject:
   m_ObjectHideFlags: 0
@@ -3993,17 +3993,7 @@ MonoBehaviour:
   leftController: {fileID: 26381656}
   rightController: {fileID: 1700436442}
   brush_ray: {fileID: 1253965744}
-  ears: {fileID: 3356462169617417956}
-  head: {fileID: 3356462169617417954}
-  body: {fileID: 3356462169617417952}
-  body1: {fileID: 3356462169617417950}
-  tail: {fileID: 3356462169617417948}
   resolution: 1024
-  ears_texturePaint: {fileID: 3356462169617417955}
-  head_texturePaint: {fileID: 3356462169617417953}
-  body_texturePaint: {fileID: 3356462169617417951}
-  body1_texturePaint: {fileID: 3356462169617417949}
-  tail_texturePaint: {fileID: 3356462169617417947}
   right_Trigger_Action:
     m_UseReference: 1
     m_Action:
@@ -4056,14 +4046,22 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
+  animator: {fileID: 1364192363}
   right_grab_L: 0
   left_grab_L: 0
   past_right_grab_L: 0
   past_left_grab_L: 0
-  tableTransform: {fileID: 701661344}
-  animator: {fileID: 1364192363}
-  new_body_texturePaint: {fileID: 1431215486}
-  new_body: {fileID: 1431215487}
+  ears: {fileID: 3356462169617417956}
+  head: {fileID: 3356462169617417954}
+  body: {fileID: 3356462169617417952}
+  body1: {fileID: 3356462169617417950}
+  tail: {fileID: 3356462169617417948}
+  ears_texturePaint: {fileID: 3356462169617417955}
+  head_texturePaint: {fileID: 3356462169617417953}
+  body_texturePaint: {fileID: 3356462169617417951}
+  body1_texturePaint: {fileID: 3356462169617417949}
+  tail_texturePaint: {fileID: 3356462169617417947}
+  allBearTextureCode: {fileID: 5086890567398683464}
 --- !u!1 &1309214325
 GameObject:
   m_ObjectHideFlags: 0
@@ -4834,12 +4832,6 @@ MonoBehaviour:
   brushSize_L: 0.1
   brushTexture: {fileID: 2800000, guid: c23a37ad86aedb74c8ceff1c4d3c1a8f, type: 3}
   brushTexture_L: {fileID: 0}
---- !u!4 &1431215487 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5861409178561632961, guid: ec9c3714c1a6a5f448a2056b8fe942e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1431215483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1434306780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5905,10 +5897,8 @@ MonoBehaviour:
   left_grab: 0
   past_right_grab: 0
   past_left_grab: 0
-  tableTransform: {fileID: 5278672530136046043}
   animator: {fileID: 4506293725073406384}
-  new_body_texturePaint: {fileID: 1431215486}
-  new_body: {fileID: 1431215487}
+  allBearTextureCode: {fileID: 5086890567398683464}
 --- !u!1001 &1668910606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6452,6 +6442,7 @@ MonoBehaviour:
   brush_texture_white: {fileID: 2800000, guid: a0125dcf0a9625f4d8b0796ad5751f76, type: 3}
   brush_texture_brown: {fileID: 2800000, guid: f3d98ee60c06b5a46a4ecb646a1a0cb3, type: 3}
   on_lock: 0
+  allBearTextureCode: {fileID: 5086890567398683464}
 --- !u!4 &1875864625
 Transform:
   m_ObjectHideFlags: 0
@@ -8887,6 +8878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5086890567398683463}
+  - component: {fileID: 5086890567398683464}
   m_Layer: 0
   m_Name: Spray_TexturePaintingSet
   m_TagString: Untagged
@@ -9187,6 +9179,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5086890567398683464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3990917201978036556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e7f734aef0e5a41881a3af8af4159f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ears_group:
+  - {fileID: 3356462169617417956}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  head_group:
+  - {fileID: 3356462169617417954}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  body_group:
+  - {fileID: 3356462169617417952}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  body1_group:
+  - {fileID: 3356462169617417950}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tail_group:
+  - {fileID: 3356462169617417948}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ears_texturePaint_group:
+  - {fileID: 3356462169617417955}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  head_texturePaint_group:
+  - {fileID: 3356462169617417953}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  body_texturePaint_group:
+  - {fileID: 3356462169617417951}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  body1_texturePaint_group:
+  - {fileID: 3356462169617417949}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tail_texturePaint_group:
+  - {fileID: 3356462169617417947}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5246619910365162255
 GameObject:
   m_ObjectHideFlags: 0
