@@ -226,49 +226,101 @@ public class GuestBear : GlobalBears
     {
         Texture2DArray texture2DArray = GameManager.Bear.BaseColorList[(int)type];
         
-        // body_1
-        Material[] mat = transform.GetChild(1).GetComponent<Renderer>().materials;
-        mat[1] = GetNewMaterial(0, texture2DArray); // Element0 = Empty_material
-        transform.GetChild(1).GetComponent<Renderer>().materials = mat;
+        // GetChild(1) body_1
+        // GetChild(2) body
+        // GetChild(3) bear_ears_1
+        // GetChild(4) bear_ears
+        for (int i = 0; i < 4; i++)
+        {
+            Renderer temp = transform.GetChild(i + 1).GetComponent<Renderer>();
+            if (HasMultipleMaterials(temp))
+            {
+                Material[] materials = temp.materials;
+                materials[1] = GetNewMaterial(i, texture2DArray); // Element0 = Empty_material
+                transform.GetChild(i + 1).GetComponent<Renderer>().materials = materials;
+            }
+            else
+            {
+                temp.material = GetNewMaterial(i, texture2DArray);
+            }
+        }
 
-        // body
-        mat = transform.GetChild(2).GetComponent<Renderer>().materials;
-        mat[1] = GetNewMaterial(1, texture2DArray); // Element0 = Empty_material
-        transform.GetChild(2).GetComponent<Renderer>().materials = mat;
+        // // body_1
+        // Material[] mat = transform.GetChild(1).GetComponent<Renderer>().materials;
+        // mat[1] = GetNewMaterial(0, texture2DArray); // Element0 = Empty_material
+        // transform.GetChild(1).GetComponent<Renderer>().materials = mat;
+        //
+        // // body
+        // mat = transform.GetChild(2).GetComponent<Renderer>().materials;
+        // mat[1] = GetNewMaterial(1, texture2DArray); // Element0 = Empty_material
+        // transform.GetChild(2).GetComponent<Renderer>().materials = mat;
+        //
+        // // bear_ears_1
+        // transform.GetChild(3).GetComponent<Renderer>().material = GetNewMaterial(2, texture2DArray);
+        //
+        // // bear_ears
+        // mat = transform.GetChild(4).GetComponent<Renderer>().materials;
+        // mat[1] = GetNewMaterial(3, texture2DArray); // Element0 = Empty_material
+        // transform.GetChild(4).GetComponent<Renderer>().materials = mat;
 
-        // bear_ears_1
-        transform.GetChild(3).GetComponent<Renderer>().material = GetNewMaterial(2, texture2DArray);
-
-        // bear_ears
-        mat = transform.GetChild(4).GetComponent<Renderer>().materials;
-        mat[1] = GetNewMaterial(3, texture2DArray); // Element0 = Empty_material
-        transform.GetChild(4).GetComponent<Renderer>().materials = mat;
-
-        // bear_eyes_1
-        mat = transform.GetChild(5).GetComponent<Renderer>().materials;
+        
+        // GetChild(5) bear_eyes_1
+        Material[] mat = transform.GetChild(5).GetComponent<Renderer>().materials;
         mat[0] = GetNewMaterial(4, texture2DArray);
         mat[1] = GetNewMaterial(5, texture2DArray);
         transform.GetChild(5).GetComponent<Renderer>().materials = mat;
 
-        // bear_eyes_top
-        transform.GetChild(6).GetComponent<Renderer>().material = GetNewMaterial(6, texture2DArray);
-
-        // bear_head
-        mat = transform.GetChild(7).GetComponent<Renderer>().materials;
-        mat[1] = GetNewMaterial(7, texture2DArray); // Element0 = Empty_material
-        transform.GetChild(7).GetComponent<Renderer>().materials = mat;
-
-        // bear_mouth_low
-        transform.GetChild(8).GetComponent<Renderer>().material = GetNewMaterial(8, texture2DArray);
-
-        // nose
-        transform.GetChild(9).GetComponent<Renderer>().material = GetNewMaterial(9, texture2DArray);
-
-        // tail
-        mat = transform.GetChild(10).GetComponent<Renderer>().materials;
-        mat[1] = GetNewMaterial(10, texture2DArray); // Element0 = Empty_material
-        transform.GetChild(10).GetComponent<Renderer>().materials = mat;
+        // GetChild(6) bear_eyes_top
+        // GetChild(7) bear_head
+        // GetChild(8) bear_mouth_low
+        // GetChild(9) nose
+        // GetChild(10) tail
+        for (int i = 6; i < 11; i++)
+        {
+            Renderer temp = transform.GetChild(i).GetComponent<Renderer>();
+            if (HasMultipleMaterials(temp))
+            {
+                Material[] materials = temp.materials;
+                materials[1] = GetNewMaterial(i, texture2DArray); // Element0 = Empty_material
+                transform.GetChild(i).GetComponent<Renderer>().materials = materials;
+            }
+            else
+            {
+                temp.material = GetNewMaterial(i, texture2DArray);
+            }
+        }
+        
+        // // bear_eyes_top
+        // transform.GetChild(6).GetComponent<Renderer>().material = GetNewMaterial(6, texture2DArray);
+        //
+        // // bear_head
+        // mat = transform.GetChild(7).GetComponent<Renderer>().materials;
+        // mat[1] = GetNewMaterial(7, texture2DArray); // Element0 = Empty_material
+        // transform.GetChild(7).GetComponent<Renderer>().materials = mat;
+        //
+        // // bear_mouth_low
+        // transform.GetChild(8).GetComponent<Renderer>().material = GetNewMaterial(8, texture2DArray);
+        //
+        // // nose
+        // transform.GetChild(9).GetComponent<Renderer>().material = GetNewMaterial(9, texture2DArray);
+        //
+        // // tail
+        // mat = transform.GetChild(10).GetComponent<Renderer>().materials;
+        // mat[1] = GetNewMaterial(10, texture2DArray); // Element0 = Empty_material
+        // transform.GetChild(10).GetComponent<Renderer>().materials = mat;
     }
+
+    private bool HasMultipleMaterials(Renderer renderer)
+    {
+        if (renderer != null)
+        {
+            Material[] materials = renderer.materials;
+            return materials.Length > 1;
+        }
+        
+        return false;    
+    }
+    
 
     private Material GetNewMaterial(int IndexMaterial, Texture2DArray texture2DArray)
     {
