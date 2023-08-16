@@ -31,40 +31,44 @@ public class LiquidCollider : MonoBehaviour
                 {
                     // 컬러 변경 코드
                     // pourdetector.color 읽어올 수 있음.
-                    Debug.Log("Color code : "+pourdetector.color.r + ", " + pourdetector.color.g + ", " + pourdetector.color.b);
+                    Debug.Log("Color code : " + pourdetector.color.r + ", " + pourdetector.color.g + ", " + pourdetector.color.b);
 
                     color = pourdetector.color;
                     bearColorType = pourdetector.bearColorType;
-                    switch (pourdetector.color.r, pourdetector.color.g, pourdetector.color.b)
+                    Debug.Log(bearColorType);
+
+                    switch (bearColorType)
                     {
-                        case (1.0f, 0.0f, 1.0f):// Purple color
+                        case (BearColorType.Purple):// Purple color
                             bear.ChangeBaseColor(BearColorType.Purple);
                             break;
-                        case (1.0f, 0.5f, 0.0f):// Orange color
+                        case (BearColorType.Orange):// Orange color
                             bear.ChangeBaseColor(BearColorType.Orange);
+                            Debug.Log("주황곰 변경");
                             break;
-                        case (1.0f, 0.75f, 0.75f):// Pink color
+                        case (BearColorType.Pink):// Pink color
                             bear.ChangeBaseColor(BearColorType.Pink);
                             break;
-                        case (0.0f, 1.0f, 0.0f):// Green color
+                        case (BearColorType.Green):// Green color
                             bear.ChangeBaseColor(BearColorType.Green);
                             break;
-                        case (0.0f, 1.0f, 1.0f):// Sky blue color
+                        case (BearColorType.PastelBlue):// Sky blue color
                             bear.ChangeBaseColor(BearColorType.PastelBlue);
                             break;
-                        case (1.0f, 1.0f, 0.0f):// Pastel yellow color
+                        case (BearColorType.PastelYellow):// Pastel yellow color
                             bear.ChangeBaseColor(BearColorType.PastelYellow);
                             break;
-                        case (1.0f, 0.0f, 0.0f):// red color
+                        case (BearColorType.Red):// red color
                             bear.ChangeBaseColor(BearColorType.Red);
                             break;
-                        case (0.0f, 0.0f, 1.0f):// blue color
+                        case (BearColorType.Blue):// blue color
                             bear.ChangeBaseColor(BearColorType.Blue);
                             break;
-                        case (1.0f, 1.0f, 0.5f):// yellow color 
+                        case (BearColorType.Yellow):// yellow color 
                             bear.ChangeBaseColor(BearColorType.Yellow);
+                            Debug.Log("노랑곰 변경");
                             break;
-                        case (1.0f, 1.0f, 1.0f):// white color
+                        case (BearColorType.White):// white color
                             bear.ChangeBaseColor(BearColorType.White);
                             break;
                     }
@@ -73,12 +77,13 @@ public class LiquidCollider : MonoBehaviour
                     bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
                     1,1,1 -> white
                     */
-                        
+
                     // r, g, b에 해당하는 값 읽고 case (1,0,0)이면
                     // 아래와 같이 ChangeBaseColor(빨간색) 호출
                     // bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
-                    
-                } else
+
+                }
+                else
                 {
                     Debug.Log("�� �� �����ϱ�");
                     //
@@ -87,3 +92,5 @@ public class LiquidCollider : MonoBehaviour
         }
     }
 }
+
+
