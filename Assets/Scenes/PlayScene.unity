@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13858,6 +13858,21 @@ PrefabInstance:
       propertyPath: body1_texturePaint
       value: 
       objectReference: {fileID: 7448086240492607868}
+    - target: {fileID: 8117180315181321539, guid: f89856cffb634f941b4fc6a692f54b3e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117180315181321539, guid: f89856cffb634f941b4fc6a692f54b3e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117180315181321539, guid: f89856cffb634f941b4fc6a692f54b3e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8587446398523875580, guid: f89856cffb634f941b4fc6a692f54b3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -14088,6 +14103,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 131072
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229274065569212164, guid: 81e0851909ea4894f937e72c77bc30f2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229274065569212164, guid: 81e0851909ea4894f937e72c77bc30f2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229274065569212164, guid: 81e0851909ea4894f937e72c77bc30f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6229274065582704643, guid: 81e0851909ea4894f937e72c77bc30f2,
         type: 3}
