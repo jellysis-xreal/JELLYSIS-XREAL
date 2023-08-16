@@ -36,15 +36,15 @@ public class LiquidCollider : MonoBehaviour
                     color = pourdetector.color;
                     bearColorType = pourdetector.bearColorType;
                     Debug.Log(bearColorType);
-
+                    
                     switch (bearColorType)
                     {
                         case (BearColorType.Purple):// Purple color
                             bear.ChangeBaseColor(BearColorType.Purple);
                             break;
                         case (BearColorType.Orange):// Orange color
-                            bear.ChangeBaseColor(BearColorType.Orange);
                             Debug.Log("주황곰 변경");
+                            bear.ChangeBaseColor(BearColorType.Orange);
                             break;
                         case (BearColorType.Pink):// Pink color
                             bear.ChangeBaseColor(BearColorType.Pink);

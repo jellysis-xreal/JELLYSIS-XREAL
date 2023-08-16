@@ -111,7 +111,10 @@ public class Stream : MonoBehaviour
     public void SetLineColor(Color color)
     {
         // Assuming you have only one LineRenderer in the Stream object
-        lineRenderer.startColor = color;
-        lineRenderer.endColor = color;
+        if (lineRenderer!=null)
+        {
+            lineRenderer.startColor = color;
+            lineRenderer.endColor = color;    
+        }
     }
 }
