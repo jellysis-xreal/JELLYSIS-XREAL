@@ -20,8 +20,9 @@ namespace ColorChanger
         private bool whiteCollided = false;
 
         public Material liquidMaterial;
+        public MeshRenderer meshRenderer;
         public GameObject streamPrefabColor;
-        private bool isPrefabInstantiated = false;
+        [SerializeField] private bool isPrefabInstantiated = false;
         public Stream currentStream = null;
         public Transform origin = null;
 
@@ -31,6 +32,19 @@ namespace ColorChanger
         public static event Action<Color> OnColorDetected;
 
         public XRKnob xrKnob;
+        public Transform leverTransform;
+        public PourDetector pourDetector;
+        public Color color;
+
+
+        private void Start()
+        {
+            liquidMaterial = meshRenderer.material;
+        }
+
+        private void Update()
+        {
+        }
 
         private void OnTriggerStay(Collider other)
         {
@@ -50,7 +64,6 @@ namespace ColorChanger
                     CheckCollision();    
                 }
             }
-
         }
 
 
@@ -66,6 +79,7 @@ namespace ColorChanger
 
         private void OnTriggerExit(Collider other)
         {
+            Debug.Log("TriggerExit");
             ClearInteractable(other);
         }
 
@@ -110,6 +124,7 @@ namespace ColorChanger
 
         private void CheckCollision()
         {
+            Debug.Log("CheckCollision");
             redCollided = false;
             blueCollided = false;
             yellowCollided = false;
@@ -123,7 +138,7 @@ namespace ColorChanger
                 if (tag == "Red")
                 {
                     redCollided = true;
-                    Debug.Log("Object with Tag1 is inside the trigger area.");
+                    //Debug.Log("Object with Tag1 is inside the trigger area.");
 
                 }
                 if (tag == "Blue")
@@ -135,52 +150,61 @@ namespace ColorChanger
                 if (tag == "Yellow")
                 {
                     yellowCollided = true;
-                    Debug.Log("Object with Tag3 is inside the trigger area.");
+                    //Debug.Log("Object with Tag3 is inside the trigger area.");
 
                 }
                 if (tag == "White")
                 {
                     whiteCollided = true;
-                    Debug.Log("Object with Tag2 is inside the trigger area.");
+                    //Debug.Log("Object with Tag2 is inside the trigger area.");
                 }
 
             }
-            if (pourCheck)
+            if (pourCheck) //&& currentStream!= null)
             {
 
                 StartPour();
-
+                
                 switch (redCollided, blueCollided, yellowCollided, whiteCollided)
                 {
                     case (true, true, false, false):
                         Debug.Log("Red + Blue = Purple");
                         liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.0f, 1.0f)); // Purple color
                         currentStream.SetLineColor(new Color(1.0f, 0.0f, 1.0f));
+                        color = new Color(1.0f, 0.0f, 1.0f);
                         break;
                     case (true, false, true, false):
                         Debug.Log("Red + Blue = Orange");
                         liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.5f, 0.0f));// Orange color
                         currentStream.SetLineColor(new Color(1.0f, 0.5f, 0.0f));
+                        color = new Color(1.0f, 0.5f, 0.0f);
                         break;
                     case (true, false, false, true):
                         Debug.Log("Red + White = Pink");
                         liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.75f, 0.75f)); // Pink color
                         currentStream.SetLineColor(new Color(1.0f, 0.75f, 0.75f));
+                        color = new Color(1.0f, 0.75f, 0.75f);
                         break;
                     case (false, true, true, false):
                         Debug.Log("Blue + Yellow = Green");
                         liquidMaterial.SetColor("_Tint", new Color(0.0f, 1.0f, 0.0f)); // Green color
                         currentStream.SetLineColor(new Color(0.0f, 1.0f, 0.0f));
+                        color = new Color(0.0f, 1.0f, 0.0f);
+
                         break;
                     case (false, true, false, true):
                         Debug.Log("Blue + White = Skyblue");
                         liquidMaterial.SetColor("_Tint", new Color(0.0f, 1.0f, 1.0f)); // Sky blue color
                         currentStream.SetLineColor(new Color(0.0f, 1.0f, 1.0f));
+                        color = new Color(0.0f, 1.0f, 1.0f);
+
                         break;
                     case (false, false, true, true):
                         Debug.Log("Yellow + White = Pastel Green");
                         liquidMaterial.SetColor("_Tint", new Color(1.0f, 1.0f, 0.0f)); // Pastel green color
                         currentStream.SetLineColor(new Color(1.0f, 1.0f, 0.0f));
+                        color = new Color(1.0f, 1.0f, 0.0f);
+
                         break;
 
                     default:
@@ -188,48 +212,51 @@ namespace ColorChanger
                         {
                             case (true, false, false, false):
                                 Debug.Log("Red");
-                                liquidMaterial.SetColor("_Tint", Color.red);
+                                liquidMaterial.SetColor("_Tint", new Color(1,0,0));
                                 currentStream.SetLineColor(Color.red);
+                                color =Color.red;
                                 break;
                             case (false, true, false, false):
                                 //Debug.Log("Blue");
-                                liquidMaterial.SetColor("_Tint", Color.blue);
+                                liquidMaterial.SetColor("_Tint", new Color(0,0,1));
                                 currentStream.SetLineColor(Color.blue);
+                                color = Color.blue;
                                 break;
                             case (false, false, true, false):
                                 Debug.Log("Yellow");
-                                liquidMaterial.SetColor("_Tint", Color.yellow);
+                                liquidMaterial.SetColor("_Tint", new Color(1,1,0));
                                 currentStream.SetLineColor(Color.yellow);
+                                color = Color.yellow;
                                 break;
                             case (false, false, false, true):
                                 Debug.Log("White");
-                                liquidMaterial.SetColor("_Tint", Color.white);
+                                liquidMaterial.SetColor("_Tint", new Color(1,1,1));
                                 currentStream.SetLineColor(Color.white);
+                                color = Color.white;
                                 break;
                         }
                         break;
                 }
-
-
+                
             }
-
-
         }
         void ResetLeverPosition()
         {
-            // 새로 생성, 기존에 있던 거 삭제됨.
+            //leverTransform.localRotation = Quaternion.Euler(0,-180,0);
+            xrKnob.value = 1f;
         }
         private Stream CreateStream()
         {
             Debug.Log("CreateSteam!");
             GameObject streamObject = Instantiate(streamPrefabColor, origin.position, Quaternion.identity, transform);
-            
+            isPrefabInstantiated = true;
+            StartCoroutine(pourDetector.PlusLiquidHeight());
             return streamObject.GetComponent<Stream>();
         }
 
         private void StartPour()
         {
-            Debug.Log("TryPour, Value : " + xrKnob.value);
+            //Debug.Log("TryPour, Value : " + xrKnob.value);
             if (!isPouring && (xrKnob.value <=0 || xrKnob.value >=2) && !isPrefabInstantiated) // 여기에서 회전값 일정량 이상 되면 붓도록&&    
             {
                 isPouring = true;
@@ -238,7 +265,7 @@ namespace ColorChanger
                 currentStream = CreateStream();
                 currentStream.Begin();
                 StartCoroutine(EndPourAfterDelay(5.0f));
-                isPrefabInstantiated = true;
+                
 
                 /*
                 XRKnob xRKnob = new XRKnob();
@@ -259,14 +286,17 @@ namespace ColorChanger
         private IEnumerator EndPourAfterDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
-
+            ResetLeverPosition();
+            
             if (currentStream != null)
             {
                 currentStream.End();
-                currentStream = null;
+                //currentStream = null;
             }
 
+            Debug.Log("EndPour routine End");
             isPouring = false;
+            isPrefabInstantiated = false;
         }
     }
 }

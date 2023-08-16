@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class LiquidCollider : MonoBehaviour
 {
+    public BearManager bearManager;
     public GameObject target;
+    public GuestBear bear;
     private PourDetector pourdetector;
     private float currenttime = 0;
     // Start is called before the first frame update
@@ -24,10 +26,22 @@ public class LiquidCollider : MonoBehaviour
                 currenttime += Time.deltaTime;
                 if (currenttime <= 2)
                 {
-                    Debug.Log("¿ÍÀÎ º×´ÂÁß");
+                    // ì»¬ëŸ¬ ë³€ê²½ ì½”ë“œ
+                    // pourdetector.color ì½ì–´ì˜¬ ìˆ˜ ìˆìŒ.
+                    Debug.Log(pourdetector.color.r+" "+pourdetector.color.g+" "+pourdetector.color.b);
+                    
+                    /*1,0,0 -> red
+                    bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
+                    1,1,1 -> white
+                    */
+                        
+                    // r, g, bì— í•´ë‹¹í•˜ëŠ” ê°’ ì½ê³  case (1,0,0)ì´ë©´
+                    // ì•„ë˜ì™€ ê°™ì´ ChangeBaseColor(ë¹¨ê°„ìƒ‰) í˜¸ì¶œ
+                    // bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
+                    
                 } else
                 {
-                    Debug.Log("°õ »ö º¯°æÇÏ±â");
+                    Debug.Log("ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½");
                     //
                 }
             }
