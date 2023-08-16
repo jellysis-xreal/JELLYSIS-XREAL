@@ -30,23 +30,28 @@ PrefabInstance:
     - target: {fileID: 7396933370464413439, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: m_Name
-      value: AnswerBearPrefab_01_green
+      value: AnswerBearPrefab_02_pastelBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
+        type: 3}
+      propertyPath: baseColor
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: drawTextureList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: drawTextureList.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: a2e4dc415bb76c94f86920108859079f, type: 3}
+      objectReference: {fileID: 2800000, guid: 124422375c282234782d66e786325eca, type: 3}
     - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: drawTextureList.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: 2af60eadfb35c1546ac017126cd31d43, type: 3}
+      objectReference: {fileID: 2800000, guid: 69b3d166ef66d034787b02abad19b59a, type: 3}
     - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: drawTextureList.Array.data[2]

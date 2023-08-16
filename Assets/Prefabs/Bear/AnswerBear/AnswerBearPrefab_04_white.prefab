@@ -30,28 +30,38 @@ PrefabInstance:
     - target: {fileID: 7396933370464413439, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: m_Name
-      value: AnswerBearPrefab_01_green
+      value: AnswerBearPrefab_04_white
+      objectReference: {fileID: 0}
+    - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
+        type: 3}
+      propertyPath: baseColor
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: drawTextureList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: drawTextureList.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: a2e4dc415bb76c94f86920108859079f, type: 3}
+      objectReference: {fileID: 2800000, guid: 58a6c8debca590e4eb42e69c17d5a0fe, type: 3}
     - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: drawTextureList.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: 2af60eadfb35c1546ac017126cd31d43, type: 3}
+      objectReference: {fileID: 2800000, guid: 9cb94d72ffc34854b8b3b22e97aceb4d, type: 3}
     - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: drawTextureList.Array.data[2]
       value: 
-      objectReference: {fileID: 2800000, guid: 606a8470a0e66f54c9449900976a0926, type: 3}
+      objectReference: {fileID: 2800000, guid: deb3bc2ff199da94cb180f97a3a8f140, type: 3}
+    - target: {fileID: 7920986328273255490, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
+        type: 3}
+      propertyPath: drawTextureList.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: 81c562afed7eb194aa2973c61834e952, type: 3}
     - target: {fileID: 7920986328273255493, guid: a1fa3ed87b7bbee43b9c9c058748a90c,
         type: 3}
       propertyPath: m_RootOrder

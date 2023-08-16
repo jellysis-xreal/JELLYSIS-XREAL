@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using EnumTypes;
 using StructsType;
 using Unity.VisualScripting;
@@ -172,7 +173,46 @@ public class GuestBear : GlobalBears
     /// </summary>
     public void Draw()
     {
-        Debug.Log("TODO");
+        List<Texture> tempMaterials = AnswerBear.GetComponent<AnswerBear>().drawTextureList.ToList();
+
+        if (tempMaterials.Count <= 0) return;
+        
+        int index = 0;
+        // GetChild(1) body_1
+        // GetChild(2) body
+        // GetChild(3) bear_ears_1
+        // GetChild(4) bear_ears
+        
+        for (int i = 0; i < 4; i++)
+        {
+            if (index >= tempMaterials.Count) break;
+            Renderer temp = transform.GetChild(i + 1).GetComponent<Renderer>();
+            if (HasMultipleMaterials(temp))
+            {
+                Material[] materials = temp.materials;
+                materials[0] = GetDrawMaterial(tempMaterials[index]);
+                transform.GetChild(i + 1).GetComponent<Renderer>().materials = materials;
+                index++;
+            }
+        }
+        
+        // GetChild(6) bear_eyes_top
+        // GetChild(7) bear_head
+        // GetChild(8) bear_mouth_low
+        // GetChild(9) nose
+        // GetChild(10) tail
+        for (int i = 6; i < 11; i++)
+        {
+            if (index >= tempMaterials.Count) break;
+            Renderer temp = transform.GetChild(i).GetComponent<Renderer>();
+            if (HasMultipleMaterials(temp))
+            {
+                Material[] materials = temp.materials;
+                materials[0] = GetDrawMaterial(tempMaterials[index]);
+                transform.GetChild(i).GetComponent<Renderer>().materials = materials;
+                index++;
+            }
+        }
     }
 
     /// <summary>
@@ -320,8 +360,15 @@ public class GuestBear : GlobalBears
         
         return false;    
     }
-    
 
+    private Material GetDrawMaterial(Texture tex)
+    {
+        Material newMaterial = new Material(GameManager.Bear.BaseMaterials[11]);
+        newMaterial.SetTexture("_BaseMap", tex);
+
+        return newMaterial;
+    }
+        
     private Material GetNewMaterial(int IndexMaterial, Texture2DArray texture2DArray)
     {
         Material newMaterial = new Material(GameManager.Bear.BaseMaterials[IndexMaterial]);
