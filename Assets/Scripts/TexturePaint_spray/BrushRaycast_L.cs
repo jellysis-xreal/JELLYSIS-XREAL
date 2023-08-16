@@ -108,34 +108,34 @@ public class BrushRaycast_L : MonoBehaviour
                 leftController.SendHapticImpulse(0.2f, 0.1f);
             }
 
-            Debug.Log(col.name);
-            if (col.transform == ears)
-            {
-                ears_texturePaint.DrawTexture_L(hit);
-                Debug.Log("ears hit");
-            }
-            if (col.transform == head)
-            {
-                head_texturePaint.DrawTexture_L(hit);
-                Debug.Log("head hit");
-            }
-            if (col.transform == body)
-            {
-                body_texturePaint.DrawTexture_L(hit);
-                Debug.Log("body hit");
-            }
-            if (col.transform == body1)
-            {
-                body1_texturePaint.DrawTexture_L(hit);
-                Debug.Log("body 1 hit");
-            }
-            if (col.transform == tail)
-            {
-                tail_texturePaint.DrawTexture_L(hit);
-                Debug.Log("tail hit");
-            }
+            /*            Debug.Log(col.name);
+                        if (col.transform == ears)
+                        {
+                            ears_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("ears hit");
+                        }
+                        if (col.transform == head)
+                        {
+                            head_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("head hit");
+                        }
+                        if (col.transform == body)
+                        {
+                            body_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("body hit");
+                        }
+                        if (col.transform == body1)
+                        {
+                            body1_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("body 1 hit");
+                        }
+                        if (col.transform == tail)
+                        {
+                            tail_texturePaint.DrawTexture_L(hit);
+                            Debug.Log("tail hit");
+                        }*/
 
-/*            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (col.transform == allBearTextureCode.ears_group[i])
                 {
@@ -167,7 +167,7 @@ public class BrushRaycast_L : MonoBehaviour
                     //tail_texturePaint.DrawTexture(hit);
                     Debug.Log("tail hit");
                 }
-            }*/
+            }
         }
     }
 
