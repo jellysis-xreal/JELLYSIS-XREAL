@@ -249,7 +249,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 57db26a239f412745b68ced626adf00a, type: 2}
-  - {fileID: 2100000, guid: 5dc145bbbe335e7479067ac634707807, type: 2}
+  - {fileID: 6719245597448002910, guid: f802d5458b363c741ad7aad8679564a8, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -274,7 +274,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -8545447256379345787, guid: 4b9a00a3dd9b14c479352974575dff05, type: 3}
+  m_Mesh: {fileID: -8545447256379345787, guid: f802d5458b363c741ad7aad8679564a8, type: 3}
   m_Bones:
   - {fileID: 2296236761095135895}
   - {fileID: 4508530985601231631}
@@ -328,7 +328,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -8545447256379345787, guid: 4b9a00a3dd9b14c479352974575dff05, type: 3}
+  m_Mesh: {fileID: -8545447256379345787, guid: f802d5458b363c741ad7aad8679564a8, type: 3}
 --- !u!114 &3356462168127857653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 512
   brushSize: 0.018
-  brushTexture: {fileID: 2800000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  brushSize_L: 0.1
+  brushTexture: {fileID: 2800000, guid: baf8f90c7cd4e0441b5ccaa7be16f37a, type: 3}
+  brushTexture_L: {fileID: 2800000, guid: c23a37ad86aedb74c8ceff1c4d3c1a8f, type: 3}
 --- !u!1 &1531629376316583586
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +742,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 512
   brushSize: 0.02
-  brushTexture: {fileID: 0}
+  brushSize_L: 0.1
+  brushTexture: {fileID: 2800000, guid: baf8f90c7cd4e0441b5ccaa7be16f37a, type: 3}
+  brushTexture_L: {fileID: 2800000, guid: c23a37ad86aedb74c8ceff1c4d3c1a8f, type: 3}
 --- !u!1 &2422340882998056939
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,8 +802,8 @@ Transform:
   m_GameObject: {fileID: 2474135765247242257}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0.955, z: 0.169}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6174119120623974965}
   - {fileID: 3048919350749240599}
@@ -1575,7 +1579,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 512
   brushSize: 0.1
-  brushTexture: {fileID: 0}
+  brushSize_L: 0.1
+  brushTexture: {fileID: 2800000, guid: baf8f90c7cd4e0441b5ccaa7be16f37a, type: 3}
+  brushTexture_L: {fileID: 2800000, guid: c23a37ad86aedb74c8ceff1c4d3c1a8f, type: 3}
 --- !u!1 &4514199137977737057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +1958,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resolution: 512
   brushSize: 0.1
-  brushTexture: {fileID: 0}
+  brushSize_L: 0.1
+  brushTexture: {fileID: 2800000, guid: baf8f90c7cd4e0441b5ccaa7be16f37a, type: 3}
+  brushTexture_L: {fileID: 2800000, guid: c23a37ad86aedb74c8ceff1c4d3c1a8f, type: 3}
 --- !u!1 &5816017462820306448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,8 +2484,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolution: 1024
-  brushSize: 0.1
-  brushTexture: {fileID: 0}
+  brushSize: 0.03
+  brushSize_L: 0.1
+  brushTexture: {fileID: 2800000, guid: baf8f90c7cd4e0441b5ccaa7be16f37a, type: 3}
+  brushTexture_L: {fileID: 2800000, guid: c23a37ad86aedb74c8ceff1c4d3c1a8f, type: 3}
 --- !u!1 &8006283318436554500
 GameObject:
   m_ObjectHideFlags: 0
