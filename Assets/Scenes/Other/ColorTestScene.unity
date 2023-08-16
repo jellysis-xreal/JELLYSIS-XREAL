@@ -11677,6 +11677,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6111634371311330877, guid: 85d42cee748b7404ea73b8c5ab280d17,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7062897013316257571, guid: 85d42cee748b7404ea73b8c5ab280d17,
         type: 3}
       propertyPath: m_RootOrder
@@ -12804,56 +12809,6 @@ MonoBehaviour:
   meshRenderer: {fileID: 1124200644}
   triggerArea: {fileID: 993492394}
   color: {r: 0, g: 0, b: 0, a: 0}
---- !u!1 &1088409067
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1088409069}
-  - component: {fileID: 1088409068}
-  m_Layer: 0
-  m_Name: BearManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1088409068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088409067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f88b96a834e4d4295cb985d9507ed5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerBears: []
-  GuestBears: []
-  AnswerBears: []
-  BaseMaterials: []
-  BaseColorList: []
-  ShouldCheckPair: 1
---- !u!4 &1088409069
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088409067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5022507, y: 0.63405436, z: 1.2000511}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124200642
 GameObject:
   m_ObjectHideFlags: 0
@@ -13039,8 +12994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd4f4d343ff9874e9936067f6012b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bearManager: {fileID: 1518518672}
   target: {fileID: 1083544564}
   bear: {fileID: 2046679672}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1158164471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14617,6 +14574,87 @@ Transform:
   m_Father: {fileID: 716952423}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1518518671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316934, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527208748773316936, guid: 8ce9bef851401f740a5b508c14ed4d89,
+        type: 3}
+      propertyPath: m_Name
+      value: Bear Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8ce9bef851401f740a5b508c14ed4d89, type: 3}
+--- !u!114 &1518518672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5527208748773316937, guid: 8ce9bef851401f740a5b508c14ed4d89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1518518671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f88b96a834e4d4295cb985d9507ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1522886371
 PrefabInstance:
   m_ObjectHideFlags: 0

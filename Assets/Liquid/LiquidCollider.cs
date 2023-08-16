@@ -8,9 +8,9 @@ public class LiquidCollider : MonoBehaviour
     public BearManager bearManager;
     public GameObject target;
     public GuestBear bear;
-    private PourDetector pourdetector;
+    [SerializeField] private PourDetector pourdetector;
     private float currenttime = 0;
-
+    public BearColorType bearColorType;
     public Color color;
     // Start is called before the first frame update
     void Start()
@@ -31,9 +31,10 @@ public class LiquidCollider : MonoBehaviour
                 {
                     // 컬러 변경 코드
                     // pourdetector.color 읽어올 수 있음.
-                    Debug.Log(pourdetector.color.r + " " + pourdetector.color.g + " " + pourdetector.color.b);
+                    Debug.Log("Color code : "+pourdetector.color.r + ", " + pourdetector.color.g + ", " + pourdetector.color.b);
 
                     color = pourdetector.color;
+                    bearColorType = pourdetector.bearColorType;
                     switch (pourdetector.color.r, pourdetector.color.g, pourdetector.color.b)
                     {
                         case (1.0f, 0.0f, 1.0f):// Purple color
