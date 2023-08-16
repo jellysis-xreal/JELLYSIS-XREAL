@@ -28,6 +28,7 @@ public class BearManager : MonoBehaviour
         SetBearsList();         // Set List
         SetAnswerBearsItem();   // Set Answer Deco Item
         UpdatePairPlayer();
+        Debug.Log("[TEST] Initalize Bear Manager");
         //SetPlayerList();        // Set Player
     }
 

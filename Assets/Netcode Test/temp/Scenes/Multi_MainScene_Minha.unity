@@ -5621,7 +5621,7 @@ GameObject:
   - component: {fileID: 1194741240}
   - component: {fileID: 1194741242}
   m_Layer: 8
-  m_Name: AutoPlayer (3)
+  m_Name: AutoPlayer (3 ChangeColor)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6716,10 +6716,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c1974ba00ca124eb40a62f171f7cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  before_state: 0
-  DecorateTime: 20
+  curState: 0
+  beforeState: 0
   curState_Multi:
+    m_InternalValue: 0
+  beforeState_Multi:
     m_InternalValue: 0
   transforms:
   - {fileID: 51833820}
@@ -6756,7 +6757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 886792768
+  GlobalObjectIdHash: 2080435111
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -8689,7 +8690,7 @@ GameObject:
   - component: {fileID: 1778119995}
   - component: {fileID: 1778119996}
   m_Layer: 8
-  m_Name: AutoPlayer (2)
+  m_Name: AutoPlayer (2 CutAndShape)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11795,7 +11796,7 @@ GameObject:
   - component: {fileID: 441203815282281650}
   - component: {fileID: 441203815282281651}
   m_Layer: 8
-  m_Name: AutoPlayer (1)
+  m_Name: AutoPlayer (0 PutCream)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
