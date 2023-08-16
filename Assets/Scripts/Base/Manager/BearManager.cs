@@ -158,6 +158,7 @@ public class BearManager : MonoBehaviour
                 case DecorateType.ChangeColor:
                     GameObject answer = bearComponent.AnswerBear;
                     bearComponent.ChangeBaseColor(answer.GetComponent<AnswerBear>().baseColor);
+                    bearComponent.DoPlusDecoration();
                     break;
 
                 case DecorateType.Basic:

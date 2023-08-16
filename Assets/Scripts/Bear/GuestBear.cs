@@ -149,6 +149,15 @@ public class GuestBear : GlobalBears
                     
                 child.gameObject.SetActive(false);
             }
+            else if (child.CompareTag("BasicDeco"))
+            {
+                DecoItemData item = new DecoItemData(child.gameObject, DecorateType.Basic);
+                
+                decoItemDataList.Add(item);
+                decoItemNum++;
+                    
+                child.gameObject.SetActive(false);
+            }
         }
     }
     
@@ -348,6 +357,18 @@ public class GuestBear : GlobalBears
         // mat = transform.GetChild(10).GetComponent<Renderer>().materials;
         // mat[1] = GetNewMaterial(10, texture2DArray); // Element0 = Empty_material
         // transform.GetChild(10).GetComponent<Renderer>().materials = mat;
+    }
+    
+    // 추가 기능: ChangeColor 기능의 젤리곰은 기본 데코도 동시에 할 수 있습니다
+    public void DoPlusDecoration()
+    {
+        foreach (var item in decoItemDataList)
+        {
+            if (item.ItemType == DecorateType.Basic)
+            {
+                item.ItemObject.SetActive(true);
+            }
+        }
     }
 
     private bool HasMultipleMaterials(Renderer renderer)
