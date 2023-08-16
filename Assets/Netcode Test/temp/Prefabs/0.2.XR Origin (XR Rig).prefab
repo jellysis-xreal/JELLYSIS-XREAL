@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5045835973779367010}
   - component: {fileID: 1900998177059789927}
   - component: {fileID: 7323584091831841757}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 5045835973833435583}
   - component: {fileID: 5045835973833435580}
   - component: {fileID: 5045835973833435571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,9 +891,10 @@ GameObject:
   - component: {fileID: 5045835975061946624}
   - component: {fileID: 8813216966704209929}
   - component: {fileID: 3857520077759640382}
-  m_Layer: 0
+  - component: {fileID: 2530068180430057934}
+  m_Layer: 8
   m_Name: 0.2.XR Origin (XR Rig)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1156,6 +1157,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc34a17bebd0844878919129551b66ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2530068180430057934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5045835975061946647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca3fe76a23042d78143446411121e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BearType: 2
+  baseColor: 0
+  decoItemNum: 0
+  originParent: {fileID: 0}
+  decorateType: 1
 --- !u!1 &5045835975233132418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1189,7 @@ GameObject:
   - component: {fileID: 5045835975233132423}
   - component: {fileID: 5045835975233132420}
   - component: {fileID: 5045835975233132475}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1796,7 +1814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5045835975682740591}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1828,6 +1846,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5045835973779367012}
     m_Modifications:
+    - target: {fileID: 140178338365841505, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 533465926873327733, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679526227387005067, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208431165330269228, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591740710231146721, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794357481604736018, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794357481733832846, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794357481966267000, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5794357482390318312, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
         type: 3}
       propertyPath: m_RootOrder
@@ -1887,6 +1945,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 0.XRAvatar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794357482390318313, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330310208869515451, guid: 9ee12dfe5988a4c4db032d41f13fdb69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ee12dfe5988a4c4db032d41f13fdb69, type: 3}

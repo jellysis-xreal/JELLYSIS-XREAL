@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Field of view")]
     [SerializeField] private GameType CurrentGameMode = GameType.Multi;
-    public StageState CurrentState;
-    
+
     private static GameManager instance;
 
     public static GameManager Instance
@@ -36,8 +35,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BearManager  _bear;
     public static BearManager Bear { get { return Instance._bear; } } // MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
     
-    [SerializeField] private StageController _stage;
-    public static StageController Stage { get { return Instance._stage; } }// MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
+    //[SerializeField] private StageController _stage;
+    //public static StageController Stage { get { return Instance._stage; } }// MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
     
     // [SerializeField] private CustomSceneManager _scene;
     // public static CustomSceneManager Scene { get { return Instance._scene; } }// MonoBehaviour를 상속 받고 있기 때문에 Scene에서 직접 할당 필요
@@ -54,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         Init();
         
-        Test();
+        //Test();
     }
 
     public void Init()
@@ -76,8 +75,8 @@ public class GameManager : MonoBehaviour
              instance = obj.GetComponent<GameManager>();
 
              // 하위 Managers Init();
-             Stage.Init();
-             Bear.Init();
+             //Stage.Init();
+             // Bear.Init();
              // Sound.Init();
              // Scene.Init();
              //          

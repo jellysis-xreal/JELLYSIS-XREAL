@@ -10,7 +10,19 @@ public class SpawnPlayer : MonoBehaviour
 
     private void Start()
     {
-        ReplacePlayer1();
+        // ReplacePlayer1();
+    }
+
+    [ContextMenu("SetPlayer")]
+    public void InitPlayer()
+    {
+        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+
+        for (int i = 0; i < 4; i++)
+        {
+            player[i].transform.position = transforms[i].position;
+            player[i].transform.rotation = transforms[i].rotation;
+        }
     }
 
     public void ReplacePlayer1()

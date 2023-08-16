@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f88b96a834e4d4295cb985d9507ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerBears: []
-  AutoBears: []
+  PlayerBears:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   GuestBears: []
-  CorrectBears: []
+  AnswerBears: []
   BaseMaterials:
   - {fileID: 2100000, guid: 7017768bf94d3ed44bf8e68114943c89, type: 2}
   - {fileID: 2100000, guid: 67d1f06613348384d89e14d124902fcc, type: 2}
@@ -74,3 +77,4 @@ MonoBehaviour:
   - {fileID: 18700000, guid: 9bf7a1809a720e747ad570bb5802361f, type: 2}
   - {fileID: 18700000, guid: c3ff6840e9ead7142bff5b83fd0dc627, type: 2}
   - {fileID: 18700000, guid: 421d9c583a23c7048b54981db0d39adf, type: 2}
+  ShouldCheckPair: 1

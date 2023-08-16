@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class StageController : MonoBehaviour
 {
-
+    
+    // [0815] 해당 Class의 내용들 StageManager에 합침
     [Header("Stage Setting")] 
     private StageState state;
     public int DecorateTime = 20;
@@ -19,7 +20,7 @@ public class StageController : MonoBehaviour
 
     public void Init()
     {
-        state = GameManager.Instance.CurrentState;
+        //state = GameManager.Instance.CurrentState;
         timer = 0.0f;
         
     }

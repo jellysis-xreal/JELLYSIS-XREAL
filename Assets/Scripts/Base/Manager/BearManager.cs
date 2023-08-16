@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class BearManager : MonoBehaviour
 {
-    public List<GameObject> PlayerBears;
+    public List<GameObject> PlayerBears= new List<GameObject>(4);
     //public List<GameObject> AutoBears;
 
     public List<GameObject> GuestBears;
@@ -16,6 +16,8 @@ public class BearManager : MonoBehaviour
     public List<Material> BaseMaterials;
     public List<Texture2DArray> BaseColorList;
 
+    public bool ShouldCheckPair = true;
+    
     // TODO: 각 Bear List 셋업 (미리 등록 또는 Tag 검색)
     public void Init()
     {
@@ -25,7 +27,8 @@ public class BearManager : MonoBehaviour
         
         SetBearsList();         // Set List
         SetAnswerBearsItem();   // Set Answer Deco Item
-        SetPlayerList();        // Set Player
+        UpdatePairPlayer();
+        //SetPlayerList();        // Set Player
     }
 
     private void SetBearsList()
@@ -65,41 +68,113 @@ public class BearManager : MonoBehaviour
         {
             bear.GetComponent<AnswerBear>().InitAnswer();
         }
+        
+        foreach (var bear in GuestBears)
+        {
+            bear.GetComponent<GuestBear>().SetDecorationList();
+        }
     }
-    
+
     /// <summary>
     /// 꾸밀곰의 정면에 있는 Player를 확인하고, 그 순서대로 List Up
     /// </summary>
-    private void SetPlayerList()
+    public IEnumerator SetPairPlayerList()
+    {
+        int pair = 0;
+        while (ShouldCheckPair)
+        {
+            PlayerBears.Clear();
+            for (int i = 0; i < 4; i++)
+            {
+                GameObject temp = GuestBears[i].GetComponent<GuestBear>().GetPairPlayer();
+                if (temp != null)
+                {
+                    PlayerBears.Add(temp);
+                    pair++;
+                }
+            }
+            yield return new WaitForSeconds(0.2f);
+            
+            if (pair < 4)
+                ShouldCheckPair = true;
+
+            else
+            {
+                ShouldCheckPair = false;
+            }
+
+        }
+    }
+
+    public void SetPlayerList_()
     {
         PlayerBears.Clear();
-        foreach (var guest in GuestBears)
+        for (int i=0; i < 4; i++)
         {
-            guest.GetComponent<GuestBear>().CheckPairPlayer();
+            GuestBear tempBear = GuestBears[i].GetComponent<GuestBear>();
+            PlayerBears.Add(tempBear.GetPairPlayer());
         }
-        Invoke("SetPlayerList_", 3.0f);
     }
-
-    private void SetPlayerList_()
+    
+    public void UpdatePairPlayer()
     {
         foreach (var guest in GuestBears)
         {
-            PlayerBears.Add(guest.GetComponent<GuestBear>().GetPairPlayer());
+            // Debug.Log(guest.name + "의 UpdatePairPlayer() 진행함 -----> ");
+            guest.GetComponent<GuestBear>().CheckPairPlayer();
         }
     }
 
-    
+    public void AutoDecorate()
+    {
+        //Debug.Log("[TEST] Start Auto decorate");
+        //yield return StartCoroutine(SetPairPlayerList());
+        //yield return new WaitForSeconds(3.0f);
+
+        //SetPlayerList_();
+
+        foreach (var bear in GuestBears)
+        {
+            GuestBear bearComponent = bear.GetComponent<GuestBear>();
+
+            if (bearComponent.GetPairBearType() == BearType.PlayerBear) 
+                continue; // Pair가 Player일 경우는 Auto를 수행하지 않음
+
+            switch (bearComponent.GetPairPlayerType())
+            {
+                case DecorateType.PutCream:
+                    bearComponent.PutCream();
+                    break;
+
+                case DecorateType.Draw:
+                    bearComponent.Draw();
+                    break;
+
+                case DecorateType.CutAndShape:
+                    bearComponent.CutAndShape();
+                    break;
+
+                case DecorateType.ChangeColor:
+                    GameObject answer = bearComponent.AnswerBear;
+                    bearComponent.ChangeBaseColor(BaseColorList[(int)answer.GetComponent<AnswerBear>().baseColor]);
+                    break;
+
+                case DecorateType.Basic:
+                    break;
+            }
+        }
+    }
     
     public void Test()
     {
         // Guest Bear color 변경 테스트
         // GuestBears[0].GetComponent<GuestBear>().ChangeBaseColor(BaseColorList[(int)BearColorType.Red]);
 
-        foreach (var bear in GuestBears)
-        {
-            bear.GetComponent<GuestBear>().CutAndShape();
-            GameObject answer = bear.GetComponent<GuestBear>().AnswerBear;
-            bear.GetComponent<GuestBear>().ChangeBaseColor(BaseColorList[(int)answer.GetComponent<AnswerBear>().baseColor]);
-        }
+        // foreach (var bear in GuestBears)
+        // {
+        //     bear.GetComponent<GuestBear>().CutAndShape();
+        //     GameObject answer = bear.GetComponent<GuestBear>().AnswerBear;
+        //     bear.GetComponent<GuestBear>().ChangeBaseColor(BaseColorList[(int)answer.GetComponent<AnswerBear>().baseColor]);
+        // }
     }
 }
