@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using EnumTypes;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction.ColorChanger;
@@ -124,7 +125,7 @@ namespace ColorChanger
 
         private void CheckCollision()
         {
-            Debug.Log("CheckCollision");
+            //Debug.Log("CheckCollision");
             redCollided = false;
             blueCollided = false;
             yellowCollided = false;
@@ -172,31 +173,35 @@ namespace ColorChanger
                         liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.0f, 1.0f)); // Purple color
                         currentStream.SetLineColor(new Color(1.0f, 0.0f, 1.0f));
                         color = new Color(1.0f, 0.0f, 1.0f);
+                        pourDetector.bearColorType = BearColorType.Purple;
                         break;
                     case (true, false, true, false):
                         Debug.Log("Red + Blue = Orange");
                         liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.5f, 0.0f));// Orange color
                         currentStream.SetLineColor(new Color(1.0f, 0.5f, 0.0f));
                         color = new Color(1.0f, 0.5f, 0.0f);
+                        pourDetector.bearColorType = BearColorType.Orange;
                         break;
                     case (true, false, false, true):
                         Debug.Log("Red + White = Pink");
                         liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.75f, 0.75f)); // Pink color
                         currentStream.SetLineColor(new Color(1.0f, 0.75f, 0.75f));
                         color = new Color(1.0f, 0.75f, 0.75f);
+                        pourDetector.bearColorType = BearColorType.Pink;
                         break;
                     case (false, true, true, false):
                         Debug.Log("Blue + Yellow = Green");
                         liquidMaterial.SetColor("_Tint", new Color(0.0f, 1.0f, 0.0f)); // Green color
                         currentStream.SetLineColor(new Color(0.0f, 1.0f, 0.0f));
                         color = new Color(0.0f, 1.0f, 0.0f);
-
+                        pourDetector.bearColorType = BearColorType.Green;
                         break;
                     case (false, true, false, true):
                         Debug.Log("Blue + White = Skyblue");
                         liquidMaterial.SetColor("_Tint", new Color(0.0f, 1.0f, 1.0f)); // Sky blue color
                         currentStream.SetLineColor(new Color(0.0f, 1.0f, 1.0f));
                         color = new Color(0.0f, 1.0f, 1.0f);
+                        pourDetector.bearColorType = BearColorType.PastelBlue;
 
                         break;
                     case (false, false, true, true):
@@ -204,7 +209,7 @@ namespace ColorChanger
                         liquidMaterial.SetColor("_Tint", new Color(1.0f, 1.0f, 0.0f)); // Pastel green color
                         currentStream.SetLineColor(new Color(1.0f, 1.0f, 0.0f));
                         color = new Color(1.0f, 1.0f, 0.0f);
-
+                        pourDetector.bearColorType = BearColorType.PastelYellow;
                         break;
 
                     default:
@@ -215,24 +220,28 @@ namespace ColorChanger
                                 liquidMaterial.SetColor("_Tint", new Color(1,0,0));
                                 currentStream.SetLineColor(Color.red);
                                 color =Color.red;
+                                pourDetector.bearColorType = BearColorType.Red;
                                 break;
                             case (false, true, false, false):
                                 //Debug.Log("Blue");
                                 liquidMaterial.SetColor("_Tint", new Color(0,0,1));
                                 currentStream.SetLineColor(Color.blue);
                                 color = Color.blue;
+                                pourDetector.bearColorType = BearColorType.Blue;
                                 break;
                             case (false, false, true, false):
                                 Debug.Log("Yellow");
                                 liquidMaterial.SetColor("_Tint", new Color(1,1,0));
                                 currentStream.SetLineColor(Color.yellow);
                                 color = Color.yellow;
+                                pourDetector.bearColorType = BearColorType.Yellow;
                                 break;
                             case (false, false, false, true):
                                 Debug.Log("White");
                                 liquidMaterial.SetColor("_Tint", new Color(1,1,1));
                                 currentStream.SetLineColor(Color.white);
                                 color = Color.white;
+                                pourDetector.bearColorType = BearColorType.White;
                                 break;
                         }
                         break;

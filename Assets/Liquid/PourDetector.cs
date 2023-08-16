@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using ColorChanger;
+using EnumTypes;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,18 +14,15 @@ public class PourDetector : MonoBehaviour
     public bool isEmpty = false;
     public bool isPouring = false;
     public Stream currentStream = null;
-    
+    private LiquidCollider _liquidCollider;    
     public delegate void StreamColorChanged(Color newColor);
 
     public event Action<Color> OnStreamColorChanged;
     public MeshRenderer meshRenderer;
     public TriggerArea triggerArea;
     public Color color;
-    private void Start()
-    {
-        
-    }
 
+    public BearColorType bearColorType;
     private void Update()
     {
         bool pourCheck = CalculatePourAngle() < pourThreshold;
