@@ -127,6 +127,8 @@ GameObject:
   - component: {fileID: 1938737546564626618}
   - component: {fileID: 6464341713715291720}
   - component: {fileID: 6464341713715291831}
+  - component: {fileID: 6464341713996637387}
+  - component: {fileID: 6464341713996637386}
   m_Layer: 0
   m_Name: ButtonHurry_Hits
   m_TagString: Untagged
@@ -248,19 +250,7 @@ MonoBehaviour:
   m_ToggleButton: 0
   m_OnPress:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6464341713715291720}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnRelease:
     m_PersistentCalls:
       m_Calls: []
@@ -5046,6 +5036,34 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6464341713996637387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046323532393557176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823831953788b304ca5426a87ce5e94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressed: 0
+  particle: {fileID: 0}
+--- !u!114 &6464341713996637386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046323532393557176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823831953788b304ca5426a87ce5e94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPressed: 0
+  particle: {fileID: 0}
 --- !u!1 &6635321484359214185
 GameObject:
   m_ObjectHideFlags: 0
