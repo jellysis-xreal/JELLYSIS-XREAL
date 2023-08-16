@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,11 @@ public class Stream : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         splashParticle = GetComponentInChildren<ParticleSystem>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void Start()

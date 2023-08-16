@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction.ColorChanger;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -11,7 +12,7 @@ namespace ColorChanger
     public class TriggerArea : XRBaseInteractor
     {
         private XRBaseInteractable currentInteractable = null;
-        private List<XRBaseInteractable> interactablesInsideTrigger = new List<XRBaseInteractable>();
+        [SerializeField]private List<XRBaseInteractable> interactablesInsideTrigger = new List<XRBaseInteractable>();
 
         private bool redCollided = false;
         private bool blueCollided = false;
@@ -20,13 +21,16 @@ namespace ColorChanger
 
         public Material liquidMaterial;
         public GameObject streamPrefabColor;
+        private bool isPrefabInstantiated = false;
         public Stream currentStream = null;
         public Transform origin = null;
 
         public bool pourCheck = false;
-        private bool isPouring = false;
+        [SerializeField]private bool isPouring = false;
 
         public static event Action<Color> OnColorDetected;
+
+        public XRKnob xrKnob;
 
         private void OnTriggerStay(Collider other)
         {
@@ -38,8 +42,12 @@ namespace ColorChanger
                 {
                     interactablesInsideTrigger.Add(interactable);
                     Debug.Log("Object entered the trigger area: " + interactable.name);
-                    CheckCollision();
-
+                    //CheckCollision();
+                    return;
+                }
+                if (!isPrefabInstantiated)
+                {
+                    CheckCollision();    
                 }
             }
 
@@ -121,7 +129,7 @@ namespace ColorChanger
                 if (tag == "Blue")
                 {
                     blueCollided = true;
-                    Debug.Log("Object with Tag2 is inside the trigger area.");
+                    //Debug.Log("Object with Tag2 is inside the trigger area.");
 
                 }
                 if (tag == "Yellow")
@@ -134,7 +142,6 @@ namespace ColorChanger
                 {
                     whiteCollided = true;
                     Debug.Log("Object with Tag2 is inside the trigger area.");
-
                 }
 
             }
@@ -185,7 +192,7 @@ namespace ColorChanger
                                 currentStream.SetLineColor(Color.red);
                                 break;
                             case (false, true, false, false):
-                                Debug.Log("Blue");
+                                //Debug.Log("Blue");
                                 liquidMaterial.SetColor("_Tint", Color.blue);
                                 currentStream.SetLineColor(Color.blue);
                                 break;
@@ -208,16 +215,22 @@ namespace ColorChanger
 
 
         }
-
+        void ResetLeverPosition()
+        {
+            // 새로 생성, 기존에 있던 거 삭제됨.
+        }
         private Stream CreateStream()
         {
+            Debug.Log("CreateSteam!");
             GameObject streamObject = Instantiate(streamPrefabColor, origin.position, Quaternion.identity, transform);
+            
             return streamObject.GetComponent<Stream>();
         }
 
         private void StartPour()
         {
-            if (!isPouring)
+            Debug.Log("TryPour, Value : " + xrKnob.value);
+            if (!isPouring && (xrKnob.value <=0 || xrKnob.value >=2) && !isPrefabInstantiated) // 여기에서 회전값 일정량 이상 되면 붓도록&&    
             {
                 isPouring = true;
                 pourCheck = true;
@@ -225,7 +238,7 @@ namespace ColorChanger
                 currentStream = CreateStream();
                 currentStream.Begin();
                 StartCoroutine(EndPourAfterDelay(5.0f));
-
+                isPrefabInstantiated = true;
 
                 /*
                 XRKnob xRKnob = new XRKnob();
