@@ -3,13 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using EnumTypes;
 using UnityEngine;
+using Unity.Netcode;
 
-public class StageManager : MonoBehaviour
+public class StageManager : NetworkBehaviour
 {
     [Header("Stage Setting")] public StageState state = StageState.InLobby;
     [SerializeField] private StageState before_state;
     private int MaxPlayer = 4;
     public int DecorateTime = 20;
+
+    // CMS: state 초기화 - only server can edit this variable
+    [SerializeField]
+    public NetworkVariable<StageState> curState_Multi = new NetworkVariable<StageState>(StageState.InLobby, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+
 
     [Header("Bool")] private bool IsStateUpdate = false;
     private bool CanStartStage = false;
@@ -30,6 +36,23 @@ public class StageManager : MonoBehaviour
         bearManager = GameManager.Bear;
         state = StageState.BeforeStageStart;
     }
+
+
+    // CMS: network variable 변화한 값 업데이트
+    public override void OnNetworkSpawn()
+    {
+        curState_Multi.OnValueChanged += OnStateValueChanged;
+    }
+
+    private void OnStateValueChanged(StageState previousValue, StageState newValue)
+    {
+        // state는 바로바로 동기화 됨
+        // 변화하면 수행하고 싶은 함수 넣으면 됨 ex.
+        Debug.Log("[TEST] StateValue changed before: " + previousValue + " after: " + newValue);
+        CanStartStage = true;
+    }
+
+
 
     private IEnumerator SetTheStageCoroutine()
     {
@@ -54,6 +77,8 @@ public class StageManager : MonoBehaviour
                 }
 
                 state = StageState.StageStart;
+                // CMS
+                if(IsServer) curState_Multi.Value = StageState.StageStart;
                 CanStartStage = true;
             }
             else
