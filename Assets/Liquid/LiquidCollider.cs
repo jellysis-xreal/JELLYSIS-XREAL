@@ -9,6 +9,8 @@ public class LiquidCollider : MonoBehaviour
     public GuestBear bear;
     private PourDetector pourdetector;
     private float currenttime = 0;
+
+    public Color color;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,44 @@ public class LiquidCollider : MonoBehaviour
                 {
                     // 컬러 변경 코드
                     // pourdetector.color 읽어올 수 있음.
-                    Debug.Log(pourdetector.color.r+" "+pourdetector.color.g+" "+pourdetector.color.b);
+                    Debug.Log(pourdetector.color.r + " " + pourdetector.color.g + " " + pourdetector.color.b);
+
+                    color = pourdetector.color;
+                    switch (pourdetector.color.r, pourdetector.color.g, pourdetector.color.b)
+                    {
+                        case (1.0f, 0.0f, 1.0f):// Purple color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Purple]);
+                            break;
+                        case (1.0f, 0.5f, 0.0f):// Orange color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Orange]);
+                            break;
+                        case (1.0f, 0.75f, 0.75f):// Pink color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Pink]);
+                            break;
+                        case (0.0f, 1.0f, 0.0f):// Green color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Green]);
+                            break;
+                        case (0.0f, 1.0f, 1.0f):// Sky blue color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Skyblue]);
+                            break;
+                        case (1.0f, 1.0f, 0.0f):// Pastel yellow color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Pastelgreen]);
+                            break;
+                        case (1.0f, 0.0f, 0.0f):// red color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
+                            break;
+                        case (0.0f, 0.0f, 1.0f):// blue color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Blue]);
+                            break;
+                        case (1.0f, 1.0f, 0.5f):// yellow color 
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Pastelyellow]);
+                            break;
+                        case (1.0f, 1.0f, 1.0f):// white color
+                            //bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.White]);
+                            break;
+                    }
+
+                    
                     
                     /*1,0,0 -> red
                     bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
