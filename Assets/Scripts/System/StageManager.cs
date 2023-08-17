@@ -36,6 +36,9 @@ public class StageManager : NetworkBehaviour
     private BearManager bearManager;
     private int _currentRound = 1;
     
+    [SerializeField] public NetworkObject injection, whisk, creamBowl;
+    private ulong clientId = 1;
+    
     private void Start()
     {
         //before_state = state;
@@ -96,6 +99,18 @@ public class StageManager : NetworkBehaviour
                 // curState = StageState.StageStart;
                 // // CMS
                 // if(IsServer) curState_Multi.Value = StageState.StageStart; // -> 클라이언트도 자동으로 바뀐다!
+
+                // 여기 spawn code 수정
+                if (IsServer)
+                {
+                    // // // UnityEditor.TransformWorldPlacementJSON:{"position":{"x":8.310199737548829,"y":0.39800000190734866,"z":-2.5239999294281008},"rotation":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"scale":{"x":3.1062018871307375,"y":3.1062018871307375,"z":3.1062018871307375}}
+                    // Vector3 spawnPoint = new Vector3(8.31f, 0.40f, -2.52f);
+                    // NetworkObject _injection = Instantiate(injectionPrefab, spawnPoint, Quaternion.identity);
+                    // _injection.GetComponent<NetworkObject>().Spawn(true); //.SpawnWithOwnership(clientId)
+                    injection.ChangeOwnership(clientId);
+                    whisk.ChangeOwnership(clientId);
+                    creamBowl.ChangeOwnership(clientId);
+                }
                 CanStartStage = true;
             }
             else
