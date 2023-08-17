@@ -38,7 +38,11 @@ namespace ColorChanger
         public PourDetector pourDetector;
         public Color color;
 
-        public PuddingSpawn puddingSpawn;
+        public PuddingSpawn puddingSpawn1;
+        public PuddingSpawn puddingSpawn2;
+        public PuddingSpawn puddingSpawn3;
+        public PuddingSpawn puddingSpawn4;
+
 
         private void Start()
         {
@@ -287,7 +291,6 @@ namespace ColorChanger
                 currentStream.Begin();
                 StartCoroutine(EndPourAfterDelay(5.0f));
 
-                puddingSpawn.puddingReset = true;
                 
 
                 /*
@@ -320,6 +323,11 @@ namespace ColorChanger
             Debug.Log("EndPour routine End");
             isPouring = false;
             isPrefabInstantiated = false;
+
+            puddingSpawn1.puddingReset = true;
+            puddingSpawn2.puddingReset = true;
+            puddingSpawn3.puddingReset = true;
+            puddingSpawn4.puddingReset = true;
         }
     }
 }
