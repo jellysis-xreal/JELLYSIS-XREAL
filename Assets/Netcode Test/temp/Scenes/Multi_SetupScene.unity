@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -896,7 +896,7 @@ MonoBehaviour:
       type: 3}
     Prefabs:
       NetworkPrefabsLists:
-      - {fileID: 11400000, guid: bdab3eeba8835437ebd558ecce6bd191, type: 2}
+      - {fileID: 11400000, guid: 800572db6d491584eb26cbc4179fb0f9, type: 2}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostBtn: {fileID: 2145220168}
   clientBtn: {fileID: 2064759023}
-  DefaultMainMenu: PlayScene_Setting
+  DefaultMainMenu: Multi_MainScene
 --- !u!1 &1812435602
 GameObject:
   m_ObjectHideFlags: 0
