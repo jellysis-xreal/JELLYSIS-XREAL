@@ -7,6 +7,7 @@ public class Cut_Banana_multi : NetworkBehaviour
 {
     public NetworkObject origin_banana;
     public NetworkObject origin_bananaPiece;
+    public NetworkSyncObject NSO_origin_bananaPiece;
     public NetworkObject new_bananaPiece;
     public AudioSource cut_banana;
 
@@ -36,7 +37,7 @@ public class Cut_Banana_multi : NetworkBehaviour
             RequestRemoveParent(new_bananaPiece, origin_banana);
             Debug.Log("[TEST] banana parent removed ");
             RequestOwnership(origin_bananaPiece);
-            // NSO_origin_bananaPiece.SetActiveNetworkObject(false);
+            NSO_origin_bananaPiece.SetActiveNetworkObject(false);
         }
     }
 
