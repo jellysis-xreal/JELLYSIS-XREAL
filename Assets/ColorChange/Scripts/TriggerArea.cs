@@ -171,7 +171,7 @@ namespace ColorChanger
             {
 
                 StartPour();
-                
+                // 색 바꾸기 전 알아야 할 것 : 
                 switch (redCollided, blueCollided, yellowCollided, whiteCollided)
                 {
                     case (true, true, false, false):
@@ -323,11 +323,6 @@ namespace ColorChanger
             Debug.Log("EndPour routine End");
             isPouring = false;
             isPrefabInstantiated = false;
-
-            puddingSpawn1.puddingReset = true;
-            puddingSpawn2.puddingReset = true;
-            puddingSpawn3.puddingReset = true;
-            puddingSpawn4.puddingReset = true;
         }
     }
 }
