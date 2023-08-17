@@ -180,7 +180,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 131072
   m_AttachTransform: {fileID: 6981300061680270395}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -407,7 +407,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6949799667166120619, guid: 8e9408ec29991f1488329726d215f9b8, type: 3}
+  - {fileID: 2100000, guid: 3790f776c5870aa46ac34202ec28ac48, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1183,8 +1183,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8896051167825165466, guid: bd49c9493a54d654c810df6cc0de18bb, type: 3}
-  - {fileID: 4230573869449359086, guid: bd49c9493a54d654c810df6cc0de18bb, type: 3}
+  - {fileID: 2100000, guid: 3790f776c5870aa46ac34202ec28ac48, type: 2}
+  - {fileID: 2100000, guid: 521664acfe85320439b6cebe6856a09a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1429,14 +1429,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8117180315181321538}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.60876137, z: 0, w: 0.7933534}
   m_LocalPosition: {x: -0.054, y: -0.213, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8587446398523875580}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}
 --- !u!65 &8117180315181321537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1546,6 +1546,7 @@ GameObject:
   - component: {fileID: 8964254172380232265}
   - component: {fileID: 8964254172380232264}
   - component: {fileID: 8587446398523875555}
+  - component: {fileID: 4225708222095982062}
   m_Layer: 0
   m_Name: brush_XRI_S
   m_TagString: Untagged
@@ -1560,9 +1561,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8964254172380232262}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.0442, y: 0.07582903, z: -0.2252}
-  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
+  m_LocalScale: {x: 0.19, y: 0.19, z: 0.19}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5633886834212743484}
@@ -1584,8 +1585,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1030093, y: 0.20000002, z: 0.20000002}
-  m_Center: {x: -0.50421166, y: 0, z: 3.1495586e-15}
+  m_Size: {x: 2.1307273, y: 0.9237362, z: 0.20000002}
+  m_Center: {x: 0.009645968, y: -0.36186808, z: -2.911587e-17}
 --- !u!54 &8964254172380232265
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1597,8 +1598,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1829,3 +1830,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4225708222095982062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964254172380232262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af5c36cec68cd7448bf256f24aa79b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFalling: 0
