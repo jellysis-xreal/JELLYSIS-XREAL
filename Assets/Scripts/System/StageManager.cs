@@ -9,32 +9,32 @@ using UnityEngine.Serialization;
 
 public class StageManager : NetworkBehaviour
 {
-    [Header("Stage Setting")] 
-    [SerializeField] private StageState curState = StageState.InLobby;
-    [SerializeField] private StageState beforeState;
-    private int MaxPlayer = 4;
-    //public int DecorateTime = 20;
-
+    [Header("Stage Setting")]
+    public int MaxPlayer = 4;
+    public int DecorateRound = 4;
+    public DecorateType PlayerType1 = DecorateType.PutCream;
+    public DecorateType PlayerType2 = DecorateType.Draw;
+    private StageState curState = StageState.InLobby;
+    private StageState beforeState;
+    
     // CMS: state 초기화 - only server can edit this variable
     [SerializeField]
     public NetworkVariable<StageState> curState_Multi = new NetworkVariable<StageState>(StageState.InLobby, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     public NetworkVariable<StageState> beforeState_Multi = new NetworkVariable<StageState>(StageState.InLobby, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
-
-    [Header("Bool")] 
+    
     private bool IsStateUpdate = false;
     private bool CanStartStage = false;
     private bool SetFirst = false;
 
-    [Header("Player")] 
+    [Header("Player Setting")] 
     [SerializeField] private Transform[] transforms;
     [SerializeField] private List<GameObject> players = new List<GameObject>();
-    private DecorateType PlayerType1 = DecorateType.PutCream;
-    private DecorateType PlayerType2 = DecorateType.Draw;
-
+    
     public TableEventManager tableEventManager;
     public TimerUpdater timerUpdater;
     private WaitForSeconds tableRotationTime;
     private BearManager bearManager;
+    private int _currentRound = 1;
     
     private void Start()
     {
@@ -130,6 +130,29 @@ public class StageManager : NetworkBehaviour
         StartGame();
     }
 
+    [ServerRpc]
+    public void GameIsEndServerRpc()
+    {
+        if (IsServer)
+        {
+            curState = StageState.DoPosing;
+            curState_Multi.Value = curState;
+            StopCoroutine(StageRoutine());
+            timerUpdater.StopAllTimer();
+            GameIsEndClientRpc();
+        }
+    }
+    
+    [ClientRpc]
+    public void GameIsEndClientRpc()
+    {
+        if (IsClient)
+        {
+            StopCoroutine(StageRoutine());
+            timerUpdater.StopAllTimer();
+        }
+    }
+    
     private void SetPlayers()
     {
         if (IsClient)
@@ -177,6 +200,7 @@ public class StageManager : NetworkBehaviour
     private void StartGame()
     {
         Debug.Log("[TEST] Start Game!");
+        _currentRound = 0;
         timerUpdater.ResetAllTimer();
         
         // stage가 시작하면, Decorate time이 주어집니다
@@ -223,6 +247,7 @@ public class StageManager : NetworkBehaviour
 
             case StageState.RotateLP:
                 Debug.Log("[TEST] <-----LP 돌아갑니다----->");
+
                 // TODO: Auto 곰돌이 춤추는 애니메이션이라던지?
                 break;
 
@@ -231,11 +256,18 @@ public class StageManager : NetworkBehaviour
                 bearManager.UpdatePairPlayer();
                 Invoke("SetPairPlayer", 3.0f);
                 Invoke("StartAutoDeco", 5.0f);
+
+                _currentRound++;
+                if (_currentRound >= DecorateRound) GameIsEndServerRpc();
+
                 //StartCoroutine(bearManager.SetPairPlayerList());
                 //StartCoroutine(bearManager.AutoDecorate());
                 break;
 
             case StageState.DoPosing:
+                Debug.Log("[TEST] <-----Game이 종료되었습니다!----->");
+                // TODO: Auto 곰돌이 엔딩 포즈
+                // TODO: Ending BGM 
                 break;
             
             default:
