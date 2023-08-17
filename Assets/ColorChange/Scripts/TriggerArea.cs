@@ -38,6 +38,7 @@ namespace ColorChanger
         public PourDetector pourDetector;
         public Color color;
 
+        public PuddingSpawn puddingSpawn;
 
         private void Start()
         {
@@ -285,6 +286,8 @@ namespace ColorChanger
                 currentStream = CreateStream();
                 currentStream.Begin();
                 StartCoroutine(EndPourAfterDelay(5.0f));
+
+                puddingSpawn.puddingReset = true;
                 
 
                 /*
