@@ -590,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1054927663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -857,6 +857,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: copy2_0.2.XR Origin (XR Rig)
       objectReference: {fileID: 0}
+    - target: {fileID: 5045835975061946647, guid: 7c610f3a741d8a2458b5069c99b30ea1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c610f3a741d8a2458b5069c99b30ea1, type: 3}
 --- !u!1 &1542108122
@@ -968,7 +973,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1755710542}
-    PlayerPrefab: {fileID: 5045835975061946647, guid: 6dfb706fa7c564ae697c08e38837ddc1,
+    PlayerPrefab: {fileID: 5045835975061946647, guid: 7c610f3a741d8a2458b5069c99b30ea1,
       type: 3}
     Prefabs:
       NetworkPrefabsLists:
@@ -1679,6 +1684,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5045835973763771831}
     m_Modifications:
+    - target: {fileID: 1148421694122734493, guid: eb40523476957344cba9caa104a301cf,
+        type: 3}
+      propertyPath: m_MaxRaycastDistance
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 3061942295211237901, guid: eb40523476957344cba9caa104a301cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -1738,6 +1748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185776369483888159, guid: eb40523476957344cba9caa104a301cf,
+        type: 3}
+      propertyPath: m_LineLength
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 8119027534848293571, guid: eb40523476957344cba9caa104a301cf,
         type: 3}
@@ -3223,6 +3238,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063851150274132989, guid: bfea8c7da7c69e94392e130498f1a5d0,
+        type: 3}
+      propertyPath: m_LineLength
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638191842880192127, guid: bfea8c7da7c69e94392e130498f1a5d0,
+        type: 3}
+      propertyPath: m_MaxRaycastDistance
+      value: 3000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfea8c7da7c69e94392e130498f1a5d0, type: 3}
