@@ -16,4 +16,12 @@ public class TimerUpdater : MonoBehaviour
             timers[i].ResetTimer();
         }
     }
+
+    public void StopAllTimer()
+    {
+        for (int i = 0; i < timers.Length; i++)
+        {
+            timers[i].StopTimer();
+        }
+    }
 }

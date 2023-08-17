@@ -111,18 +111,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33d26a491bfb154ea43e8650894d3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creamPrefab: {fileID: 3241439600712633885, guid: c059d2a4b52c4e04cb6948245522ac05,
+  creamPrefab: {fileID: 3241439600712633885, guid: 6c5405dceb006b94bbbb935f2c094fd5,
     type: 3}
   scaleSpeed: 0.2
   injectionPusherTransform: {fileID: 4424408901292351660}
   remainCreamTransform: {fileID: 4424408900441540354}
   isScalingUp: 0
-  isPressing: 1
+  isPressing: 0
   _isTouching: 0
   timeOK: 0
   _timer: 0
   delayTime: 3
-  indicator: {fileID: 8918567319728924289, guid: 0977b13776571074199df96d8690f221,
+  indicator: {fileID: 8918567319728924289, guid: ae31d531899c124408959593497a53bc,
     type: 3}
   _recentMakedCream: {fileID: 0}
   creamCapacity: 100

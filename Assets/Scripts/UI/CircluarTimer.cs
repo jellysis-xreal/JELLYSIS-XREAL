@@ -47,4 +47,9 @@ public class CircluarTimer : MonoBehaviour
         recentRemainTime = 30f;
         isStarted = true;
     }
+
+    public void StopTimer()
+    {
+        isStarted = false;
+    }
 }
