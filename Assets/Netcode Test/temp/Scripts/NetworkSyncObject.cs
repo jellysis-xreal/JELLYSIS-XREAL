@@ -23,7 +23,7 @@ public class NetworkSyncObject : NetworkBehaviour
 
     // use gravity & is kinematic 초기화
     [SerializeField]
-    public NetworkVariable<bool> useGravity = new NetworkVariable<bool> (true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<bool> useGravity; //= new NetworkVariable<bool> (true, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     private bool coroutineCheck = false;
 
