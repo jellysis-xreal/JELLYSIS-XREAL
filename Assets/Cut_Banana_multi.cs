@@ -14,7 +14,7 @@ public class Cut_Banana_multi : NetworkBehaviour
     public bool isCut = false;
     void Start()
     {
-        
+        // RequestUseGravity(new_bananaPiece, false);
     }
 
     // Update is called once per frame
@@ -35,6 +35,7 @@ public class Cut_Banana_multi : NetworkBehaviour
             Debug.Log("[TEST] banana set activated ");
             Debug.Log("[TEST] " + new_bananaPiece + " " + origin_banana);
             RequestRemoveParent(new_bananaPiece, origin_banana);
+            RequestUseGravity(new_bananaPiece, true);
             Debug.Log("[TEST] banana parent removed ");
             RequestOwnership(origin_bananaPiece);
             NSO_origin_bananaPiece.SetActiveNetworkObject(false);
@@ -99,6 +100,23 @@ public class Cut_Banana_multi : NetworkBehaviour
                 localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestRetrunGrabbableOwnershipServerRpc(PlayerClientID, networkObjectSelected);
         } else {
             Debug.Log("[TEST] RequestRemoveOwnership. Error Rq Ownership ---- ");
+        }
+    }
+
+    public void RequestUseGravity(NetworkObject networkObjectSelected, bool _useGravity) {
+        if (IsServer) {
+            Debug.Log("[TEST] RequestUseGravity. This is Server");
+            // useGravity.Value = _useGravity;
+        }
+        if ((IsClient))
+        {
+            ulong PlayerClientID = NetworkManager.Singleton.LocalClientId; //LocalId;
+            NetworkObject localPlayer = NetworkManager.LocalClient.PlayerObject;
+            Debug.Log("[TEST] RequestUseGravity. ID: " + PlayerClientID+ " Client set the gravity " + networkObjectSelected + " " + _useGravity);
+            if (networkObjectSelected != null)
+                localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestUseGravityServerRpc(networkObjectSelected, _useGravity);
+        } else {
+            Debug.Log("[TEST] RequestUseGravity. Error Rq Ownership ---- ");
         }
     }
 }
