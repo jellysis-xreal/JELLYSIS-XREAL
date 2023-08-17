@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using EnumTypes;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
 using Unity.Netcode;
+using Unity.VisualScripting;
 
 public class paticleEvent : NetworkBehaviour
 {
@@ -50,14 +52,21 @@ public class paticleEvent : NetworkBehaviour
     // Activation update
     private void OnPressedValueChanged(bool previousValue, bool newValue)
     {
+        //Debug.Log("[TEST] <Before changed> ---- before: " + previousValue + ", after: " + newValue);
+
         if (newValue) 
         {
             MyParticle.Play();
             OtherParticle.Play();
             Debug.Log("[TEST] ======= play particle =======");
-            if (IsOwner) isPressed.Value = false;
+            Invoke("InactiveButton", 0.5f);
         } else {}
         // PlayParticleRequest(true);
+    }
+
+    private void InactiveButton()
+    {
+        if (IsOwner) isPressed.Value = false;
     }
 
 
@@ -97,7 +106,7 @@ public class paticleEvent : NetworkBehaviour
         }
         Debug.Log("[TEST] Complete Coroutine!");
 
-        if (IsServer)
+        if (IsOwner)
         {
             Debug.Log("[TEST] " + MyParticle + " button pressed" + _isPressed);
             isPressed.Value = true;

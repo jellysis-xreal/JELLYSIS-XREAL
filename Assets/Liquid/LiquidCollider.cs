@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using EnumTypes;
 
@@ -9,9 +11,17 @@ public class LiquidCollider : MonoBehaviour
     public GameObject target;
     public GuestBear bear;
     [SerializeField] private PourDetector pourdetector;
+    public bool isDecorated = false;
     private float currenttime = 0;
     public BearColorType bearColorType;
     public Color color;
+    
+    public PuddingSpawn puddingSpawn1;
+    public PuddingSpawn puddingSpawn2;
+    public PuddingSpawn puddingSpawn3;
+    public PuddingSpawn puddingSpawn4;
+    
+    Transform transform1;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +29,34 @@ public class LiquidCollider : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    private bool TryGetGuestBear()
+    {
+        
+        if (transform1.parent.TryGetComponent<GuestBear>(out GuestBear guestBear))
+        {
+            bear = guestBear;
+            return true;
+        }
+        else
+        {
+            transform1 = transform1.parent;
+            return false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 11)
+        {
+            transform1 = other.transform;
+            while (!TryGetGuestBear())
+            {
+                continue;
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject == target)
@@ -27,7 +65,7 @@ public class LiquidCollider : MonoBehaviour
             if (pourdetector.isPouring)
             {
                 currenttime += Time.deltaTime;
-                if (currenttime <= 2)
+                if (currenttime <= 2 && !isDecorated)
                 {
                     // 컬러 변경 코드
                     // pourdetector.color 읽어올 수 있음.
@@ -72,7 +110,8 @@ public class LiquidCollider : MonoBehaviour
                             bear.ChangeBaseColor(BearColorType.White);
                             break;
                     }
-
+                    isDecorated = true;
+                    StartCoroutine(ResetPuddingTransform());
                     /*1,0,0 -> red
                     bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
                     1,1,1 -> white
@@ -81,7 +120,7 @@ public class LiquidCollider : MonoBehaviour
                     // r, g, b에 해당하는 값 읽고 case (1,0,0)이면
                     // 아래와 같이 ChangeBaseColor(빨간색) 호출
                     // bear.ChangeBaseColor(bearManager.BaseColorList[(int)bearManager.BearColorType.Red]);
-
+                    
                 }
                 else
                 {
@@ -89,7 +128,21 @@ public class LiquidCollider : MonoBehaviour
                     //
                 }
             }
+
+            
         }
+    }
+    IEnumerator ResetPuddingTransform()
+    {
+        yield return new WaitForSecondsRealtime(5f);
+        currenttime = 0f;
+        isDecorated = false;
+        // 플레이어가 잡으면 컵을 잡으면 실행
+        puddingSpawn1.puddingReset = true;
+        puddingSpawn2.puddingReset = true;
+        puddingSpawn3.puddingReset = true;
+        puddingSpawn4.puddingReset = true;
+        StopCoroutine(ResetPuddingTransform());
     }
 }
 
