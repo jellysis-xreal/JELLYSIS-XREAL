@@ -138,31 +138,31 @@ public class BearManager : MonoBehaviour
         {
             GuestBear bearComponent = bear.GetComponent<GuestBear>();
 
-            if (bearComponent.GetPairBearType() == BearType.PlayerBear) 
-                continue; // Pair가 Player일 경우는 Auto를 수행하지 않음
-
-            switch (bearComponent.GetPairPlayerType())
+            if (bearComponent.GetPairBearType() == BearType.AutoBear)
             {
-                case DecorateType.PutCream:
-                    bearComponent.PutCream();
-                    break;
+                switch (bearComponent.GetPairPlayerType())
+                {
+                    case DecorateType.PutCream:
+                        bearComponent.PutCream();
+                        break;
 
-                case DecorateType.Draw:
-                    bearComponent.Draw();
-                    break;
+                    case DecorateType.Draw:
+                        bearComponent.Draw();
+                        break;
 
-                case DecorateType.CutAndShape:
-                    bearComponent.CutAndShape();
-                    break;
+                    case DecorateType.CutAndShape:
+                        bearComponent.CutAndShape();
+                        break;
 
-                case DecorateType.ChangeColor:
-                    GameObject answer = bearComponent.AnswerBear;
-                    bearComponent.ChangeBaseColor(answer.GetComponent<AnswerBear>().baseColor);
-                    bearComponent.DoPlusDecoration();
-                    break;
+                    case DecorateType.ChangeColor:
+                        GameObject answer = bearComponent.AnswerBear;
+                        bearComponent.ChangeBaseColor(answer.GetComponent<AnswerBear>().baseColor);
+                        bearComponent.DoPlusDecoration();
+                        break;
 
-                case DecorateType.Basic:
-                    break;
+                    case DecorateType.Basic:
+                        break;
+                }
             }
         }
     }
