@@ -13,14 +13,14 @@ public class FruitFrameCut_multi : NetworkBehaviour
     public NetworkSyncObject circle, heart, star;
     public NetworkObject circle_NO, heart_NO, star_NO;
 
-    private bool isCut = false; // sync 안 함.
+    private bool isCut = false;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 20 && !isCut)
         {
-            //isCut = true; // knife 한 번만 작동
+            //isCut = true;
             if ((IsClient && !IsOwner))
             {
                 circle.RequestOwnership(circle_NO);
