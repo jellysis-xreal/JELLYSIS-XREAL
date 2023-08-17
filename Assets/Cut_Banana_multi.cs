@@ -48,8 +48,8 @@ public class Cut_Banana_multi : NetworkBehaviour
             NSO_new_bananaPiece.SetActiveNetworkObject(true);
             Debug.Log("[TEST] banana set activated ");
             NSO_DecoObject.RequestRemoveParent(new_bananaPiece, origin_banana);
-            Debug.Log("[TEST] banana parent removed ");
-            NSO_origin_bananaPiece.RequestOwnership(origin_bananaPiece);
+            // Debug.Log("[TEST] banana parent removed ");
+            // NSO_origin_bananaPiece.RequestOwnership(origin_bananaPiece);
             // NSO_origin_bananaPiece.SetActiveNetworkObject(false);
         }
     }
