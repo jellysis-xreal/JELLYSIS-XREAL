@@ -59,7 +59,8 @@ public class CreamMaker : NetworkBehaviour
                 hasOwnership = true;
             }
             ScaleUp();
-        } else
+        } 
+        else if (_recentMakedCream != null)
         {
             RequestRemoveOwnership(_recentMakedCream.transform.GetComponent<NetworkObject>());
             hasOwnership = false;
