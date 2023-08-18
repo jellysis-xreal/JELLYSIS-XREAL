@@ -31,7 +31,6 @@ public class FruitTransformer_multi : NetworkBehaviour
             {
                 RequestSetParent(child_fruitTransform, placeTransforms_NO[i]);
                 RequestOwnership(child_fruitTransform);
-                child_fruitTransform.GetComponent<ItempPropertyUpdater_multi>().attached = true;
                 isHavingFruit[i] = true;
                 OnOffGrabInteract(i);
                 Debug.Log("Set Parent!!!");
@@ -39,6 +38,8 @@ public class FruitTransformer_multi : NetworkBehaviour
                 child_fruitTransform.GetComponent<Transform>().localPosition = Vector3.zero;
                 child_fruitTransform.GetComponent<Transform>().localRotation = Quaternion.Euler(45f, 0, 0);
                 Debug.Log("[TEST] id:" + child_fruitTransform.GetComponent<Transform>()+ " local pos " + child_fruitTransform.GetComponent<Transform>().localPosition);
+                child_fruitTransform.transform.GetComponent<ItempPropertyUpdater_multi>().attached = true; 
+
                 return;
             }
         }
@@ -48,7 +49,7 @@ public class FruitTransformer_multi : NetworkBehaviour
     {
         // ���������� ���� �ڸ��� false
         // ���������� �˻�, true ��ȯ�Ǹ� �װ� false�� �ٲٰ� return 
-        DecoObject.attached = false;
+        DecoObject.GetComponent<Transform>().GetComponent<ItempPropertyUpdater_multi>().attached = false;
         for (int i = isHavingFruit.Length - 1; i >= 0; i--)
         {
             if (isHavingFruit[i])
