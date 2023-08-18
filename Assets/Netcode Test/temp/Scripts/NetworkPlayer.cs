@@ -1,12 +1,13 @@
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class NetworkPlayer : NetworkBehaviour
 {
     [SerializeField]
-    private Vector2 placementArea = new Vector2(-10.0f, 10.0f);
+    private Vector2 area = new Vector2(-1.5f, 1.5f);
 
     public override void OnNetworkSpawn() => DisableClientInput();
 
@@ -38,8 +39,13 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (IsClient && IsOwner)
         {
-            transform.position = new Vector3(Random.Range(placementArea.x, placementArea.y),
-                transform.position.y, Random.Range(placementArea.x, placementArea.y));
+            Vector3 place = GameObject.Find("PlayerSpawnPlace").transform.position;
+            
+            transform.position = new Vector3(
+                place.x + Random.Range(area.x, area.y),
+                transform.position.y, 
+                place.z + Random.Range(area.x, area.y)
+                );
             Debug.Log("[TEST] Our PlayerID = " + OwnerClientId);
             // NetworkManager.Singleton.LocalId = OwnerClientId;
         }
