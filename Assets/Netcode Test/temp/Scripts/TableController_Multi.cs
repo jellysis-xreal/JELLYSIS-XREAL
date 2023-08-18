@@ -18,10 +18,10 @@ public class TableController_Multi : NetworkBehaviour //MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            _tableEventManager.RaiseEvent();
-        }    
+        // if (Input.GetKeyDown(KeyCode.A))
+        // {
+        //     _tableEventManager.RaiseEvent();
+        // }    
     }
     public void TableRotate90(object sender, EventArgs e)
     {

@@ -100,7 +100,8 @@ public class StageManager : NetworkBehaviour
                 // // CMS
                 // if(IsServer) curState_Multi.Value = StageState.StageStart; // -> 클라이언트도 자동으로 바뀐다!
 
-                // 여기 spawn code 수정
+                // TODO: 여기 spawn code 수정
+                /*
                 if (IsServer)
                 {
                     // // // UnityEditor.TransformWorldPlacementJSON:{"position":{"x":8.310199737548829,"y":0.39800000190734866,"z":-2.5239999294281008},"rotation":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"scale":{"x":3.1062018871307375,"y":3.1062018871307375,"z":3.1062018871307375}}
@@ -111,6 +112,7 @@ public class StageManager : NetworkBehaviour
                     whisk.ChangeOwnership(clientId);
                     creamBowl.ChangeOwnership(clientId);
                 }
+                */
                 CanStartStage = true;
             }
             else
@@ -306,7 +308,11 @@ public class StageManager : NetworkBehaviour
 
             SetFirst = true;
         }
-
+        
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            AllPlayersReadyServerRpc();
+        }
         // if (curState_Multi.Value != beforeState_Multi.Value)
         // {
         //     beforeState = curState;

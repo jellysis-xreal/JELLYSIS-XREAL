@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Netcode Test2/temp/Scenes/Multi_SetupScene.unity
     guid: e99f7b3a5d9e64f1085b77a8fbf7ca59
   - enabled: 1
-    path: Assets/Scenes/Multi_SetupScene.unity
+    path: Assets/Scenes/00Multi_SetupScene.unity
     guid: 9ca94f7df8c95244cba57b9aeb45f2ad
   - enabled: 0
     path: Assets/Scenes/Real_Solo_Setting.unity
@@ -44,9 +44,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PlayScene_Solo_Setting 1.unity
     guid: a25b3be7f5910ad4786c0c067ca521b3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/J_PlayScene_Solo_Setting.unity
     guid: cf336b8ab2b94ef449060f903c1a84dc
+  - enabled: 1
+    path: Assets/Scenes/01Main_PlayScene_Solo_Setting.unity
+    guid: 95a03625613c543438a98ded16469982
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bb97e079dc026904c9d0f3c40a060e4a,
       type: 2}
