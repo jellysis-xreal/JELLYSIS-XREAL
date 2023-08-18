@@ -97,7 +97,8 @@ public class BrushRaycast : MonoBehaviour
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Ray ray = new Ray(brush_ray.position, brush_ray.forward);
 
-        bool raycast = Physics.Raycast(ray, out var hit, 10);
+        bool raycast = Physics.Raycast(ray, out var hit, 10, 1 << LayerMask.NameToLayer("BrushHit"));
+
         Collider col = hit.collider;
 
         if (raycast && col)
