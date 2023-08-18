@@ -73,7 +73,9 @@ public class ItempPropertyMulti : NetworkBehaviour
         if (_fruitTransformer) {
             _fruitTransformer.DetachFruit(NO_DecoObject);
             _fruitTransformer = null;
-        } // ���ľ���
+        }
+        attached = false; 
+        // ���ľ���
         // printInfo();
     }
 
