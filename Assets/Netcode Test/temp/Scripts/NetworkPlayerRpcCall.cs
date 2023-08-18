@@ -62,7 +62,7 @@ public class NetworkPlayerRpcCall : NetworkBehaviour
         if (childObjectReference.TryGet(out NetworkObject childObject))
         {
             if (parentObjectReference.TryGet(out NetworkObject parentObject))
-                childObject.TrySetParent(parentObject, false);
+                childObject.TrySetParent(parentObject, true);
                 Debug.Log("[TEST] Set Parent");
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276774, g: 0.21589114, b: 0.2978246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -681,6 +681,32 @@ Transform:
   m_Father: {fileID: 1131538279}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &58069347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434095070596853, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &58069348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58069347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2649127695
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &63070786
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +892,62 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000029020011, y: 0.1589494, z: 0.04956659}
     m_Extent: {x: 0.03807226, y: 0.017808706, z: 0.006130565}
   m_DirtyAABB: 0
+--- !u!1 &79879338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793541614614811, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &79879339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79879338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3060029342
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &79879340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79879338}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1001 &83888094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -961,6 +1043,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 83888094}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &86104679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793540905575075, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &86104680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86104679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 43101920
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &86104681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86104679}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1001 &90364151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1865,6 +2003,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &179365839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793540746005679, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &179365840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179365839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1436894387
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &179365841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179365839}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &194614814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,6 +3153,62 @@ Transform:
   m_Father: {fileID: 256205879}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &266061326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793542403465886, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &266061327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266061326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3813990274
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &266061328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266061326}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &268650047
 GameObject:
   m_ObjectHideFlags: 0
@@ -3144,6 +3394,32 @@ Transform:
   m_Father: {fileID: 1220843874}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &278605292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773778317746911, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &278605293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278605292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 850034816
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &286057683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4685,6 +4961,32 @@ Transform:
   m_Father: {fileID: 1549805203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &419757126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773780020513789, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &419757127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419757126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1856864281
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &424576262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4752,6 +5054,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &432352412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773779666034946, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &432352413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432352412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2628079747
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &442363554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4898,6 +5226,32 @@ Transform:
   m_Father: {fileID: 2084954276}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &460196104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434095587205316, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &460196105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460196104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1724928908
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &462412857
 GameObject:
   m_ObjectHideFlags: 0
@@ -8547,6 +8901,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 714406691}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &719533984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793541883518394, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &719533985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719533984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3570375954
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &719533986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719533984}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &730122671
 GameObject:
   m_ObjectHideFlags: 0
@@ -8655,6 +9065,32 @@ Transform:
   m_Father: {fileID: 1220843874}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &760764929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773778823116983, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &760764930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760764929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1252039085
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &771925019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8767,6 +9203,32 @@ Transform:
   m_Father: {fileID: 41154959}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &773964114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872984098214913, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &773964115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773964114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2713896649
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &777378729
 GameObject:
   m_ObjectHideFlags: 0
@@ -8918,6 +9380,32 @@ Transform:
   m_Father: {fileID: 1988604919}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &811255646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872983926862447, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &811255647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811255646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1110049769
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &817138684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9323,6 +9811,58 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000016251579, y: 0.12659101, z: 0.06417337}
     m_Extent: {x: 0.024252918, y: 0.017674502, z: 0.008486288}
   m_DirtyAABB: 0
+--- !u!1 &833869447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872983703779853, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &833869448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833869447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3230564146
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!1 &839909692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872983743872766, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &839909693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839909692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1176995941
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &843800240
 GameObject:
   m_ObjectHideFlags: 0
@@ -9594,6 +10134,32 @@ Transform:
   m_Father: {fileID: 1862382292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &865642265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872983468965155, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &865642266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865642265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1362293219
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &866283991
 GameObject:
   m_ObjectHideFlags: 0
@@ -10176,6 +10742,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &939882949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773779626436081, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &939882950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939882949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 539157569
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &941388266
 GameObject:
   m_ObjectHideFlags: 0
@@ -11131,6 +11723,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 992928706}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &997111198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434096396326256, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &997111199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997111198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1379594127
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1018676358
 GameObject:
   m_ObjectHideFlags: 0
@@ -11773,6 +12391,32 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000005044043, y: 0.1938249, z: 0.00073284097}
     m_Extent: {x: 0.07472234, y: 0.023943841, z: 0.0103309965}
   m_DirtyAABB: 0
+--- !u!1 &1067478956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434095964507848, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1067478957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067478956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 4176867117
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1073637371
 GameObject:
   m_ObjectHideFlags: 0
@@ -12258,6 +12902,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1104876750}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1105956680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434094620349326, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1105956681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105956680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 960218958
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &1126647794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14017,6 +14687,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 130.026, z: 0}
+--- !u!1 &1248761901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773779261210185, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1248761902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248761901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 4153054655
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1251540211
 GameObject:
   m_ObjectHideFlags: 0
@@ -14446,6 +15142,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1279227635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773779856338323, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1279227636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279227635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3830657519
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1299986203
 GameObject:
   m_ObjectHideFlags: 0
@@ -14674,6 +15396,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1305083079}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1320931653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434095681652394, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1320931654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320931653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1939835976
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1322785134
 GameObject:
   m_ObjectHideFlags: 0
@@ -14705,6 +15453,32 @@ Transform:
   m_Father: {fileID: 543450652395781901}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1323333058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434094516810193, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1323333059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323333058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2018845062
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1324091376
 GameObject:
   m_ObjectHideFlags: 0
@@ -15105,6 +15879,62 @@ Transform:
   m_Father: {fileID: 950292425}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1362174152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793540716571329, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1362174153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362174152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1655763410
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1362174154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362174152}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &1362568479
 GameObject:
   m_ObjectHideFlags: 0
@@ -15376,6 +16206,32 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000008702278, y: 0.15498579, z: 0.0027158037}
     m_Extent: {x: 0.06333262, y: 0.062450234, z: 0.06299405}
   m_DirtyAABB: 0
+--- !u!1 &1382423353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872984404550069, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1382423354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382423353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2067348591
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1386897834
 GameObject:
   m_ObjectHideFlags: 0
@@ -17018,6 +17874,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555935349}
   m_Mesh: {fileID: 1676661790328744283, guid: 4d80b9792cbff9540a508ca4185933bd, type: 3}
+--- !u!1 &1558963032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872983116777142, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1558963033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558963032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1027780050
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1560485980
 GameObject:
   m_ObjectHideFlags: 0
@@ -17201,6 +18083,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b53c5884f66a1d643a2e326caa11477e, type: 3}
+--- !u!1 &1565608494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773778439972300, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1565608495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565608494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2839875444
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1573667325
 GameObject:
   m_ObjectHideFlags: 0
@@ -17382,6 +18290,32 @@ Transform:
   m_Father: {fileID: 894213771}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1582550458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872982892291915, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1582550459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582550458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2274831211
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1583471944
 GameObject:
   m_ObjectHideFlags: 0
@@ -17449,6 +18383,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1588468027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872983581620784, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1588468028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588468027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3538317183
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &1591315782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18279,6 +19239,32 @@ Transform:
   m_Father: {fileID: 56207117}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1640958922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434095192820198, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1640958923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640958922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 540500928
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1642574299
 GameObject:
   m_ObjectHideFlags: 0
@@ -18683,6 +19669,62 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669797317}
   m_Mesh: {fileID: 1676661790328744283, guid: 4d80b9792cbff9540a508ca4185933bd, type: 3}
+--- !u!1 &1672206242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793540933117520, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1672206243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672206242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 4064366267
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1672206244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672206242}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1001 &1689447278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19816,6 +20858,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1752697757}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1753363357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434096008268347, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1753363358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753363357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2846498403
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1755929623
 GameObject:
   m_ObjectHideFlags: 0
@@ -20908,6 +21976,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1879041473}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1890202682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872984406246812, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1890202683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890202682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2566143125
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &1893470076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21219,6 +22313,62 @@ Transform:
   m_Father: {fileID: 2080730852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1917824173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793541717065701, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1917824174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917824173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1600162386
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1917824175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917824173}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &1922680833
 GameObject:
   m_ObjectHideFlags: 0
@@ -21786,6 +22936,32 @@ Transform:
   m_Father: {fileID: 928807117}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1986452780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773778993240808, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1986452781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986452780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2889412091
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1986919954
 GameObject:
   m_ObjectHideFlags: 0
@@ -22266,6 +23442,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1996198161}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1998181438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793542599859736, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1998181439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998181438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2621955553
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1998181440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998181438}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &2003021415
 GameObject:
   m_ObjectHideFlags: 0
@@ -22380,6 +23612,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006615239}
   m_Mesh: {fileID: -1581987013080850447, guid: 4d80b9792cbff9540a508ca4185933bd, type: 3}
+--- !u!1 &2015123219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7353773777965341002, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2015123220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015123219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 166428075
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &2040178013
 GameObject:
   m_ObjectHideFlags: 0
@@ -22702,6 +23960,32 @@ Transform:
   m_Father: {fileID: 424576263}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2085791522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767872983061890324, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2085791523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085791522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3170300135
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &2088079400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22933,6 +24217,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2088079400}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2094239171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3519434095411016307, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2094239172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094239171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 548521612
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &2101987819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23033,6 +24343,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2101987819}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2118799060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 90793542281241997, guid: 737a0b6dcf0c9f549957c1488a3d8fce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3788792153694046450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2118799061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118799060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2974224836
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &2118799062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118799060}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &2124694409
 GameObject:
   m_ObjectHideFlags: 0
