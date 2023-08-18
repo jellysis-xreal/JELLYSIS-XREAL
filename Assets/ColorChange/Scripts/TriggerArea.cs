@@ -55,19 +55,23 @@ namespace ColorChanger
 
         private void OnTriggerStay(Collider other)
         {
+            
+            //Debug.Log("Name is " +other.name+" has interactable" + TryGetInteractable(other, out XRBaseInteractable interactable1));
             SetInteractiable(other);
 
             if (TryGetInteractable(other, out XRBaseInteractable interactable))
             {
+                //Debug.Log(interactable.transform.name);
                 if (!interactablesInsideTrigger.Contains(interactable))
                 {
+                    Debug.Log("addinteractabale");
                     interactablesInsideTrigger.Add(interactable);
                     Debug.Log("Object entered the trigger area: " + interactable.name);
                     //CheckCollision();
                     return;
                 }
                 if (!isPrefabInstantiated)
-                {
+                {   
                     CheckCollision();    
                 }
             }
@@ -81,6 +85,7 @@ namespace ColorChanger
                 if (currentInteractable == null)
                     currentInteractable = interactable;
             }
+            
         }
 
 
@@ -131,7 +136,7 @@ namespace ColorChanger
 
         private void CheckCollision()
         {
-            //Debug.Log("CheckCollision");
+            Debug.Log("CheckCollision");
             redCollided = false;
             blueCollided = false;
             yellowCollided = false;

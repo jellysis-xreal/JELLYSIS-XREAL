@@ -49,7 +49,7 @@ public class Stream : MonoBehaviour
 
     public void End()
     {
-        StopCoroutine(pourRoutine);
+        if(pourRoutine != null) StopCoroutine(pourRoutine);
         pourRoutine = StartCoroutine(EndPour());
     }
 
@@ -63,6 +63,7 @@ public class Stream : MonoBehaviour
             yield return null;
         }
 
+        yield return new WaitForSecondsRealtime(1f);
         Destroy(gameObject);
     }
 

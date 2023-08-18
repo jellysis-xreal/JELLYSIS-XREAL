@@ -83,6 +83,7 @@ public class PourDetector : MonoBehaviour
     {
         
         currentStream = CreateStream();
+        Debug.Log(currentStream);
         StartCoroutine(MinusLiquidHeight());
         //currentStream.SetLineColor(new Color(1.0f, 0.0f, 1.0f)); // Purple color
         currentStream.Begin();
@@ -90,9 +91,10 @@ public class PourDetector : MonoBehaviour
     // 끝났을 때 endpour 호출되지만 기울기때메 다시 부어짐.
     private void EndPour()
     {
-        isEmpty = true;
-        currentStream.End();
         StopCoroutine(MinusLiquidHeight());
+        Debug.Log(currentStream + " have");
+        currentStream.End();
+        isEmpty = true;
         currentStream = null;
     }
 
@@ -110,7 +112,7 @@ public class PourDetector : MonoBehaviour
         Debug.Log("Color is "+triggerArea.color);
         stream.SetLineColor(triggerArea.color);
         color = triggerArea.color;
-        return streamObject.GetComponent<Stream>();
+        return stream;
     }
     public void SetStreamColor(Color newColor)
     {
