@@ -624,6 +624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftHand
       objectReference: {fileID: 0}
+    - target: {fileID: 3061942295211237902, guid: eb40523476957344cba9caa104a301cf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Left
+      objectReference: {fileID: 0}
     - target: {fileID: 8119027534848293571, guid: eb40523476957344cba9caa104a301cf,
         type: 3}
       propertyPath: m_IsActive
@@ -784,6 +789,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940022025984345361, guid: bfea8c7da7c69e94392e130498f1a5d0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Right
       objectReference: {fileID: 0}
     - target: {fileID: 5940022025984345390, guid: bfea8c7da7c69e94392e130498f1a5d0,
         type: 3}

@@ -28,9 +28,46 @@ public class BrushRaycast : MonoBehaviour
 //    public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
 
     public AllBearTextureCode allBearTextureCode;
+    //public XRBaseController leftController;
+    //public XRBaseController rightController;
 
+    private void Start()
+    {
+        // 초기 씬 시작 시 XR 컨트롤러를 찾아서 연결합니다.
+        FindAndConnectControllers();
+    }
 
-    // Start is called before the first frame update
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        // 씬이 전환될 때마다 XR 컨트롤러를 찾아서 연결합니다.
+        FindAndConnectControllers();
+    }
+
+    private void FindAndConnectControllers()
+    {
+        XRBaseController[] controllers = FindObjectsOfType<XRBaseController>();
+
+        foreach (XRBaseController controller in controllers)
+        {
+            if (controller.CompareTag("Left"))
+            {
+                leftController = controller;
+            }
+            else if (controller.CompareTag("Right"))
+            {
+                rightController = controller;
+            }
+        }
+    }
+    private void OnEnable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     // Update is called once per frame
     void Update()
