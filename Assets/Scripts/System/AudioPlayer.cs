@@ -21,7 +21,9 @@ public class AudioPlayer : MonoBehaviour
     public void PlayEndingBGM()
     {
         audioSource.clip = Music[1];
+        audioSource.loop = false;
         audioSource.Play();
+        
     }
     
     // void Update()

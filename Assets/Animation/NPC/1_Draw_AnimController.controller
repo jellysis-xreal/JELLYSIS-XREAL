@@ -63,7 +63,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 3072150444528320193}
-    m_Position: {x: 320, y: 210, z: 0}
+    m_Position: {x: 130, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5865724341077776735}
     m_Position: {x: 235, y: 65, z: 0}
@@ -86,7 +86,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: copy2_0_2_XR Origin (XR Rig)
+  m_Name: 1_Draw_AnimController
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

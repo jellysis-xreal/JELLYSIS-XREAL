@@ -35,6 +35,7 @@ public class StageManager : NetworkBehaviour
     private WaitForSeconds tableRotationTime;
     private BearManager bearManager;
     private int _currentRound = 1;
+    private AudioPlayer _audioPlayer;
     
     [SerializeField] public NetworkObject injection, whisk, creamBowl;
     private ulong clientId = 0;
@@ -129,15 +130,18 @@ public class StageManager : NetworkBehaviour
         curState = StageState.StageStart;
         if (IsServer)
         {
-            // TODO: Player 1명에 Auto 기능 3개가 돌아갈 수 있도록 처리함 (FAKE MULTI)
-            // TODO: Host가 아닌 Player는 BearType.AutoBear로 변경함
-            //NetworkObject localPlayer = null; //Client
-            //if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(4, out localPlayer))
+            if (NetworkManager.Singleton.ConnectedClients.Count > 1)
+            {
+                // TODO: Player 1명에 Auto 기능 3개가 돌아갈 수 있도록 처리함 (FAKE MULTI)
+                // TODO: Host가 아닌 Player는 BearType.AutoBear로 변경함
+                //NetworkObject localPlayer = null; //Client
+                //if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(4, out localPlayer))
                 //localPlayer.GetComponent<PlayerBear>().BearType = BearType.AutoBear;
-            var localPlayer = NetworkManager.ConnectedClientsList[1].PlayerObject; //CLIENT
-            localPlayer.GetComponent<PlayerBear>().BearType = BearType.AutoBear;
-            localPlayer.GetComponent<PlayerBear>().ChangeDecorateType(PlayerType2);
-            
+                var localPlayer = NetworkManager.ConnectedClientsList[1].PlayerObject; //CLIENT
+                localPlayer.GetComponent<PlayerBear>().BearType = BearType.AutoBear;
+                localPlayer.GetComponent<PlayerBear>().ChangeDecorateType(PlayerType2);
+            }
+
             SetPlayers();
             ClientFunctionClientRpc();
             curState_Multi.Value = StageState.StageStart;
@@ -286,6 +290,7 @@ public class StageManager : NetworkBehaviour
 
             case StageState.StageStart:
                 Debug.Log("[TEST] <-----게임이 시작됩니다----->");
+                _audioPlayer.PlayGameBGM();
                 bearManager.Init();
                 StartGame();
                 break;
@@ -313,6 +318,7 @@ public class StageManager : NetworkBehaviour
                 Debug.Log("[TEST] <-----Game이 종료되었습니다!----->");
                 // TODO: Auto 곰돌이 엔딩 포즈
                 // TODO: Ending BGM 
+                _audioPlayer.PlayEndingBGM();
                 break;
             
             default:
@@ -330,6 +336,7 @@ public class StageManager : NetworkBehaviour
             
             tableRotationTime = new WaitForSeconds(5f);
             bearManager = GameManager.Bear;
+            _audioPlayer = GetComponent<AudioPlayer>();
             
             curState = StageState.BeforeStageStart;
             if (IsServer) curState_Multi.Value = curState;
