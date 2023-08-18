@@ -34,16 +34,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860238596400860415}
-  m_LocalRotation: {x: 0.8403172, y: -0.0433062, z: 0.5360816, w: 0.06788298}
+  m_LocalRotation: {x: 0.84031636, y: -0.04330648, z: 0.53608286, w: 0.067883424}
   m_LocalPosition: {x: 7.3, y: 0.15, z: 0.01}
-  m_LocalScale: {x: 2.1190035, y: 2.1190028, z: 2.1190035}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1860238597034009965}
   - {fileID: 5766160840825520494}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 196.64, y: -72.931, z: 161.078}
+  m_LocalEulerAnglesHint: {x: 170.763, y: -65.07199, z: 0}
 --- !u!33 &1860238596400860400
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -420,6 +420,7 @@ MonoBehaviour:
   NO_DecoObject: {fileID: 5766160839963667971}
   _fruitTransformer: {fileID: 0}
   shouldRemoveParent: 0
+  attached: 0
 --- !u!1 &1860238597034009962
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,10 +29,10 @@ public class NetworkSyncObject : NetworkBehaviour
 
     public void Start() {
         printInfo();
-        if (gameObjectToSetActive != null)
-        {
-            gameObjectToSetActive.SetActive(isActive.Value);
-        }
+        // if (gameObjectToSetActive != null)
+        // {
+        //     gameObjectToSetActive.SetActive(isActive.Value);
+        // }
         if (rigidBody != null)
         {
             rigidBody.useGravity = useGravity.Value;
@@ -41,6 +41,14 @@ public class NetworkSyncObject : NetworkBehaviour
         localPlayer = NetworkManager.LocalClient.PlayerObject;
         PlayerClientID = NetworkManager.Singleton.LocalClientId; //LocalId;
         Debug.Log("[TEST] Start player Id: " + PlayerClientID);
+    }
+
+    public void Update() {
+        if (rigidBody != null)
+        {
+            rigidBody.useGravity = useGravity.Value;
+            rigidBody.isKinematic = !useGravity.Value;
+        }
     }
 
     public void printInfo() {
