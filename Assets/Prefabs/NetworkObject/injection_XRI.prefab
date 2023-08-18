@@ -645,8 +645,8 @@ Transform:
   m_GameObject: {fileID: 7301040792457935162}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 8.3102, y: 0.398, z: -2.524}
-  m_LocalScale: {x: 3.106202, y: 3.106202, z: 3.106202}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 205100782951071934}
   - {fileID: 3708643384456258857}
@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33d26a491bfb154ea43e8650894d3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creamPrefab: {fileID: 3241439600712633885, guid: 6c5405dceb006b94bbbb935f2c094fd5,
+  creamPrefab: {fileID: 3241439600712633885, guid: 6fd536c352ec27d4eb03455c5d0af760,
     type: 3}
   scaleSpeed: 0.2
   injectionPusherTransform: {fileID: 6330674771951080692}
