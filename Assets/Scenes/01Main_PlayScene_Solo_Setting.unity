@@ -7430,6 +7430,11 @@ PrefabInstance:
       propertyPath: indicator
       value: 
       objectReference: {fileID: 8918567321389566036}
+    - target: {fileID: 555899416, guid: 138e7aceb1732dd449ab07d73ed6fd99, type: 3}
+      propertyPath: creamPrefab
+      value: 
+      objectReference: {fileID: 601282099127943305, guid: b0945afd4b58a754a8a6934f77d17f3e,
+        type: 3}
     - target: {fileID: 3641603139116450892, guid: 138e7aceb1732dd449ab07d73ed6fd99,
         type: 3}
       propertyPath: m_Name
@@ -7498,6 +7503,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 722221961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &722221963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3635568515805547672, guid: 138e7aceb1732dd449ab07d73ed6fd99,
+    type: 3}
+  m_PrefabInstance: {fileID: 722221961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &722221964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722221963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1229677891
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &730122671
 GameObject:
   m_ObjectHideFlags: 0
@@ -24725,7 +24756,7 @@ PrefabInstance:
     - target: {fileID: 1054306109973562671, guid: 4d3b1d20c02f128458addd5089cff626,
         type: 3}
       propertyPath: m_Name
-      value: cut_star (1)
+      value: cut_star
       objectReference: {fileID: 0}
     - target: {fileID: 1054306109973562687, guid: 4d3b1d20c02f128458addd5089cff626,
         type: 3}
@@ -26326,7 +26357,7 @@ PrefabInstance:
     - target: {fileID: 6267710092432175353, guid: e990b9841e926be44a040241423e3221,
         type: 3}
       propertyPath: m_Name
-      value: cut_heart (1)
+      value: cut_heart
       objectReference: {fileID: 0}
     - target: {fileID: 6267710092432175359, guid: e990b9841e926be44a040241423e3221,
         type: 3}
@@ -26503,7 +26534,7 @@ PrefabInstance:
     - target: {fileID: 3531002012739486856, guid: 7d6560a54234eb34cb271753bfddf5f4,
         type: 3}
       propertyPath: m_Name
-      value: cut_circle (1)
+      value: cut_circle
       objectReference: {fileID: 0}
     - target: {fileID: 4918800488699191450, guid: 7d6560a54234eb34cb271753bfddf5f4,
         type: 3}
