@@ -23,6 +23,7 @@ public class TableController_Multi : NetworkBehaviour //MonoBehaviour
         //     _tableEventManager.RaiseEvent();
         // }    
     }
+    [ContextMenu("dfd")]
     public void TableRotate90(object sender, EventArgs e)
     {
         if (IsServer)
