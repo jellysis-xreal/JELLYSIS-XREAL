@@ -16,6 +16,7 @@ public class ItempPropertyMulti : NetworkBehaviour
     [SerializeField] private FruitTransformer_multi _fruitTransformer;
 
     [SerializeField] private bool shouldRemoveParent = false;
+    public bool attached = false;
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class ItempPropertyMulti : NetworkBehaviour
             Debug.Log("[TEST] 0. OnTriggerEnter!");
             Debug.Log("[TEST] 0. detected Object = " + netPreTrans);
 
-            if (isDropped && other.gameObject.layer == 11)
+            if ((isDropped && other.gameObject.layer == 11) && !attached)
             {
                 Debug.Log("[TEST] 0.1. isDropped! ");
                 NSO_DecoObject.RequestUseGravity(NO_DecoObject, false);
@@ -69,7 +70,10 @@ public class ItempPropertyMulti : NetworkBehaviour
     {
         Debug.Log("[TEST] 3. ItemSelected!");
         isDropped = false;
-        if (_fruitTransformer) _fruitTransformer.DetachFruit(); // °íÃÄ¾ßÇÔ
+        if (_fruitTransformer) {
+            _fruitTransformer.DetachFruit(NO_DecoObject);
+            _fruitTransformer = null;
+        } // ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
         // printInfo();
     }
 

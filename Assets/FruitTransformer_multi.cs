@@ -8,7 +8,7 @@ using Unity.Netcode;
 public class FruitTransformer_multi : NetworkBehaviour
 {
     [SerializeField] private NetworkObject[] placeTransforms_NO;
-    [SerializeField] private bool[] isHavingFruit; // sync ¾È µÊ
+    [SerializeField] private bool[] isHavingFruit; // sync ï¿½ï¿½ ï¿½ï¿½
     public Transform debugTransform;
     public int numZeroChildCount;
     public int callCount;
@@ -24,14 +24,14 @@ public class FruitTransformer_multi : NetworkBehaviour
 
     public void AttachFruit(NetworkObject child_fruitTransform)
     {
-        // [Multi] °úÀÏ ²È±â, placeTransforms¼ö ¸¸Å­ ¹Ýº¹
+        // [Multi] ï¿½ï¿½ï¿½ï¿½ ï¿½È±ï¿½, placeTransformsï¿½ï¿½ ï¿½ï¿½Å­ ï¿½Ýºï¿½
         for (int i = 0; i < placeTransforms_NO.Length; i++)
         {
             if (!isHavingFruit[i])
             {
                 RequestSetParent(child_fruitTransform, placeTransforms_NO[i]);
                 RequestOwnership(child_fruitTransform);
-
+                child_fruitTransform.GetComponent<ItempPropertyUpdater_multi>().attached = true;
                 isHavingFruit[i] = true;
                 OnOffGrabInteract(i);
                 Debug.Log("Set Parent!!!");
@@ -44,10 +44,11 @@ public class FruitTransformer_multi : NetworkBehaviour
         }
     }
 
-    public void DetachFruit()
+    public void DetachFruit(NetworkObject DecoObject)
     {
-        // ¸¶Áö¸·À¸·Î »ÌÀº ÀÚ¸®¸¦ false
-        // ¸¶Áö¸·ºÎÅÍ °Ë»ç, true ¹ÝÈ¯µÇ¸é ±×°Å false·Î ¹Ù²Ù°í return 
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½ï¿½ï¿½ false
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½, true ï¿½ï¿½È¯ï¿½Ç¸ï¿½ ï¿½×°ï¿½ falseï¿½ï¿½ ï¿½Ù²Ù°ï¿½ return 
+        DecoObject.attached = false;
         for (int i = isHavingFruit.Length - 1; i >= 0; i--)
         {
             if (isHavingFruit[i])
@@ -62,12 +63,12 @@ public class FruitTransformer_multi : NetworkBehaviour
     private void OnOffGrabInteract(int i)
     {
         
-        // °úÀÏ 3°³°¡ ²ÈÇôÀÖÀ» °æ¿ì ¸ÕÀú ²ÅÈù °úÀÏÀÇ XR Grab Interactable ÄÄÆ÷³ÍÆ®¸¦ ²ô±â À§ÇÔ.
-        // °úÀÏ ²Å¾ÒÀ» ¶§ i-1 grabÀ» ²¨¾ßµÊ.
-        // °úÀÏÀ» Àâ¾ÒÀ» ¶§ i-1ÀÇ grabÀ» ÄÑ¾ßÇÔ. 
-        // i-1 ¹øÂ° °úÀÏÀÇ XR Grab Interactable¿¡ Á¢±ÙÇÏ±â
+        // ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ XR Grab Interactable ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Å¾ï¿½ï¿½ï¿½ ï¿½ï¿½ i-1 grabï¿½ï¿½ ï¿½ï¿½ï¿½ßµï¿½.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ i-1ï¿½ï¿½ grabï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½. 
+        // i-1 ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ XR Grab Interactableï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
         if (i == 0) return;
-        Debug.Log("°¡Á®¿À±â!");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
         XRGrabInteractable xrGrab = placeTransforms_NO[i - 1].GetComponent<Transform>().GetChild(0).GetComponent<XRGrabInteractable>();
         xrGrab.enabled = !xrGrab.enabled;
         /*if (placeTransforms[i-1].TryGetComponent<XRGrabInteractable>(out XRGrabInteractable axrGrabInteractable))
@@ -114,7 +115,7 @@ public class FruitTransformer_multi : NetworkBehaviour
             Debug.Log("[TEST] RequestOwnership. ID: " + PlayerClientID + " Client grabbed the " + networkObjectSelected);
             if (networkObjectSelected != null)
                 Debug.Log("[TEST] RequestOwnership ... in progress");
-            localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestGrabbableOwnershipServerRpc(PlayerClientID, networkObjectSelected); // ÀÌ°Å °íÃÄ¾ßÇÏ³ª...
+            localPlayer.GetComponent<NetworkPlayerRpcCall>().RequestGrabbableOwnershipServerRpc(PlayerClientID, networkObjectSelected); // ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½Ï³ï¿½...
         }
         else
         {
@@ -130,7 +131,7 @@ public class FruitTransformer_multi : NetworkBehaviour
         transform.root.TryGetComponent(out NetworkObject rootTransformNetworkObject);
         rootTransformNetworkObject.enabled = false;
 
-        if (transform.parent != null) // »óÀ§¿¡ ºÎ¸ð°¡ ÀÖÀ¸¸é ÃÖ»óÀ§ ¿ÀºêÁ§Æ® ¹ØÀ¸·Î ´Ù²û
+        if (transform.parent != null) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½
         {
             NetworkObject[] networkObjects = transform.root.GetComponentsInChildren<NetworkObject>();
             for (int i = 0; i < networkObjects.Length; i++)
@@ -138,7 +139,7 @@ public class FruitTransformer_multi : NetworkBehaviour
                 networkObjects[i].enabled = false;
             }
         }
-        else // »óÀ§¿¡ ¾øÀ¸¸é ³ª ²ô°í ÀÚ½Ä ²ô°í
+        else // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             TryGetComponent(out NetworkObject myNetworkObject);
             NetworkObject[] networkObjects = transform.GetComponentsInChildren<NetworkObject>();
@@ -159,7 +160,7 @@ public class FruitTransformer_multi : NetworkBehaviour
         transform.root.TryGetComponent(out NetworkObject rootTransformNetworkObject);
         rootTransformNetworkObject.enabled = true;
 
-        if (transform.parent != null) // »óÀ§¿¡ ºÎ¸ð°¡ ÀÖÀ¸¸é ÃÖ»óÀ§ ¿ÀºêÁ§Æ® ¹ØÀ¸·Î ´Ù²û
+        if (transform.parent != null) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½
         {
             NetworkObject[] networkObjects = transform.root.GetComponentsInChildren<NetworkObject>();
             for (int i = 0; i < networkObjects.Length; i++)
@@ -167,7 +168,7 @@ public class FruitTransformer_multi : NetworkBehaviour
                 networkObjects[i].enabled = true;
             }
         }
-        else // »óÀ§¿¡ ¾øÀ¸¸é ³ª ²ô°í ÀÚ½Ä ²ô°í
+        else // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             TryGetComponent(out NetworkObject myNetworkObject);
             NetworkObject[] networkObjects = transform.GetComponentsInChildren<NetworkObject>();

@@ -5,7 +5,7 @@ using UnityEngine;
 using Unity.Netcode;
 
 
-public class ItempPropertyUpdater_ulti : NetworkBehaviour
+public class ItempPropertyUpdater_multi : NetworkBehaviour
 {
     [SerializeField] private NetworkObject netPreTrans; 
     
@@ -14,6 +14,7 @@ public class ItempPropertyUpdater_ulti : NetworkBehaviour
     [SerializeField] private NetworkSyncObject NSO_DecoObject;
     private NetworkObject NO_DecoObject;
     [SerializeField] private ulong OwnerId;
+    public bool attached = false;
 
     void Start()
     {
