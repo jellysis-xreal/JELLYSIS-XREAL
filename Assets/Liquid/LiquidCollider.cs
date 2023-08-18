@@ -124,7 +124,7 @@ public class LiquidCollider : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("�� �� �����ϱ�");
+                    //Debug.Log("�� �� �����ϱ�");
                     //
                 }
             }
@@ -138,6 +138,7 @@ public class LiquidCollider : MonoBehaviour
         currenttime = 0f;
         isDecorated = false;
         // 플레이어가 잡으면 컵을 잡으면 실행
+        Debug.Log("reset pudding");
         puddingSpawn1.puddingReset = true;
         puddingSpawn2.puddingReset = true;
         puddingSpawn3.puddingReset = true;

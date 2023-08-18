@@ -22,8 +22,11 @@ namespace ColorChanger
 
         public Material bearMaterial;
         public Material liquidMaterial;
-        public MeshRenderer meshRenderer;
+        public MeshRenderer glassLiquidMeshRenderer;
+        [Space]
         public GameObject streamPrefabColor;
+        
+        [Space]
         [SerializeField] private bool isPrefabInstantiated = false;
         public Stream currentStream = null;
         public Transform origin = null;
@@ -46,7 +49,7 @@ namespace ColorChanger
 
         private void Start()
         {
-            liquidMaterial = meshRenderer.material;
+            //liquidMaterial = meshRenderer.material;
         }
 
         private void Update()
@@ -136,7 +139,7 @@ namespace ColorChanger
 
         private void CheckCollision()
         {
-            Debug.Log("CheckCollision");
+            //Debug.Log("CheckCollision");
             redCollided = false;
             blueCollided = false;
             yellowCollided = false;
@@ -182,15 +185,15 @@ namespace ColorChanger
                     case (true, true, false, false):
                         Debug.Log("Red + Blue = Purple");
                         bearMaterial.color = new Color(1.0f, 0.0f, 1.0f);
-                        liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.0f, 1.0f)); // Purple color
+                        glassLiquidMeshRenderer.material.SetColor("_Tint", new Color(1.0f, 0.0f, 1.0f)); // Purple color
                         currentStream.SetLineColor(new Color(1.0f, 0.0f, 1.0f));
                         color = new Color(1.0f, 0.0f, 1.0f);
                         pourDetector.bearColorType = BearColorType.Purple;
                         break;
                     case (true, false, true, false):
-                        Debug.Log("Red + Blue = Orange");
+                        Debug.Log("Red + Yellow = Orange");
                         bearMaterial.color = new Color(1.0f, 0.5f, 0.0f);
-                        liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.5f, 0.0f));// Orange color
+                        glassLiquidMeshRenderer.material.SetColor("_Tint", new Color(1.0f, 0.5f, 0.0f));// Orange color
                         currentStream.SetLineColor(new Color(1.0f, 0.5f, 0.0f));
                         color = new Color(1.0f, 0.5f, 0.0f);
                         pourDetector.bearColorType = BearColorType.Orange;
@@ -198,7 +201,7 @@ namespace ColorChanger
                     case (true, false, false, true):
                         Debug.Log("Red + White = Pink");
                         bearMaterial.color = new Color(1.0f, 0.75f, 0.75f);
-                        liquidMaterial.SetColor("_Tint", new Color(1.0f, 0.75f, 0.75f)); // Pink color
+                        glassLiquidMeshRenderer.material.SetColor("_Tint", new Color(1.0f, 0.75f, 0.75f)); // Pink color
                         currentStream.SetLineColor(new Color(1.0f, 0.75f, 0.75f));
                         color = new Color(1.0f, 0.75f, 0.75f);
                         pourDetector.bearColorType = BearColorType.Pink;
@@ -206,7 +209,7 @@ namespace ColorChanger
                     case (false, true, true, false):
                         Debug.Log("Blue + Yellow = Green");
                         bearMaterial.color = new Color(0.0f, 1.0f, 0.0f);
-                        liquidMaterial.SetColor("_Tint", new Color(0.0f, 1.0f, 0.0f)); // Green color
+                        glassLiquidMeshRenderer.material.SetColor("_Tint", new Color(0.0f, 1.0f, 0.0f)); // Green color
                         currentStream.SetLineColor(new Color(0.0f, 1.0f, 0.0f));
                         color = new Color(0.0f, 1.0f, 0.0f);
                         pourDetector.bearColorType = BearColorType.Green;
@@ -235,7 +238,7 @@ namespace ColorChanger
                             case (true, false, false, false):
                                 Debug.Log("Red");
                                 bearMaterial.color = new Color(1.0f, 0.0f, 0.0f);
-                                liquidMaterial.SetColor("_Tint", new Color(1,0,0));
+                                glassLiquidMeshRenderer.material.SetColor("_Tint", new Color(1,0,0));
                                 currentStream.SetLineColor(Color.red);
                                 color =Color.red;
                                 pourDetector.bearColorType = BearColorType.Red;
@@ -243,23 +246,23 @@ namespace ColorChanger
                             case (false, true, false, false):
                                 //Debug.Log("Blue");
                                 bearMaterial.color = new Color(0.0f, 0.0f, 1.0f);
-                                liquidMaterial.SetColor("_Tint", new Color(0,0,1));
+                                glassLiquidMeshRenderer.material.SetColor("_Tint", new Color(0,0,1));
                                 currentStream.SetLineColor(Color.blue);
                                 color = Color.blue;
                                 pourDetector.bearColorType = BearColorType.Blue;
                                 break;
                             case (false, false, true, false):
-                                Debug.Log("Yellow");
+                                //Debug.Log("Yellow");
                                 bearMaterial.color = new Color(1.0f, 1.0f, 0.0f);
-                                liquidMaterial.SetColor("_Tint", new Color(1,1,0));
+                                glassLiquidMeshRenderer.material.SetColor("_Tint", new Color(1,1,0));
                                 currentStream.SetLineColor(Color.yellow);
                                 color = Color.yellow;
                                 pourDetector.bearColorType = BearColorType.Yellow;
                                 break;
                             case (false, false, false, true):
-                                Debug.Log("White");
+                                // Debug.Log("White");
                                 bearMaterial.color = new Color(1.0f, 1.0f, 1.0f);
-                                liquidMaterial.SetColor("_Tint", new Color(1,1,1));
+                                glassLiquidMeshRenderer.material.SetColor("_Tint", new Color(1,1,1));
                                 currentStream.SetLineColor(Color.white);
                                 color = Color.white;
                                 pourDetector.bearColorType = BearColorType.White;
@@ -321,6 +324,7 @@ namespace ColorChanger
             
             if (currentStream != null)
             {
+                Debug.Log("EndPourAfterDelay Routine  Trigger Area stream.End()!");
                 currentStream.End();
                 //currentStream = null;
             }

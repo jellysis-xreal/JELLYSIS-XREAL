@@ -11,9 +11,8 @@ public class PourDetector : MonoBehaviour
     public Transform origin = null;
     public GameObject streamPrefab = null;
 
-    public bool isEmpty = false;
+    
     public bool isPouring = false;
-    public Stream currentStream = null;
     private LiquidCollider _liquidCollider;    
     public delegate void StreamColorChanged(Color newColor);
 
@@ -23,22 +22,33 @@ public class PourDetector : MonoBehaviour
     public Color color;
 
     public BearColorType bearColorType;
+    private GameObject streamObject;
+    private Coroutine minusHeightRoutine;
+    
+    
+    [Space]
+    [SerializeField]private bool pourCheck;
+    [SerializeField]private bool isEmpty = true;
+    [SerializeField]private float value;
+    public Stream currentStream = null;
+    private void Start()
+    {
+        isEmpty = true;
+        value = 0.58f;
+        meshRenderer.material.SetFloat("_FillAmount", value);
+    }
+
     private void Update()
     {
-        bool pourCheck = CalculatePourAngle() < pourThreshold;
+        pourCheck = CalculatePourAngle() < pourThreshold;
 
-        if (isPouring != pourCheck)
+        if (pourCheck && !isEmpty && currentStream == null)
         {
-            isPouring = pourCheck;
-
-            if (isPouring && !isEmpty)
-            {
-                StartPour();
-            }
-            else
-            {
-                EndPour();
-            }
+            StartPour();
+        }
+        else if(!pourCheck && !isEmpty)
+        {
+            EndPour();
         }
     }
     
@@ -47,8 +57,8 @@ public class PourDetector : MonoBehaviour
     // 5초동안 Liquid Shader의 Fill Amount.SetFloat을 실시간으로 해줘야함.
     public IEnumerator PlusLiquidHeight()
     {
+        
         isEmpty = false;
-        float value = 0.58f;
         // 5초동안 0.42에서 0.58로 서서히 증가해야 함.    Time.deltaTime (0.58-0.42)/5
         while (true)
         {
@@ -56,46 +66,57 @@ public class PourDetector : MonoBehaviour
             if(value <= 0.42) break;
             meshRenderer.material.SetFloat("_FillAmount", value);
             yield return null;
-            Debug.Log("plus, Value : "+value);
+            //Debug.Log("plus Value : "+value);
         }
         StopCoroutine(PlusLiquidHeight());
     }
 
-    void StopPlusLiquidHeightRoutine()
-    {
-        
-    }
     IEnumerator MinusLiquidHeight()
     {
-        float value = 0.42f;
         // 5초동안 0.42에서 0.58로 서서히 증가해야 함.    Time.deltaTime (0.58-0.42)/5
         while (true)
         {
+            //Debug.Log("minus Height : "+value);
             value += Time.deltaTime * (0.58f - 0.42f) / 5f;
             meshRenderer.material.SetFloat("_FillAmount", value);
-            if(value >= 0.58) EndPour();
+            if (value >= 0.58)
+            {
+                isEmpty = true;
+                currentStream.End();
+                Destroy(streamObject);
+                //currentStream = null;
+                break;
+            }
             yield return null;
         }
+        StopCoroutine(minusHeightRoutine);
     }
     
     
     private void StartPour()
     {
-        
+        isPouring = true;
+        Debug.Log("Start Pour!");
         currentStream = CreateStream();
         Debug.Log(currentStream);
-        StartCoroutine(MinusLiquidHeight());
-        //currentStream.SetLineColor(new Color(1.0f, 0.0f, 1.0f)); // Purple color
+        minusHeightRoutine = StartCoroutine(MinusLiquidHeight());
         currentStream.Begin();
     }
     // 끝났을 때 endpour 호출되지만 기울기때메 다시 부어짐.
     private void EndPour()
     {
-        StopCoroutine(MinusLiquidHeight());
-        Debug.Log(currentStream + " have");
-        currentStream.End();
-        isEmpty = true;
-        currentStream = null;
+        isPouring = false;
+        // 붓는 거 멈추면 MinusLiquid 멈추고, stream 오브젝트 삭제
+        if (currentStream != null)
+        {
+            Debug.Log("End Pour! Stop Minus Height Coroutine");
+            StopCoroutine(minusHeightRoutine);
+            Debug.Log( "height value is "+value);
+            currentStream.End();
+            Destroy(streamObject);
+            //currentStream = null;
+
+        }
     }
 
     private float CalculatePourAngle()
@@ -107,7 +128,7 @@ public class PourDetector : MonoBehaviour
 
     private Stream CreateStream()
     {
-        GameObject streamObject = Instantiate(streamPrefab, origin.position, Quaternion.identity, transform);
+        streamObject = Instantiate(streamPrefab, origin.position, Quaternion.identity, transform);
         Stream stream = streamObject.GetComponent<Stream>();
         Debug.Log("Color is "+triggerArea.color);
         stream.SetLineColor(triggerArea.color);

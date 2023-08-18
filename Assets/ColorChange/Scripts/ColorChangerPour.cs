@@ -38,6 +38,7 @@ public class ColorChangerPour : MonoBehaviour
     }
     private void EndPour()
     {
+        Debug.Log("ColorChanger Pour stream.End()!");
         currentStream.End();
         currentStream = null;
     }
