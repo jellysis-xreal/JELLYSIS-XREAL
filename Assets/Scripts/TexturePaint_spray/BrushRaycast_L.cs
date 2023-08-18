@@ -22,8 +22,8 @@ public class BrushRaycast_L : MonoBehaviour
     public bool past_right_grab_L = false, past_left_grab_L = false;
 
 
-    public Transform ears, head, body, body1, tail;
-    public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
+//    public Transform ears, head, body, body1, tail;
+//    public SkinnedTexturePaint ears_texturePaint, head_texturePaint, body_texturePaint, body1_texturePaint, tail_texturePaint;
 
     public AllBearTextureCode allBearTextureCode;
 

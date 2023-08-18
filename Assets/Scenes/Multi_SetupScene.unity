@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14722,7 +14722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostBtn: {fileID: 2145220168}
   clientBtn: {fileID: 2064759023}
-  DefaultMainMenu: PlayScene_Setting
+  DefaultMainMenu: PlayScene_Solo_Setting
 --- !u!1001 &1794110090
 PrefabInstance:
   m_ObjectHideFlags: 0
