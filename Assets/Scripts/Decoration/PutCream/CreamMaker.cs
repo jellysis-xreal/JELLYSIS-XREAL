@@ -138,18 +138,29 @@ public class CreamMaker : NetworkBehaviour
         */
         _recentMakedCream = Instantiate(creamPrefab, hit.point, Quaternion.identity);
         _recentMakedCream.transform.forward = hit.normal;
-        _recentMakedCream.GetComponent<NetworkObject>().SpawnWithOwnership(NetworkManager.Singleton.LocalClientId); //.SpawnWithOwnership(clientId)
-        //_recentMakedCream.transform.forward = hit.normal;
 
-        RequestRemoveOwnership(_recentMakedCream.GetComponent<NetworkObject>());
-        if (hit.transform.GetComponent<NetworkObject>() != null)
+        if (NetworkManager.Singleton.ConnectedClients.Count >= 2)
         {
-            RequestSetParent(_recentMakedCream.GetComponent<NetworkObject>(), hit.transform.GetComponent<NetworkObject>());
-            Debug.Log("[TEST] Cream init!");
-        }
-            //_recentMakedCream.transform.SetParent(hit.transform);
-        isScalingUp = true;
+            _recentMakedCream.GetComponent<NetworkObject>()
+                .SpawnWithOwnership(NetworkManager.Singleton.LocalClientId); //.SpawnWithOwnership(clientId)
+            //_recentMakedCream.transform.forward = hit.normal;
 
+            RequestRemoveOwnership(_recentMakedCream.GetComponent<NetworkObject>());
+            if (hit.transform.GetComponent<NetworkObject>() != null)
+            {
+                RequestSetParent(_recentMakedCream.GetComponent<NetworkObject>(),
+                    hit.transform.GetComponent<NetworkObject>());
+                Debug.Log("[TEST] Cream init!");
+            }
+
+            //_recentMakedCream.transform.SetParent(hit.transform);
+            isScalingUp = true;
+        }
+        else
+        {
+            // Solo play 상황
+            _recentMakedCream.transform.SetParent(hit.transform);
+        }
 
         //remainCreamCapacity -= 10f;
     }

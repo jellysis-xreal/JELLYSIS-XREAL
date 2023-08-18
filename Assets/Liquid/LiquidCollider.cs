@@ -32,7 +32,7 @@ public class LiquidCollider : MonoBehaviour
 
     private bool TryGetGuestBear()
     {
-        
+        // Guest bear를 저장해놓고, 최상위에 들어가야 
         if (transform1.parent.TryGetComponent<GuestBear>(out GuestBear guestBear))
         {
             bear = guestBear;
@@ -49,9 +49,11 @@ public class LiquidCollider : MonoBehaviour
     {
         if (other.gameObject.layer == 11)
         {
+            //Debug.Log("HERE : " + other.name);
             transform1 = other.transform;
             while (!TryGetGuestBear())
             {
+                //Debug.Log("HERE : " + other.name);
                 continue;
             }
         }
