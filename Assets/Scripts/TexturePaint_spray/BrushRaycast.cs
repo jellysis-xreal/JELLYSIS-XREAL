@@ -10,7 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BrushRaycast : MonoBehaviour
 {
     public TexturePaintSetting texturePaintSetting;
-    public XRBaseController leftController, rightController;
+    //public XRBaseController leftController, rightController;
 
     public Transform brush_ray;
 
@@ -31,7 +31,7 @@ public class BrushRaycast : MonoBehaviour
     //public XRBaseController leftController;
     //public XRBaseController rightController;
 
-    private void Start()
+/*    private void Start()
     {
         // 초기 씬 시작 시 XR 컨트롤러를 찾아서 연결합니다.
         FindAndConnectControllers();
@@ -67,7 +67,7 @@ public class BrushRaycast : MonoBehaviour
     private void OnDisable()
     {
         UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
@@ -140,14 +140,14 @@ public class BrushRaycast : MonoBehaviour
 
         if (raycast && col)
         {
-            if (right_grab)
+/*            if (right_grab)
             {
                 rightController.SendHapticImpulse(0.2f, 0.1f);
             }
             if (left_grab)
             {
                 leftController.SendHapticImpulse(0.2f, 0.1f);
-            }
+            }*/
 
             /*            Debug.Log(col.name);
                         if (col.transform == ears)

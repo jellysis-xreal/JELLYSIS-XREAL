@@ -10,7 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BrushRaycast_L : MonoBehaviour
 {
     public TexturePaintSettingL texturePaintSetting;
-    public XRBaseController leftController, rightController;
+    //public XRBaseController leftController, rightController;
 
     public Transform brush_ray;
     public int resolution = 1024;
@@ -99,14 +99,14 @@ public class BrushRaycast_L : MonoBehaviour
 
         if (raycast && col)
         {
-            if (right_grab_L)
+/*            if (right_grab_L)
             {
                 rightController.SendHapticImpulse(0.2f, 0.1f);
             }
             if (left_grab_L)
             {
                 leftController.SendHapticImpulse(0.2f, 0.1f);
-            }
+            }*/
 
             /*            Debug.Log(col.name);
                         if (col.transform == ears)
