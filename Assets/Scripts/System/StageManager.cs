@@ -113,6 +113,9 @@ public class StageManager : NetworkBehaviour
                     creamBowl.ChangeOwnership(clientId);
                 }
                 */
+                injection.ChangeOwnership(clientId);
+                whisk.ChangeOwnership(clientId);
+                creamBowl.ChangeOwnership(clientId);
                 CanStartStage = true;
             }
             else
