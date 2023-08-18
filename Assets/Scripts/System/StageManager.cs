@@ -126,25 +126,51 @@ public class StageManager : NetworkBehaviour
     [ServerRpc]
     public void AllPlayersReadyServerRpc()
     {
-        SetPlayers();
-        
         curState = StageState.StageStart;
-        // CMS
         if (IsServer)
-        { 
+        {
+            // TODO: Player 1명에 Auto 기능 3개가 돌아갈 수 있도록 처리함 (FAKE MULTI)
+            // TODO: Host가 아닌 Player는 BearType.AutoBear로 변경함
+            //NetworkObject localPlayer = null; //Client
+            //if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(4, out localPlayer))
+                //localPlayer.GetComponent<PlayerBear>().BearType = BearType.AutoBear;
+            var localPlayer = NetworkManager.ConnectedClientsList[1].PlayerObject; //CLIENT
+            localPlayer.GetComponent<PlayerBear>().BearType = BearType.AutoBear;
+            localPlayer.GetComponent<PlayerBear>().ChangeDecorateType(PlayerType2);
+            
+            SetPlayers();
             ClientFunctionClientRpc();
             curState_Multi.Value = StageState.StageStart;
+            
+            //Invoke("ChangeStageState_Multi", 0.5f);
         }
     }
 
+    private void ChangeStageState_Multi()
+    {
+        curState_Multi.Value = StageState.StageStart;
+    }
+    
     [ClientRpc]
     void ClientFunctionClientRpc()
     {
-        SetPlayers();
-        
-        Debug.Log("[TEST] <-----게임이 시작됩니다----->");
-        bearManager.Init();
-        StartGame();
+        if (!IsServer)
+        { 
+            Debug.Log("[TEST] <-----Client Function RPC Call----->");
+            // TODO: Player 1명에 Auto 기능 3개가 돌아갈 수 있도록 처리함 (FAKE MULTI)
+            NetworkObject localPlayer = null; //HOST
+            if (NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(1, out localPlayer))
+            {
+                localPlayer.GetComponent<PlayerBear>().BearType = BearType.AutoBear;
+                localPlayer.GetComponent<PlayerBear>().ChangeDecorateType(PlayerType1);
+            }
+
+            SetPlayers();
+
+            Debug.Log("[TEST] <-----게임이 시작됩니다----->");
+            bearManager.Init();
+            StartGame();
+        }
     }
 
     [ServerRpc]
@@ -172,6 +198,7 @@ public class StageManager : NetworkBehaviour
     
     private void SetPlayers()
     {
+        // Client는 코루틴으로 Player 찾기를 해주지 않으므로, 여기에서 수행해줌
         if (IsClient)
         {
             GameObject[] find_player = GameObject.FindGameObjectsWithTag("Player");
@@ -188,11 +215,12 @@ public class StageManager : NetworkBehaviour
             
             if (temp.BearType == BearType.PlayerBear)
             {
-                if (bear.GetComponent<NetworkObject>().OwnerClientId == 0)
+                // TODO: Player 1명에 Auto 기능 3개가 돌아갈 수 있도록 처리함 (FAKE MULTI)
+                if (bear.GetComponent<NetworkObject>().OwnerClientId == 0) // Host Player
                     temp.ChangeDecorateType(PlayerType1);
-                
                 else if (bear.GetComponent<NetworkObject>().OwnerClientId == 1)
                     temp.ChangeDecorateType(PlayerType2);
+                
             }
             
             // 맡은 기능에 따라서 자리가 배정됩니다

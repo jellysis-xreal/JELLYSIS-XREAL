@@ -29,7 +29,7 @@ public class paticleEvent : NetworkBehaviour
     {
         _xrPushButton = GetComponent<XRPushButton>();
         MyParticle = GetComponent<ParticleSystem>();
-        OtherParticle = GetComponent<ParticleSystem>();
+        //OtherParticle = GetComponent<ParticleSystem>();
         _xrPushButton.onPress.AddListener(PlayParticle);
     }
 
@@ -57,7 +57,7 @@ public class paticleEvent : NetworkBehaviour
         if (newValue) 
         {
             MyParticle.Play();
-            OtherParticle.Play();
+            //OtherParticle.Play();
             Debug.Log("[TEST] ======= play particle =======");
             Invoke("InactiveButton", 0.5f);
         } else {}
