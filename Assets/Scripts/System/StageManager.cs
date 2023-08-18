@@ -37,7 +37,7 @@ public class StageManager : NetworkBehaviour
     private int _currentRound = 1;
     
     [SerializeField] public NetworkObject injection, whisk, creamBowl;
-    private ulong clientId = 0;
+    private ulong clientId = 1;
     
     private void Start()
     {
