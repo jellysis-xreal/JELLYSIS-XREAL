@@ -16,8 +16,7 @@ public class SlimeRIP : MonoBehaviour
     [SerializeField] private Vector3[] vertexTransforms; // 움직일 버텍스 위치 조작
     [SerializeField] private List<Vector3> grabbedVertexTransforms; // 잡은 메시 Vector3
     [SerializeField] private List<int> grabbedVertexIndexes; // 감지된 버텍스의 메시 내 인덱스
-    [SerializeField] private float grabbedDistance; // grab할 수 있는 범위 설정 값
-    [SerializeField] private float detachDistance; // 손과 물체의 거리 -> 이 값을 벗어나면 물체 분리 (VR에서 left, rightHand 거리로 변경 예정)
+    [SerializeField] private float grabbedDistance;
     [SerializeField] private bool isGrabbing = false;
     [SerializeField] private float[] lengthModifier;
 
@@ -134,6 +133,7 @@ public class SlimeRIP : MonoBehaviour
         lengthModifier = new float[vertexDistance.Count];
         lengthModifier = CalculateLengthModifier();  //  => lengthModifier이 대부분 50에 수렴함. 계산 실수인가..?
     }
+
     private void SortDistanceOrder()
     {
         Debug.Log("Sort Distance Order");
@@ -164,7 +164,7 @@ public class SlimeRIP : MonoBehaviour
         
         grabbedVertexIndexes.Clear();
         // 결과 출력
-        Debug.Log("정렬된 Dictionary : (count : "+ indexedAndSortedDictionary.Count + ")");
+        Debug.Log("정렬된 Dictionary:");
         foreach (var item in indexedAndSortedDictionary)
         {
             Debug.Log($"Key: {item.Key}, Value: {item.Value}, Original Index: {item.Index}");
@@ -173,12 +173,6 @@ public class SlimeRIP : MonoBehaviour
     }
     private float[] CalculateLengthModifier()
     {
-        // 가중치 사실상 쓸일 없어 보임.
-        foreach (var vertex in vertexDistance)
-        {
-            Debug.Log("Distance : " +vertex.Value);
-        }
-        
         // vertexDistance<Key, Value> 중 Value 가장 큰 값을 가중치 1, 가장 작은 값을 가중치 0으로 둠.
         float maxDistance = vertexDistance.First().Value;
         float minDistance = vertexDistance.Last().Value;
@@ -190,55 +184,32 @@ public class SlimeRIP : MonoBehaviour
         // Dictionary의 Key 컬렉션 가져오기
         ICollection<float> values = vertexDistance.Values;
 
-        float k = 1f / vertexDistance.Count;
-        
-        for (int j = vertexDistance.Count - 1; j > 0; j--)
+        int i = 0;
+        foreach (var value in values)
         {
-            modifier[vertexDistance.Count - j] = k * j;
-            Debug.Log($"modifier[{vertexDistance.Count - j}] "+k*j);
+            modifier[i] = num * value;
+            //Debug.Log("modifier : " + modifier[i]);
+            i += 1;
         }
-        
+            
         return modifier;
     }
+
     private void ChasePlayerHand()
     {
         // CalculateLengthModifier()에서 구한 가중치를 적용해 실제로 Player의 위치를 추적한다.
         // 변경된 지점의 mesh의 vertex에 접근해서 움직인다.
         
-        for (int i = 0; i < grabbedVertexTransforms.Count; i++)
+        for (int i = 0; i < vertexTransforms.Length-1; i++)
         {
-            Vector3 direction = (gameObject.transform.position - triggerTransform.TransformPoint(vertexTransforms[grabbedVertexIndexes[i]]));
-            
-            vertexTransforms[grabbedVertexIndexes[i]] += direction * 10f  * Time.deltaTime; // lengthModifier[i]
+            Vector3 direction = gameObject.transform.position - triggerTransform.TransformPoint(vertexTransforms[grabbedVertexIndexes[i]]);
+            //Vector3 direction = gameObject.transform.position - vertexTransforms[grabbedVertexIndexes[i]];
+                
+            vertexTransforms[grabbedVertexIndexes[i]] += direction * lengthModifier[i] * Time.deltaTime;
             triggerMeshFilter.mesh.vertices = vertexTransforms;
             triggerMeshFilter.mesh.RecalculateBounds();
         }
-        
-        CheckDistance();
-    }
-
-    private void CheckDistance()
-    {
-        Debug.Log("Distance : "+ Vector3.Distance(gameObject.transform.position,triggerTransform.position));
-        if (Vector3.Distance(gameObject.transform.position,triggerTransform.position) > detachDistance)
-        {
-            DeviceTwoPieces();
-        }
-    }
-    private void DeviceTwoPieces()
-    {
-        // 처음 기억해놓은 triggerTransform.TransformPoint(vertexTransforms[grabbedVertexIndexes[i]]을 가져옴.
-        Debug.Log("Device Two Pieces");
-        
-        SetPropertyNull();
-    }
-     
-    private void SetPropertyNull()
-    {
-        triggerCollider = null;
-        triggerMeshFilter = null;
-        triggerTransform = null;
-        vertexTransforms = null;
+        // Debug.Log("Chase Player Hand, vertexTransforms.Length :" + vertexTransforms.Length);
     }
     private void OnTriggerEnter(Collider other)
     {
