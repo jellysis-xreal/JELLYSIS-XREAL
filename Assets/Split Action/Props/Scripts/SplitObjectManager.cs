@@ -8,6 +8,8 @@ public class SplitObjectManager : MonoBehaviour
 {
     // Player(XR Origin)을 향해 여러 방향에서 날아온다.
     public GameObject splitableGameObject;
+    public GameObject bouncedOffGameObject;
+    
     public float minSpawnTime = 2.0f;
     public float maxSpawnTime = 4.0f;
 
@@ -42,8 +44,10 @@ public class SplitObjectManager : MonoBehaviour
             float randomPosX = Random.Range(transform.position.x - _width / 2, transform.position.x + _width / 2);
             float randomPosY = Random.Range(transform.position.y - _height / 2, transform.position.y + _height / 2);
             float randomPosZ = Random.Range(transform.position.z - _length / 2, transform.position.z + _length / 2);
-        
-            Instantiate(splitableGameObject, new Vector3(randomPosX,randomPosY,randomPosZ) ,Quaternion.identity);    
+
+            int whichObject = Random.Range(0, 2);
+            if(whichObject == 0) Instantiate(bouncedOffGameObject, new Vector3(randomPosX,randomPosY,randomPosZ) ,Quaternion.identity);
+            else if(whichObject == 1) Instantiate(splitableGameObject, new Vector3(randomPosX,randomPosY,randomPosZ) ,Quaternion.identity);
         }
     }
 

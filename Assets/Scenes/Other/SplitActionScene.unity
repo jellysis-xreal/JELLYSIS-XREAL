@@ -826,8 +826,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splitableGameObject: {fileID: 2044474573068301505, guid: 22e628c57a379f144ba4cec2cab0ac51,
     type: 3}
-  minSpawnTime: 0.5
-  maxSpawnTime: 1
+  bouncedOffGameObject: {fileID: 9031775881104408046, guid: 3976a13353f30c74891ad6e9052aaa18,
+    type: 3}
+  minSpawnTime: 2
+  maxSpawnTime: 3
 --- !u!1 &1529785955
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,6 +841,7 @@ GameObject:
   - component: {fileID: 1529785956}
   - component: {fileID: 1529785957}
   - component: {fileID: 1529785958}
+  - component: {fileID: 1529785959}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Destroyer
@@ -890,6 +893,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1529785959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529785955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5ad4f70f6eb4f4b8b56b524ee34cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recentDirection: {x: 0, y: 0, z: 0}
+  moveToPlayer: {fileID: 0}
+  punchPower: 30
 --- !u!1001 &1972447329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1124,6 +1142,7 @@ GameObject:
   - component: {fileID: 2118971227}
   - component: {fileID: 2118971228}
   - component: {fileID: 2118971229}
+  - component: {fileID: 2118971230}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Destroyer
@@ -1175,6 +1194,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2118971230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118971226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5ad4f70f6eb4f4b8b56b524ee34cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recentDirection: {x: 0, y: 0, z: 0}
+  moveToPlayer: {fileID: 0}
+  punchPower: 30
 --- !u!1 &3127728406538332999
 GameObject:
   m_ObjectHideFlags: 0
