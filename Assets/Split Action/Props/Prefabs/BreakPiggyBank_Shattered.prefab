@@ -3460,8 +3460,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6017320985375623529}
   - component: {fileID: 534273608}
+  - component: {fileID: 1290115541139373399}
   m_Layer: 0
-  m_Name: PiggyBank_Shattered
+  m_Name: BreakPiggyBank_Shattered
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3543,6 +3544,18 @@ MonoBehaviour:
   m_OnRestore:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1290115541139373399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397927468361126867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db361d7cef630bc4d95a4a8198c7f267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7007094638981598704
 GameObject:
   m_ObjectHideFlags: 0

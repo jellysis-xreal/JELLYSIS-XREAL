@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 9031775881104408020}
   - component: {fileID: 5301011734217127389}
   - component: {fileID: -4777092242488826342}
+  - component: {fileID: -8485886025662157850}
   m_Layer: 0
-  m_Name: SphereProjectile
+  m_Name: RIPSphereProjectile 1
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee82f60f75c1c924087cbde1d7784440, type: 2}
+  - {fileID: 2100000, guid: 3f69045823746434fbb53b3235125a6a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -229,3 +230,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8485886025662157850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9031775881104408046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7bbbf327501d64bb71e583f912f87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

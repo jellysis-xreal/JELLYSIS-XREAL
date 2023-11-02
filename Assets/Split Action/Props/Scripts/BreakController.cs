@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class MoveToPlayer : MonoBehaviour
+public class BreakController : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     

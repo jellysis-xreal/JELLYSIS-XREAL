@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 1197402364210891156}
   - component: {fileID: 4212478784847309581}
   - component: {fileID: 2213686536159354038}
+  - component: {fileID: 7022646864395314339}
   m_Layer: 0
-  m_Name: PiggyBank_Breakable
+  m_Name: BreakPiggyBank_Breakable 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25f8d5afd0110f14fb3ee77d34b0c960, type: 2}
+  - {fileID: 2100000, guid: b037abba78a59ec4bacf728e1bd9d65e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,3 +249,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7022646864395314339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044474573068301505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db361d7cef630bc4d95a4a8198c7f267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
